@@ -1,0 +1,99 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/ specs + ModMed API portal authentication guides
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  - openIdConnect
+  api_key_in:
+  - header
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+  - password (legacy, being sunset)
+schemes:
+- name: smartOnFhir
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth
+    tokenUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token
+    scopes: 74
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials`
+    flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+  sources:
+  - openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Shared public-sandbox API key, sent as the `x-api-key` header. Required on EVERY EMA Proprietary
+    API call alongside the bearer token. The sandbox key value is published in the ModMed docs (see docs_sandbox);
+    production keys are provisioned per vendor by the synapSYS team.
+  sources:
+  - openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+  docs_sandbox: https://portal.api.modmed.com/reference/authentication-1
+docs:
+- https://portal.api.modmed.com/reference/authentication-1
+- https://portal.api.modmed.com/reference/authentication-2
+apis:
+- api: ModMed Certified FHIR API (ONC)
+  model: OAuth 2.0 + SMART App Launch (SMART on FHIR)
+  discovery: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/.well-known/smart-configuration
+  authorization_endpoint: https://sso.ema.md/auth/realms/fhir/protocol/openid-connect/auth
+  token_endpoint: https://sso.ema.md/auth/realms/fhir/protocol/openid-connect/token
+  aud: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
+  token_endpoint_auth_method: client_secret_post
+  pkce: S256 supported and recommended
+  grants:
+  - authorization_code
+  - client_credentials
+  - refresh_token
+  app_types:
+  - Bulk FHIR (system/background, client_credentials)
+  - Patient apps
+  - Provider apps
+  - Patient and Provider apps
+  token_type: Bearer
+  scopes: scopes/modernizing-medicine-scopes.yml
+  notes: No public sandbox — authorization and API calls run against production. Client registration is
+    via the ModMed FHIR vendor dashboard.
+  registration: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+- api: EMA Proprietary API
+  model: OAuth 2.0 client_credentials (current) + legacy password grant (being sunset), plus a mandatory
+    x-api-key header
+  token_endpoint_sandbox: https://ssoqa01-lb-01.m2qa.com/auth/realms/ema-fhir/protocol/openid-connect/token
+  token_endpoint_production: https://sso.ema.md/auth/realms/ema-fhir/protocol/openid-connect/token
+  legacy_token_endpoints:
+    generic_sandbox: https://stage.ema-api.com/ema-dev/firm/{firm_url_prefix}/ema/ws/oauth2/grant
+    practice_sandbox: https://stage.ema-api.com/ema-training/firm/{firm_url_prefix}/ema/ws/oauth2/grant
+    production: https://mmapi.ema-api.com/ema-prod/firm/{firm_url_prefix}/ema/ws/oauth2/grant
+  token_format: RS256-signed JWT (client_credentials); HS256 JWT on the legacy password grant
+  token_lifetime_seconds: 900
+  refresh_token: Not issued on client_credentials; issued (and reused unchanged) on the legacy password
+    grant
+  authorization_model: The token `scope` claim is a space-separated list of ModMed ACLs provisioned per
+    vendor application, e.g. `acl/enc_s acl/pat_s_name_dob_gen`
+  required_headers:
+  - 'Authorization: Bearer <token>'
+  - 'x-api-key: <key>'
+  access: Vendor application + synapSYS Marketplace technical review required before production access
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/reference/authentication-1.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/authentication-2.md
+    http_status: 200
+  - url: https://sso.ema.md/auth/realms/ema-fhir/.well-known/openid-configuration
+    http_status: 200
+  - url: https://sso.ema.md/auth/realms/fhir/.well-known/openid-configuration
+    http_status: 200

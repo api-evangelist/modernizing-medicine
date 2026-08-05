@@ -1,0 +1,36 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for EMA Proprietary API Authentication
+  version: 1.0.0
+extends: openapi/modernizing-medicine-ema-proprietary-auth-openapi.json
+x-provenance:
+  generated: '2026-08-04'
+  method: generated
+  note: The extended OpenAPI was assembled verbatim from the per-operation OpenAPI definitions ModMed
+    publishes on each API-portal reference page (the "# OpenAPI definition" block on every https://portal.api.modmed.com/reference/*.md
+    page). Paths, components, tags, servers and security were merged mechanically; no content was authored.
+    This overlay records only API Evangelist annotations and never mutates the harvested document.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: modernizing-medicine
+    x-apievangelist-source: https://portal.api.modmed.com/llms.txt
+    x-apievangelist-harvested: '2026-08-04'
+    x-apievangelist-assembly: merged from per-operation OpenAPI slices published on the ModMed API portal
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/modernizing-medicine-authentication.yml
+      scopes: scopes/modernizing-medicine-scopes.yml
+      conventions: conventions/modernizing-medicine-conventions.yml
+      errors: errors/modernizing-medicine-problem-types.yml
+      lifecycle: lifecycle/modernizing-medicine-lifecycle.yml
+      rate_limits: rate-limits/modernizing-medicine-rate-limits.yml
+      conformance: conformance/modernizing-medicine-conformance.yml
+- target: $
+  update:
+    x-apievangelist-gaps:
+    - 1 of 1 operations carry no operationId — agent tooling cannot address operations by stable id
+    - No response schemas on 4xx/5xx responses (EMA Proprietary API)
+    - No X-RateLimit-* headers documented despite a published 1,250/min limit
+    - No RFC 8594 Sunset/Deprecation headers for the password-grant sunset

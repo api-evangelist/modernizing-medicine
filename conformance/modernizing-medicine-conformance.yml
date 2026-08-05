@@ -1,0 +1,110 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/metadata (live FHIR CapabilityStatement),
+  https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/.well-known/smart-configuration,
+  https://www.modmed.com/onc-certification/, and the ModMed API portal docs
+capability_statement:
+  file: modernizing-medicine-fhir-capabilitystatement.json
+  url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/metadata
+  http_status: 200
+  publisher: Modernizing Medicine
+  software: Fhir Server 4.8.1_FINAL
+  fhir_version: 4.0.1
+  resource_types: 31
+  instantiates:
+  - http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
+  - http://hl7.org/fhir/uv/bulkdata/CapabilityStatement/bulk-data
+standards:
+- id: fhir-r4
+  conforms: true
+  evidence: CapabilityStatement fhirVersion 4.0.1 across 31 resource types on the Certified FHIR API
+- id: us-core
+  conforms: true
+  evidence: CapabilityStatement instantiates http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server
+- id: fhir-bulk-data-access
+  conforms: true
+  evidence: >-
+    CapabilityStatement instantiates the HL7 bulk-data CapabilityStatement; $export is declared
+    and /Patient/$export, /Patient/{id}/$export, /Group/$export and /Group/{id}/$export are in the
+    Certified FHIR OpenAPI (NDJSON bulk export)
+- id: smart-app-launch
+  conforms: true
+  evidence: >-
+    /.well-known/smart-configuration returns SMART capabilities launch-ehr, launch-standalone,
+    client-public, client-confidential-symmetric, client-confidential-asymmetric, sso-openid-connect,
+    permission-patient, permission-user, permission-offline, permission-v1, permission-v2,
+    context-ehr-patient, context-ehr-encounter, context-standalone-patient, context-banner, context-style
+- id: oauth2
+  conforms: true
+  evidence: >-
+    OpenAPI securityScheme type oauth2 (authorizationCode) on the Certified FHIR API; Keycloak
+    OAuth2 token endpoints on both realms; client_credentials on the EMA Proprietary API
+- id: oidc
+  conforms: true
+  evidence: >-
+    OpenID Connect discovery documents served at sso.ema.md/auth/realms/fhir and
+    sso.ema.md/auth/realms/ema-fhir; openid/profile/fhirUser scopes documented
+- id: pkce-rfc7636
+  conforms: true
+  evidence: smart-configuration code_challenge_methods_supported = [S256]; docs recommend PKCE for user-facing apps
+- id: onc-health-it-certification
+  conforms: true
+  evidence: >-
+    "This Health IT Module is compliant with the ONC Certification Criteria for Health IT and has been
+    certified by an ONC-ACB" — https://www.modmed.com/onc-certification/ (EMA), /onc-certification-gi/
+    (gGastro), /asc-onc-certification/ (ASC). Includes EHI Export data dictionaries, Real World Testing
+    plans/results (Years 1-4), intervention risk management (PDSI) and an MFA use case.
+- id: cures-act-service-base-url-publication
+  conforms: true
+  evidence: >-
+    Customer FHIR service base URLs are published publicly at
+    https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/ and are machine-readable as a FHIR
+    Endpoint searchset at https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Endpoint (HTTP 200,
+    unauthenticated)
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: /.well-known/security.txt served on modmed.com (Contact + Policy present; Expires date is stale)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors are returned as FHIR OperationOutcome (Certified FHIR API) or a proprietary JSON body;
+    no application/problem+json media type appears in either OpenAPI
+- id: hl7-v2
+  conforms: partial
+  evidence: >-
+    "ModMed EMA, ModMed Practice Management, and gGastro all have various HL7 capabilities" —
+    https://portal.api.modmed.com/docs/getting-started. No public HL7 v2 interface specification.
+- id: asyncapi
+  conforms: false
+  evidence: No webhook, subscription or streaming surface — the CapabilityStatement declares no Subscription resource
+- id: llms-txt
+  conforms: true
+  evidence: https://portal.api.modmed.com/llms.txt returns 200 with a complete page + endpoint index
+compliance:
+  published: true
+  program: ONC Health IT Certification Program (ONC-ACB certified Health IT Module)
+  url: https://www.modmed.com/onc-certification/
+  related:
+  - https://www.modmed.com/onc-certification-gi/
+  - https://www.modmed.com/asc-onc-certification/
+  - https://www.modmed.com/communication-condition-of-certification-notice/
+  named_certifications:
+  - ONC Health IT Certification (EMA)
+  - ONC Health IT Certification (gGastro)
+  - ONC Health IT Certification (ASC)
+  note: >-
+    ModMed publishes ONC certification, EHI export data dictionaries and Real World Testing artifacts.
+    No SOC 2, ISO 27001, HITRUST or PCI attestation is published on a public trust center, and no
+    trust.modmed.com / security.modmed.com host resolves.
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/metadata
+    http_status: 200
+  - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Endpoint
+    http_status: 200
+  - url: https://www.modmed.com/onc-certification/
+    http_status: 200
+  - url: https://www.modmed.com/trust/
+    http_status: 404

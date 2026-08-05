@@ -1,0 +1,313 @@
+generated: '2026-08-04'
+method: derived
+source: mcp/modernizing-medicine-mcp.yml + openapi/*.json
+summary: 'ModMed publishes no business-capability MCP server. The only MCP endpoint on a ModMed host is
+  the ReadMe documentation server at https://portal.api.modmed.com/mcp, whose tools operate on the DOCS,
+  not on EMA/FHIR resources. Every one of the 125 published REST operations is therefore rest_only: no
+  named MCP tool maps to a ModMed capability.'
+surfaces:
+  openapi:
+  - openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+  - openapi/modernizing-medicine-ema-proprietary-auth-openapi.json
+  - openapi/modernizing-medicine-certified-fhir-auth-openapi.json
+  graphql: null
+  mcp:
+    url: https://portal.api.modmed.com/mcp
+    gated: true
+    note: tools/list returns HTTP 401 Authorization required; tool names taken from the portal client
+      config, schemas not introspected
+crosswalk: []
+mcp_only:
+- tool: search
+  reason: Documentation search over the ModMed API portal — no backing REST operation
+- tool: fetch
+  reason: Fetches a documentation page — no backing REST operation
+- tool: list-specs
+  reason: Lists the portal OpenAPI documents — docs-plane metadata, not a ModMed API capability
+- tool: list-endpoints
+  reason: Lists documented endpoints — docs-plane metadata
+- tool: search-endpoints
+  reason: Searches documented endpoints — docs-plane metadata
+- tool: get-endpoint
+  reason: Returns one documented endpoint definition — docs-plane metadata
+- tool: get-server-variables
+  reason: Returns OpenAPI server variables (e.g. the firm prefix) — docs-plane metadata
+- tool: execute-request
+  reason: Generic OpenAPI request proxy — it can reach any documented operation but is not a named, schema-bound
+    tool per capability
+rest_only:
+- api: EMA Proprietary API
+  capability: Appointments and Slots
+  operations:
+  - GET /fhir/v2/Appointment
+  - GET /fhir/v2/Appointment/{id}
+  - GET /fhir/v2/Slot
+  - POST /fhir/v2/Appointment
+  - PUT /fhir/v2/Appointment/{id}
+- api: EMA Proprietary API
+  capability: Authentication
+  operations:
+  - POST /ws/oauth2/grant
+- api: EMA Proprietary API
+  capability: Capability Statement
+  operations:
+  - GET /fhir/v2/metadata
+- api: EMA Proprietary API
+  capability: Charges/Financial
+  operations:
+  - GET /fhir/v2/Account
+  - GET /fhir/v2/ChargeItem
+  - GET /fhir/v2/ChargeItem/CHG|{id}
+  - GET /fhir/v2/ChargeItem/INBOUND
+  - GET /fhir/v2/ChargeItem/INBOUND|{id}
+  - GET /fhir/v2/RelatedPerson/{id}
+  - POST /fhir/v2/ChargeItem
+- api: EMA Proprietary API
+  capability: Clinical Data/Clipboard
+  operations:
+  - GET /fhir/v2/AllergyIntolerance
+  - GET /fhir/v2/AllergyIntolerance/{id}
+  - GET /fhir/v2/Condition
+  - GET /fhir/v2/Condition/{id}
+  - GET /fhir/v2/DiagnosticReport
+  - GET /fhir/v2/DiagnosticReport/{id}
+  - GET /fhir/v2/FamilyMemberHistory
+  - GET /fhir/v2/FamilyMemberHistory/{id}
+  - GET /fhir/v2/MedicationStatement
+  - GET /fhir/v2/MedicationStatement/{id}
+  - GET /fhir/v2/ServiceRequest
+  - GET /fhir/v2/ServiceRequest/{id}
+  - POST /fhir/v2/AllergyIntolerance
+  - POST /fhir/v2/Condition
+  - POST /fhir/v2/MedicationStatement
+  - PUT /fhir/v2/AllergyIntolerance/{id}
+  - PUT /fhir/v2/Condition/{id}
+  - PUT /fhir/v2/MedicationStatement/{id}
+- api: EMA Proprietary API
+  capability: Documents
+  operations:
+  - GET /fhir/v2/DocumentReference
+  - GET /fhir/v2/DocumentReference/{id}
+  - POST /fhir/v2/DocumentReference
+- api: EMA Proprietary API
+  capability: Encounters/Visits
+  operations:
+  - GET /fhir/v2/Encounter
+  - GET /fhir/v2/Encounter/{id}
+- api: EMA Proprietary API
+  capability: Insurance
+  operations:
+  - GET /fhir/v2/Coverage
+  - GET /fhir/v2/Coverage/{id}
+  - GET /fhir/v2/InsurancePlan
+  - GET /fhir/v2/InsurancePlan/{id}
+  - GET /fhir/v2/Organization
+  - GET /fhir/v2/Organization/{id}
+  - POST /fhir/v2/Coverage
+  - POST /fhir/v2/Organization
+  - PUT /fhir/v2/Coverage/{id}
+- api: EMA Proprietary API
+  capability: Locations/Facilities
+  operations:
+  - GET /fhir/v2/Location
+  - GET /fhir/v2/Location/{id}
+- api: EMA Proprietary API
+  capability: Patient
+  operations:
+  - GET /fhir/v2/Patient
+  - GET /fhir/v2/Patient/{id}
+  - POST /fhir/v2/Patient
+  - PUT /fhir/v2/Patient/{id}
+- api: EMA Proprietary API
+  capability: Providers and Referring Providers
+  operations:
+  - GET /fhir/v2/Practitioner
+  - GET /fhir/v2/Practitioner/{id}
+  - POST /fhir/v2/Practitioner
+- api: EMA Proprietary API
+  capability: Tasks/Recalls
+  operations:
+  - GET /fhir/v2/Task
+  - GET /fhir/v2/Task/{id}
+- api: EMA Proprietary API
+  capability: Transcription
+  operations:
+  - POST /fhir/v2/Composition
+- api: EMA Proprietary API Authentication
+  capability: Authentication
+  operations:
+  - POST /auth/realms/ema-fhir/protocol/openid-connect/token
+- api: ModMed Certified FHIR API
+  capability: AllergyIntolerance
+  operations:
+  - GET /AllergyIntolerance
+  - GET /AllergyIntolerance/{id}
+- api: ModMed Certified FHIR API
+  capability: Capability Statement
+  operations:
+  - GET /metadata
+- api: ModMed Certified FHIR API
+  capability: CarePlan
+  operations:
+  - GET /CarePlan
+  - GET /CarePlan/{id}
+- api: ModMed Certified FHIR API
+  capability: CareTeam
+  operations:
+  - GET /CareTeam
+  - GET /CareTeam/{id}
+- api: ModMed Certified FHIR API
+  capability: Condition
+  operations:
+  - GET /Condition
+  - GET /Condition/{id}
+- api: ModMed Certified FHIR API
+  capability: Coverage
+  operations:
+  - GET /Coverage
+  - GET /Coverage/{id}
+- api: ModMed Certified FHIR API
+  capability: Device
+  operations:
+  - GET /Device
+  - GET /Device/{id}
+- api: ModMed Certified FHIR API
+  capability: DiagnosticReport
+  operations:
+  - GET /DiagnosticReport
+  - GET /DiagnosticReport/{id}
+- api: ModMed Certified FHIR API
+  capability: DocumentReference
+  operations:
+  - GET /DocumentReference
+  - GET /DocumentReference/{id}
+- api: ModMed Certified FHIR API
+  capability: Encounter
+  operations:
+  - GET /Encounter
+  - GET /Encounter/{id}
+- api: ModMed Certified FHIR API
+  capability: Endpoint
+  operations:
+  - GET /Endpoint
+  - GET /Endpoint/{id}
+- api: ModMed Certified FHIR API
+  capability: Goal
+  operations:
+  - GET /Goal
+  - GET /Goal/{id}
+- api: ModMed Certified FHIR API
+  capability: Group
+  operations:
+  - GET /Group/$export
+  - GET /Group/{id}
+  - GET /Group/{id}/$export
+- api: ModMed Certified FHIR API
+  capability: Immunization
+  operations:
+  - GET /Immunization
+  - GET /Immunization/{id}
+- api: ModMed Certified FHIR API
+  capability: Location
+  operations:
+  - GET /Location
+  - GET /Location/{id}
+- api: ModMed Certified FHIR API
+  capability: Medication
+  operations:
+  - GET /Medication/{id}
+- api: ModMed Certified FHIR API
+  capability: MedicationDispense
+  operations:
+  - GET /MedicationDispense
+  - GET /MedicationDispense/{id}
+- api: ModMed Certified FHIR API
+  capability: MedicationRequest
+  operations:
+  - GET /MedicationRequest
+  - GET /MedicationRequest/{id}
+- api: ModMed Certified FHIR API
+  capability: Observation
+  operations:
+  - GET /Observation
+  - GET /Observation/{id}
+- api: ModMed Certified FHIR API
+  capability: OperationDefinition
+  operations:
+  - GET /OperationDefinition/{id}
+- api: ModMed Certified FHIR API
+  capability: Organization
+  operations:
+  - GET /Organization
+  - GET /Organization/{id}
+- api: ModMed Certified FHIR API
+  capability: Patient
+  operations:
+  - GET /Patient
+  - GET /Patient/$export
+  - GET /Patient/{id}
+  - GET /Patient/{id}/$export
+- api: ModMed Certified FHIR API
+  capability: Practitioner
+  operations:
+  - GET /Practitioner
+  - GET /Practitioner/{id}
+- api: ModMed Certified FHIR API
+  capability: PractitionerRole
+  operations:
+  - GET /PractitionerRole
+  - GET /PractitionerRole/{id}
+- api: ModMed Certified FHIR API
+  capability: Procedure
+  operations:
+  - GET /Procedure
+  - GET /Procedure/{id}
+- api: ModMed Certified FHIR API
+  capability: Provenance
+  operations:
+  - GET /Provenance
+  - GET /Provenance/{id}
+- api: ModMed Certified FHIR API
+  capability: Questionnaire
+  operations:
+  - GET /Questionnaire
+  - GET /Questionnaire/{id}
+- api: ModMed Certified FHIR API
+  capability: QuestionnaireResponse
+  operations:
+  - GET /QuestionnaireResponse
+  - GET /QuestionnaireResponse/{id}
+- api: ModMed Certified FHIR API
+  capability: RelatedPerson
+  operations:
+  - GET /RelatedPerson
+  - GET /RelatedPerson/{id}
+- api: ModMed Certified FHIR API
+  capability: ServiceRequest
+  operations:
+  - GET /ServiceRequest
+  - GET /ServiceRequest/{id}
+- api: ModMed Certified FHIR API
+  capability: Specimen
+  operations:
+  - GET /Specimen
+  - GET /Specimen/{id}
+- api: ModMed Certified FHIR API
+  capability: ValueSet
+  operations:
+  - GET /ValueSet
+  - GET /ValueSet/{id}
+- api: ModMed Certified FHIR API Authentication
+  capability: Authentication
+  operations:
+  - GET /auth/realms/fhir/protocol/openid-connect/auth
+  - POST /auth/realms/fhir/protocol/openid-connect/token
+coverage:
+  tools_named: 8
+  tools_bound_to_rest: 0
+  mcp_only: 8
+  rest_operations_total: 125
+  rest_operations_with_a_tool: 0
+  note: A named-tool MCP surface over the EMA Proprietary and Certified FHIR operations does not exist.
+    The rest_only groups below are exactly what such a server would need to cover.

@@ -1,0 +1,104 @@
+generated: '2026-08-04'
+method: searched
+source: live probes of every ModMed API, SSO and portal host
+notes: >-
+  Probed /.well-known/security.txt, /openid-configuration, /oauth-authorization-server,
+  /api-catalog, /ai-plugin.json, /agent-card.json, /agent.json, /smart-configuration and
+  /oauth-protected-resource on modmed.com, www.modmed.com, portal.api.modmed.com,
+  stage.ema-api.com, fhirmp.mmi.prod.fhir.ema-api.com and sso.ema.md. Only the documents
+  recorded with status 200 below returned real content; every other path 404'd (the
+  Certified FHIR host answers 403 to unauthenticated /.well-known/* requests other than
+  the SMART configuration served under the FHIR base path).
+hosts:
+- host: https://www.modmed.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: modernizing-medicine-security.txt
+    standard: RFC 9116
+    note: Expires field reads 2025-04-30 — the published security.txt is expired.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://fhirmp.mmi.prod.fhir.ema-api.com
+  documents:
+  - path: /fhir/r4/.well-known/smart-configuration
+    status: 200
+    file: modernizing-medicine-smart-configuration.json
+    standard: SMART App Launch 2.0 / HL7 SMART on FHIR discovery
+    note: >-
+      Advertises the authorization + token endpoints, PKCE S256, client_secret_post,
+      capabilities (launch-ehr, launch-standalone, permission-patient, permission-user,
+      client-public, client-confidential-symmetric, sso-openid-connect, context-*) and
+      the full scopes_supported list consumed by scopes/modernizing-medicine-scopes.yml.
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+- host: https://sso.ema.md
+  documents:
+  - path: /auth/realms/fhir/.well-known/openid-configuration
+    status: 200
+    file: modernizing-medicine-openid-configuration-fhir.json
+    standard: OpenID Connect Discovery 1.0
+    note: Keycloak realm backing the ONC Certified FHIR API (SMART App Launch).
+  - path: /auth/realms/ema-fhir/.well-known/openid-configuration
+    status: 200
+    file: modernizing-medicine-openid-configuration-ema-fhir.json
+    standard: OpenID Connect Discovery 1.0
+    note: Keycloak realm backing the EMA Proprietary API client_credentials flow.
+  - path: /.well-known/openid-configuration
+    status: 404
+    note: Realm-scoped only; there is no root-level discovery document.
+- host: https://portal.api.modmed.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    file: ../llms/modernizing-medicine-llms.txt
+    standard: llms.txt
+- host: https://stage.ema-api.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+agent_card:
+  found: false
+  note: >-
+    No A2A Agent Card at /.well-known/agent-card.json or the legacy /.well-known/agent.json
+    on any ModMed host. No a2a/ artifact is written — an agent card is only ever recorded
+    when the provider genuinely serves one.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://www.modmed.com/.well-known/security.txt
+    http_status: 200
+  - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/.well-known/smart-configuration
+    http_status: 200
+  - url: https://sso.ema.md/auth/realms/fhir/.well-known/openid-configuration
+    http_status: 200
+  - url: https://sso.ema.md/auth/realms/ema-fhir/.well-known/openid-configuration
+    http_status: 200
+  - url: https://www.modmed.com/.well-known/agent-card.json
+    http_status: 404
+  - url: https://fhirmp.mmi.prod.fhir.ema-api.com/.well-known/agent-card.json
+    http_status: 403

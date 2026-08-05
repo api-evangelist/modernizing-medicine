@@ -1,0 +1,80 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  ModMed API portal (authentication, count-and-pagination, header-flags), the live FHIR
+  CapabilityStatement, https://www.modmed.com/onc-certification/ and probes of the status hosts
+versioning:
+  ema_proprietary:
+    scheme: uri-path
+    current: /fhir/v2
+    spec_version: 3.4.3_FINAL
+    docs: https://portal.api.modmed.com/docs/ema-proprietary-api
+  certified_fhir:
+    scheme: uri-path
+    current: /fhir/r4
+    fhir_version: 4.0.1
+    server_version: 4.8.1_FINAL
+    docs: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  release_train: >-
+    Behaviour changes are tied to numbered product releases (the pagination page cites "As of
+    release 7.7"); there is no public per-release API changelog.
+non_breaking_policy:
+  mechanism: Content-flag request header
+  statement: >-
+    "To ensure API changes remain non-breaking for our vendors, we sometimes use header flags to
+    control the content returned in certain payloads."
+  docs: https://portal.api.modmed.com/reference/header-flags
+deprecation:
+  policy_url: https://portal.api.modmed.com/reference/authentication-1
+  sunset_header: false
+  deprecation_header: false
+  announced:
+  - item: OAuth2 `password` grant on the EMA Proprietary API
+    status: being sunset
+    replacement: OAuth2 `client_credentials` grant
+    evidence: >-
+      "Legacy authentication — being sunset." and "New integrations should use the OAuth2
+      client_credentials flow" — https://portal.api.modmed.com/reference/authentication-1
+    date_announced: '2026-06-24'
+    sunset_date: null
+  note: >-
+    ModMed announces deprecations in the documentation prose only. No formal deprecation policy
+    page, no RFC 8594 Sunset/Deprecation response headers, and no dated end-of-life schedule are
+    published, so an integrator cannot detect the sunset programmatically.
+deprecated_operations:
+- openapi/modernizing-medicine-ema-proprietary-auth-openapi.json#POST /ws/oauth2/grant (password grant)
+status_page:
+  url: null
+  note: >-
+    status.modmed.com does not resolve; https://modmed.statuspage.io/ redirects to the ModMed SSO
+    login and its Statuspage API reports the page as inactive. No public status page exists.
+  evidence:
+  - url: https://status.modmed.com
+    http_status: 000
+  - url: https://modmed.statuspage.io/api/v2/summary.json
+    http_status: 401
+sla:
+  url: null
+  uptime_target: null
+support:
+  email: synapsys@modmed.com
+  portal: https://www.modmed.com/support/
+  marketplace: https://modmed.my.site.com/synapsysmarketplace/s/
+regulatory_lifecycle:
+  onc_certification: https://www.modmed.com/onc-certification/
+  real_world_testing: Real World Test Plans and Results published for Years 1-4
+  service_base_url_publication: https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+  note: >-
+    Certified FHIR API lifecycle obligations are driven by the ONC Health IT Certification Program
+    and the 21st Century Cures Act / HTI rules rather than by a vendor-published API deprecation policy.
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/reference/authentication-1.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/header-flags.md
+    http_status: 200
+  - url: https://www.modmed.com/status/
+    http_status: 404
+  - url: https://status.modmed.com
+    http_status: 000

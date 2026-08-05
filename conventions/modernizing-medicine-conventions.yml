@@ -1,0 +1,106 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  ModMed API portal reference pages (rate-limiting, response-codes, count-and-pagination,
+  header-flags, value-sets, basic-concepts, development-basics, authentication) plus the
+  harvested OpenAPI in openapi/
+docs: https://portal.api.modmed.com/reference/basic-concepts
+apis:
+- EMA Proprietary API
+- ModMed Certified FHIR API (ONC)
+authentication:
+  style: OAuth 2.0 bearer token on every call
+  certified_fhir: SMART App Launch (authorization_code + PKCE, or client_credentials for Bulk FHIR)
+  ema_proprietary: OAuth2 client_credentials (RS256 JWT, 900s) plus a mandatory `x-api-key` header
+  legacy: OAuth2 password grant on the EMA Proprietary API — documented as being sunset
+  detail: authentication/modernizing-medicine-authentication.yml
+url_shape:
+  ema_proprietary: '{base_url}/{firm_url_prefix}/ema/fhir/v2/{Resource}'
+  certified_fhir: 'https://{firm}.mmi.prod.fhir.ema-api.com/fhir/r4/{Resource}'
+  note: >-
+    Both APIs are multi-tenant by URL. The EMA Proprietary API carries the practice as a
+    `firm_url_prefix` path segment; the Certified FHIR API carries it as a host subdomain
+    (`firm` server variable), discoverable at
+    https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+media_types:
+  request: application/json (EMA Proprietary), application/fhir+json (Certified FHIR)
+  response: application/json, application/fhir+json; NDJSON for Bulk FHIR $export output
+data_model: FHIR R4 resources on both APIs — the EMA Proprietary API is a FHIR R4-style projection under /fhir/v2
+pagination:
+  style: page-number with a Bundle link relation set
+  params:
+  - name: _count
+    in: query
+    description: Results per page. Resource-specific maximum — 50 for Patient.
+  - name: page
+    in: query
+    description: Page number to retrieve.
+  response_fields:
+  - Bundle.total — by default the number of results ON THE CURRENT PAGE (release 7.7+), not the grand total
+  - Bundle.link[relation=self]
+  - Bundle.link[relation=next]
+  - Bundle.link[relation=last] — only when the alternative implementation is enabled
+  termination: Continue following `next` until `total` is 0
+  alternative:
+    header: 'Content-flag: Pagination_optimization_disabled'
+    effect: Returns the true total record count and precomputes the page count (slower, more resource-intensive)
+  exceptions:
+  - Slot has no pagination
+  docs: https://portal.api.modmed.com/reference/count-and-pagination
+content_negotiation_flags:
+  header: Content-flag
+  values:
+  - value: Referral
+    effect: Adds Referral Contact and Referral Source information to the Patient and Appointment payloads
+  - value: Pagination_optimization_disabled
+    effect: Provides the total count for all resources, not just the current page
+  rationale: ModMed uses header flags so payload changes stay non-breaking for existing vendors
+  docs: https://portal.api.modmed.com/reference/header-flags
+rate_limiting:
+  default: 1250 calls per minute per API key (~20 calls/second)
+  guidance: Throttle well below 20 calls/second; stagger calls to avoid 429
+  signalling: No documented X-RateLimit-* response headers — 429 is the only published signal
+  escalation: Contact the person who provisioned your credentials (synapsys@modmed.com)
+  detail: ../rate-limits/modernizing-medicine-rate-limits.yml
+  docs: https://portal.api.modmed.com/reference/rate-limiting
+idempotency:
+  supported: partial
+  general_key_header: none
+  note: >-
+    No general Idempotency-Key header or parameter exists in either OpenAPI or the docs. The one
+    documented duplicate-submission guard is the `transactionId` field on the ChargeItem create
+    payload — "a unique identifier from the sending system; used to detect duplicate submissions"
+    (POST /fhir/v2/ChargeItem). Retries of any other write are not deduplicated by the API.
+  docs: https://portal.api.modmed.com/reference/post_fhir-v2-chargeitem
+errors:
+  envelope: FHIR OperationOutcome (Certified FHIR API); JSON error body on the EMA Proprietary API
+  problem_json: false
+  catalog: ../errors/modernizing-medicine-problem-types.yml
+  docs: https://portal.api.modmed.com/reference/response-codes
+versioning:
+  ema_proprietary: URI path — /fhir/v2 (OpenAPI info.version 3.4.3_FINAL)
+  certified_fhir: FHIR R4 (4.0.1); server 4.8.1_FINAL; base path /fhir/r4
+  release_train: Product releases are referenced by number in the docs (e.g. "As of release 7.7")
+  breaking_change_policy: >-
+    Payload additions are gated behind Content-flag header flags specifically so changes remain
+    non-breaking for existing vendors
+  detail: ../lifecycle/modernizing-medicine-lifecycle.yml
+terminology:
+  value_sets: 'Firm-specific codes are exposed as FHIR ValueSets: GET {base_url}/{firm_url_prefix}/ema/fhir/v2/ValueSet'
+  docs: https://portal.api.modmed.com/reference/value-sets
+tracing:
+  request_id_header: none documented
+capability_discovery:
+  ema_proprietary: GET /fhir/v2/metadata
+  certified_fhir: GET /metadata (CapabilityStatement) + /.well-known/smart-configuration
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/reference/rate-limiting.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/count-and-pagination.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/header-flags.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/response-codes.md
+    http_status: 200

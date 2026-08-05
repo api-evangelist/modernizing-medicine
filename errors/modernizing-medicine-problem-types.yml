@@ -1,0 +1,69 @@
+generated: '2026-08-04'
+method: searched
+format: fhir-operationoutcome
+source: >-
+  Derived from the 4xx/5xx responses declared on all 58 EMA Proprietary API operations in
+  openapi/modernizing-medicine-ema-proprietary-api-openapi.json, enriched from the published
+  response-code reference at https://portal.api.modmed.com/reference/response-codes
+docs: https://portal.api.modmed.com/reference/response-codes
+envelope:
+  media_type: application/fhir+json
+  shape: FHIR OperationOutcome resource (issue[].severity, issue[].code, issue[].diagnostics)
+  problem_json: false
+  note: >-
+    Neither API uses RFC 9457 application/problem+json. The Certified FHIR API returns FHIR
+    OperationOutcome per the FHIR R4 specification; the EMA Proprietary API declares its 4xx/5xx
+    responses in the OpenAPI without a response schema, so the error body shape is not
+    machine-readable from the spec.
+coverage:
+  operations_with_4xx: 58
+  operations_total: 125
+  note: >-
+    Every EMA Proprietary API operation declares 400/401/403/404/422/429/500. The 64 Certified
+    FHIR API operations declare only 200 in the published OpenAPI — FHIR error semantics are
+    inherited from the FHIR R4 specification rather than restated per operation.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: The request was bad, often due to a missing required parameter.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- status: 401
+  title: Not Authorized
+  meaning: Authentication error — this token is not allowed access to the API.
+  remediation: Re-obtain a token from the OAuth2 token endpoint and confirm the x-api-key header is present.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- status: 403
+  title: Forbidden
+  meaning: The token is valid but the vendor application lacks the ACL for this resource.
+  remediation: Request the required ACL (scope claim) from the synapSYS team for your vendor application.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- status: 404
+  title: Not Found
+  meaning: The resource or the firm URL prefix does not exist.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- status: 422
+  title: Unprocessable Entity
+  meaning: Request could not be processed, typically indicates a validation error.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- status: 429
+  title: Too Many Requests
+  meaning: Request was rate limited, please retry.
+  remediation: Back off and stay under 1,250 calls/minute per API key — see rate-limits/modernizing-medicine-rate-limits.yml.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+- status: 500
+  title: Server Error
+  meaning: Internal Server Error.
+  source: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+success_codes:
+- status: 200
+  title: OK — successful response
+- status: 201
+  title: Created — resource was created successfully
+gaps:
+- No error code registry beyond HTTP status is published.
+- No error body schema is declared in either OpenAPI, so agents cannot bind to a typed error shape.
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/reference/response-codes.md
+    http_status: 200

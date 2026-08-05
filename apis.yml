@@ -1,18 +1,108 @@
 aid: modernizing-medicine
 name: ModMed
-description: 'ModMed is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  ModMed (Modernizing Medicine, Inc., Boca Raton FL) builds specialty-specific cloud healthcare
+  software — the EMA electronic health record, ModMed Practice Management, gGastro for
+  gastroenterology, analytics, revenue cycle management and telehealth — for allergy, dermatology,
+  ENT, gastroenterology, OBGYN, ophthalmology, orthopedics, pain management, plastic surgery,
+  podiatry and urology practices. It publishes two public APIs from one developer portal at
+  portal.api.modmed.com: the EMA Proprietary API, a FHIR R4-style read/write interface under
+  /fhir/v2 covering patients, appointments, slots, coverage, charges, documents and clinical data
+  for synapSYS Marketplace vendors; and the ModMed Certified FHIR API, an ONC-certified HL7 FHIR
+  R4 / US Core read-and-search interface with SMART on FHIR app launch and Bulk FHIR NDJSON export
+  across EMA, ModMed PM, ModMed GI and gGastro. Customer FHIR service base URLs are published
+  publicly as required by the 21st Century Cures Act.
 url: https://raw.githubusercontent.com/api-evangelist/modernizing-medicine/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
+image: https://www.modmed.com/wp-content/uploads/2024/12/cropped-mm-favicon_512-270x270.png
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
-apis: []
+- Healthcare
+- Electronic Health Records
+- Practice Management
+- FHIR
+- Health IT
+- Interoperability
+- Medical Billing
+- SMART on FHIR
+- Telehealth
+apis:
+- name: EMA Proprietary API
+  description: >-
+    ModMed's proprietary FHIR R4-style API over the EMA EHR and ModMed Practice Management. 58
+    operations under /fhir/v2 across Patient, Practitioner, Organization, Location, Encounter,
+    Appointment, Slot, Coverage, InsurancePlan, Account, ChargeItem, DocumentReference,
+    MedicationStatement, AllergyIntolerance, Condition, FamilyMemberHistory, ServiceRequest,
+    DiagnosticReport, Task, RelatedPerson and Composition — with READ, SEARCH, CREATE and UPDATE.
+    Multi-tenant by firm_url_prefix; OAuth2 client_credentials plus a mandatory x-api-key header.
+    Access requires a synapSYS Marketplace vendor application and technical review.
+  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
+  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  tags:
+  - EHR
+  - Practice Management
+  - FHIR
+  - Scheduling
+  - Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-ema-proprietary-auth-openapi.json
+  - type: Overlay
+    url: overlays/modernizing-medicine-ema-proprietary-api-overlay.yaml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/ema-proprietary-api
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/getting-started-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-1
+  - type: RateLimits
+    url: rate-limits/modernizing-medicine-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/modernizing-medicine-sandbox.yml
+  - type: TermsOfService
+    url: https://www.modmed.com/proprietary-api-terms-of-use/
+- name: ModMed Certified FHIR API
+  description: >-
+    ModMed's ONC-certified HL7 FHIR R4 API for EMA, ModMed PM, ModMed GI and gGastro. 64 read and
+    search operations across 31 US Core resource types plus Bulk FHIR $export at Patient and Group
+    level, authorized with SMART App Launch (authorization_code + PKCE for patient and provider
+    apps, client_credentials for background/bulk apps). Read and search only — no writes.
+    Production only; no public sandbox. Practice service base URLs are published publicly.
+  humanURL: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  baseURL: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
+  tags:
+  - FHIR
+  - US Core
+  - SMART on FHIR
+  - Bulk FHIR
+  - Interoperability
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-certified-fhir-api-openapi.json
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-certified-fhir-auth-openapi.json
+  - type: Overlay
+    url: overlays/modernizing-medicine-certified-fhir-api-overlay.yaml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: OAuthScopes
+    url: scopes/modernizing-medicine-scopes.yml
+  - type: SignUp
+    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+  - type: TermsOfService
+    url: https://www.modmed.com/public-api-terms-of-use/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +110,77 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/modernizing-medicine_stock/
+  url: https://www.modmed.com/
+- type: DeveloperPortal
+  url: https://portal.api.modmed.com/
+- type: Documentation
+  url: https://portal.api.modmed.com/docs
+- type: APIReference
+  url: https://portal.api.modmed.com/reference/getting-started-2
+- type: GettingStarted
+  url: https://portal.api.modmed.com/docs/getting-started
+- type: SignUp
+  url: https://www.modmed.com/synapsys/developers/
+- type: Support
+  url: https://www.modmed.com/support/
+- type: Blog
+  url: https://www.modmed.com/resources/blog/
+- type: TermsOfService
+  url: https://www.modmed.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.modmed.com/privacy-policy/
+- type: Marketplace
+  url: https://modmed.my.site.com/synapsysmarketplace/s/
+- type: Authentication
+  url: authentication/modernizing-medicine-authentication.yml
+- type: OAuthScopes
+  url: scopes/modernizing-medicine-scopes.yml
+- type: Conventions
+  url: conventions/modernizing-medicine-conventions.yml
+- type: RateLimits
+  url: rate-limits/modernizing-medicine-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/modernizing-medicine-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/modernizing-medicine-lifecycle.yml
+- type: Deprecation
+  url: https://portal.api.modmed.com/reference/authentication-1
+- type: Conformance
+  url: conformance/modernizing-medicine-conformance.yml
+- type: Compliance
+  url: https://www.modmed.com/onc-certification/
+- type: DataModel
+  url: data-model/modernizing-medicine-data-model.yml
+- type: Sandbox
+  url: sandbox/modernizing-medicine-sandbox.yml
+- type: WellKnown
+  url: well-known/modernizing-medicine-well-known.yml
+- type: SecurityTxt
+  url: well-known/modernizing-medicine-security.txt
+- type: APICatalog
+  url: https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+- type: Security
+  url: https://www.modmed.com/security/
+- type: VulnerabilityDisclosure
+  url: security/modernizing-medicine-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/modernizing-medicine-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/modernizing-medicine-agentic-access.yml
+- type: MCPServer
+  url: mcp/modernizing-medicine-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/modernizing-medicine-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/modernizing-medicine-llms.txt
+- type: Overlay
+  url: overlays/modernizing-medicine-ema-proprietary-api-overlay.yaml
+- type: Overlay
+  url: overlays/modernizing-medicine-certified-fhir-api-overlay.yaml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 35
+  pass: local-v1

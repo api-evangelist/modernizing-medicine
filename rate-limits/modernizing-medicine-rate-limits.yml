@@ -1,0 +1,48 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: ModMed
+providerId: modernizing-medicine
+created: '2026-08-04'
+modified: '2026-08-04'
+generated: '2026-08-04'
+method: searched
+tags:
+- Rate Limiting
+- Healthcare
+- FHIR
+description: >-
+  ModMed publishes a single default API rate limit for the EMA Proprietary API — 1,250 calls per
+  minute per API key, which the docs describe as roughly 20 calls per second. Vendors are asked to
+  throttle well below that ceiling and stagger calls; exceeding it returns HTTP 429. No per-tier
+  limits and no X-RateLimit-* response headers are published, and no separate published limit
+  exists for the ONC Certified FHIR API.
+sources:
+- https://portal.api.modmed.com/reference/rate-limiting
+- https://portal.api.modmed.com/reference/response-codes
+headers:
+  requestId: null
+  rateLimitRemaining: null
+responseCodes:
+  throttled: 429
+limits:
+- name: EMA Proprietary API calls
+  scope: api_key
+  metric: requests_per_minute
+  limit: 1250
+  timeFrame: minute
+  note: Documented as "roughly 20 calls per second"; ModMed recommends staying well under that.
+- name: EMA Proprietary API calls (recommended ceiling)
+  scope: api_key
+  metric: requests_per_second
+  limit: 20
+  timeFrame: second
+  note: Guidance figure derived from the same published 1,250/minute limit, not a second quota.
+escalation:
+  process: Contact the person who provisioned your credentials to review higher-volume needs
+  contact: synapsys@modmed.com
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/reference/rate-limiting.md
+    http_status: 200

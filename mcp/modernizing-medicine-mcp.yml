@@ -1,0 +1,58 @@
+generated: '2026-08-04'
+method: probed
+status: published
+scope: documentation-plane
+server:
+  name: modmed-api-portal-docs
+  transport: http
+  url: https://portal.api.modmed.com/mcp
+  vendor: ReadMe (hosted with the ModMed API portal)
+  auth: required
+  auth_evidence: >-
+    POST {"jsonrpc":"2.0","method":"initialize",...} returned HTTP 401 with
+    {"jsonrpc":"2.0","error":{"code":-32001,"message":"Authorization required"},"id":null}
+description: >-
+  ModMed serves an MCP endpoint on its API portal host as part of the ReadMe documentation
+  platform. It is a DOCUMENTATION-plane server — its tools search the ModMed API docs and can
+  proxy requests to the documented endpoints — not a ModMed-authored server that exposes EMA or
+  FHIR business capabilities as first-class tools. tools/list is authorization-gated, so the live
+  inputSchema set could not be introspected anonymously.
+tools:
+  introspected: false
+  note: >-
+    The tool NAMES below are the ReadMe MCP tool set published in the portal's own client
+    configuration (reservedWords.tools in the page payload at https://portal.api.modmed.com/).
+    Their input schemas require an authenticated tools/list call and are NOT recorded here —
+    nothing is guessed.
+  published_names:
+  - name: search
+    plane: documentation
+  - name: fetch
+    plane: documentation
+  - name: list-specs
+    plane: documentation
+  - name: list-endpoints
+    plane: documentation
+  - name: search-endpoints
+    plane: documentation
+  - name: get-endpoint
+    plane: documentation
+  - name: get-server-variables
+    plane: documentation
+  - name: execute-request
+    plane: execution
+    note: Generic OpenAPI request executor — it does not enumerate ModMed capabilities as named tools.
+crosswalk: modernizing-medicine-tool-crosswalk.yml
+agent_surface:
+  llms_txt: https://portal.api.modmed.com/llms.txt
+  llms_txt_status: 200
+  markdown_twins: Every docs and reference page is served as `.md` with the operation's OpenAPI slice inline.
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/mcp
+    http_status: 401
+    method: POST
+    body: '{"jsonrpc":"2.0","id":1,"method":"initialize"}'
+  - url: https://portal.api.modmed.com/llms.txt
+    http_status: 200

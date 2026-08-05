@@ -1,0 +1,206 @@
+generated: '2026-08-04'
+method: derived
+source: >-
+  openapi/modernizing-medicine-ema-proprietary-api-openapi.json (search parameters and path shapes),
+  openapi/modernizing-medicine-certified-fhir-api-openapi.json, and
+  conformance/modernizing-medicine-fhir-capabilitystatement.json (31 declared resource types)
+model: HL7 FHIR R4
+note: >-
+  Both ModMed APIs project the same clinical/practice core as FHIR R4 resources — the Certified FHIR
+  API as US Core read/search, the EMA Proprietary API as a /fhir/v2 read-write projection. The
+  relationships below are derived from the reference search parameters each operation actually
+  declares (e.g. Coverage?patient=), not from an authored ERD. Cardinality follows FHIR R4 semantics.
+root_entity: Patient
+tenancy:
+  key: firm
+  shape: >-
+    firm_url_prefix path segment (EMA Proprietary API) or firm host subdomain (Certified FHIR API);
+    every resource id is scoped to one practice
+entities:
+- name: Patient
+  apis: [ema-proprietary, certified-fhir]
+  operations: [read, search, create, update]
+  identifiers: [identifier, email, phone, family, given, birthdate]
+  note: Supports us-core-race / us-core-ethnicity search parameters
+- name: Practitioner
+  apis: [ema-proprietary, certified-fhir]
+  operations: [read, search, create]
+  note: Create is limited to REFERRING practitioners on the proprietary API
+- name: PractitionerRole
+  apis: [certified-fhir]
+- name: Organization
+  apis: [ema-proprietary, certified-fhir]
+  note: Create is limited to referring institutions on the proprietary API
+- name: Location
+  apis: [ema-proprietary, certified-fhir]
+- name: Encounter
+  apis: [ema-proprietary, certified-fhir]
+- name: Appointment
+  apis: [ema-proprietary]
+  operations: [read, search, create, update]
+- name: Slot
+  apis: [ema-proprietary]
+  note: Not paginated
+- name: Coverage
+  apis: [ema-proprietary, certified-fhir]
+- name: InsurancePlan
+  apis: [ema-proprietary]
+- name: Account
+  apis: [ema-proprietary]
+- name: ChargeItem
+  apis: [ema-proprietary]
+  note: Inbound charges have their own sub-paths (/ChargeItem/inbound, /ChargeItem/chg/{id})
+- name: DocumentReference
+  apis: [ema-proprietary, certified-fhir]
+- name: MedicationStatement
+  apis: [ema-proprietary]
+- name: MedicationRequest
+  apis: [certified-fhir]
+- name: MedicationDispense
+  apis: [certified-fhir]
+- name: AllergyIntolerance
+  apis: [ema-proprietary, certified-fhir]
+- name: Condition
+  apis: [ema-proprietary, certified-fhir]
+- name: FamilyMemberHistory
+  apis: [ema-proprietary]
+- name: ServiceRequest
+  apis: [ema-proprietary, certified-fhir]
+- name: DiagnosticReport
+  apis: [ema-proprietary, certified-fhir]
+- name: Specimen
+  apis: [certified-fhir]
+- name: Task
+  apis: [ema-proprietary]
+  note: Tasks/Recalls
+- name: Composition
+  apis: [ema-proprietary]
+  note: Transcription create only
+- name: RelatedPerson
+  apis: [ema-proprietary, certified-fhir]
+- name: Observation
+  apis: [certified-fhir]
+- name: Immunization
+  apis: [certified-fhir]
+- name: Procedure
+  apis: [certified-fhir]
+- name: CarePlan
+  apis: [certified-fhir]
+- name: CareTeam
+  apis: [certified-fhir]
+- name: Goal
+  apis: [certified-fhir]
+- name: Device
+  apis: [certified-fhir]
+- name: Provenance
+  apis: [certified-fhir]
+- name: Questionnaire
+  apis: [certified-fhir]
+- name: QuestionnaireResponse
+  apis: [certified-fhir]
+- name: Group
+  apis: [certified-fhir]
+  note: Bulk export cohort — /Group/$export
+- name: Endpoint
+  apis: [certified-fhir]
+  note: Public service-base-URL directory required by the Cures Act
+- name: ValueSet
+  apis: [ema-proprietary, certified-fhir]
+  note: Firm-specific code lists (appointment types etc.)
+relationships:
+- from: Account
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: AllergyIntolerance
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: Appointment
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: Appointment
+  to: Practitioner
+  type: belongs_to
+  via: practitioner
+- from: Appointment
+  to: Location
+  type: belongs_to
+  via: location
+- from: ChargeItem
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: ChargeItem
+  to: Encounter
+  type: belongs_to
+  via: context
+- from: Condition
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: Coverage
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: DiagnosticReport
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: DiagnosticReport
+  to: Encounter
+  type: belongs_to
+  via: encounter
+- from: DocumentReference
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: DocumentReference
+  to: Encounter
+  type: belongs_to
+  via: encounter
+- from: Encounter
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: Encounter
+  to: Appointment
+  type: belongs_to
+  via: appointment
+- from: FamilyMemberHistory
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: InsurancePlan
+  to: Organization
+  type: belongs_to
+  via: owned-by
+- from: MedicationStatement
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: Patient
+  to: Practitioner
+  type: has_one
+  via: general-practitioner
+- from: ServiceRequest
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: ServiceRequest
+  to: Encounter
+  type: belongs_to
+  via: encounter
+- from: ServiceRequest
+  to: Practitioner
+  type: belongs_to
+  via: requester
+- from: Task
+  to: Patient
+  type: belongs_to
+  via: patient
+- from: Endpoint
+  to: Organization
+  type: belongs_to
+  via: managingOrganization

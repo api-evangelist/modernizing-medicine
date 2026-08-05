@@ -1,0 +1,177 @@
+# ModMed Public APIs Documentation
+
+> Documentation for ModMed Public APIs
+
+## Guides
+- [Getting Started](https://portal.api.modmed.com/docs/getting-started.md)
+- [EMA Proprietary API](https://portal.api.modmed.com/docs/ema-proprietary-api.md)
+- [Become a ModMed Certified FHIR API Vendor](https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor.md)
+- [Certified FHIR API](https://portal.api.modmed.com/docs/certified-fhir-api-terms-of-use.md)
+- [Proprietary FHIR API](https://portal.api.modmed.com/docs/proprietary-fhir-api.md)
+
+## API Reference
+- [Authentication](https://portal.api.modmed.com/reference/authentication-1.md)
+- [Obtain OAuth2 Token (client_credentials)](https://portal.api.modmed.com/reference/post_auth-realms-ema-fhir-protocol-openid-connect-token.md): Obtain an access token using the OAuth2 `client_credentials` grant. Send your `client_id` and `client_secret`. Returns an RS256-signed JWT; the `scope` claim is a space-separated list of ACLs and no refresh token is returned.
+- [Obtain OAuth2 Token (Legacy — password grant)](https://portal.api.modmed.com/reference/post_ws-oauth2-grant.md): **Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the OAuth2 `client_credentials` flow described in the **Authentication** guide. Treat the returned `access_token` as an opaque Bearer token.
+- [Getting Started](https://portal.api.modmed.com/reference/getting-started-2.md)
+- [Basic Concepts](https://portal.api.modmed.com/reference/basic-concepts.md)
+- [Development Basics](https://portal.api.modmed.com/reference/development-basics.md)
+- [Authentication](https://portal.api.modmed.com/reference/authentication.md)
+- [Rate Limiting](https://portal.api.modmed.com/reference/rate-limiting.md)
+- [Response Codes](https://portal.api.modmed.com/reference/response-codes.md)
+- [Count and Pagination](https://portal.api.modmed.com/reference/count-and-pagination.md)
+- [Value Sets](https://portal.api.modmed.com/reference/value-sets.md)
+- [Header Flags](https://portal.api.modmed.com/reference/header-flags.md)
+- [Capability Statement](https://portal.api.modmed.com/reference/capability-statement.md)
+- [server-capabilities: Fetch the server FHIR CapabilityStatement](https://portal.api.modmed.com/reference/get_fhir-v2-metadata.md)
+- [Patient](https://portal.api.modmed.com/reference/patient-1.md)
+- [read-instance: Read Patient instance](https://portal.api.modmed.com/reference/get_fhir-v2-patient-id.md): Retrieve a single Patient resource by its MMI id.
+- [search-type: Search for Patient instances](https://portal.api.modmed.com/reference/get_fhir-v2-patient.md): This is a search type
+- [Updates Patient Resource](https://portal.api.modmed.com/reference/put_fhir-v2-patient-id.md)
+- [Creates Patient Resource](https://portal.api.modmed.com/reference/post_fhir-v2-patient.md)
+- [Providers and Referring Providers](https://portal.api.modmed.com/reference/providers-and-referring-providers.md)
+- [Retrieve Provider by ID](https://portal.api.modmed.com/reference/get_fhir-v2-practitioner-id.md)
+- [search-type: Search for Practitioner instances](https://portal.api.modmed.com/reference/get_fhir-v2-practitioner.md): This is a search type
+- [Create Referring Practitioner](https://portal.api.modmed.com/reference/post_fhir-v2-practitioner.md)
+- [Create Referring Institution](https://portal.api.modmed.com/reference/post_fhir-v2-organization.md)
+- [Encounters/Visits](https://portal.api.modmed.com/reference/encountersvisits.md)
+- [Get a specific Encounter](https://portal.api.modmed.com/reference/get_fhir-v2-encounter-id.md)
+- [Get All Encounters for a Practice](https://portal.api.modmed.com/reference/get_fhir-v2-encounter.md)
+- [Insurance](https://portal.api.modmed.com/reference/insurance.md)
+- [Retrieve Coverage details for an ID (Note: this is the specific coverage ID, not the Patient ID) In order to get this ID, you’d want to do a Coverage search with the ‘patient=value’ parameter. ](https://portal.api.modmed.com/reference/get_fhir-v2-coverage-id.md)
+- [Retrieve Coverage resources meeting the specified search criteria](https://portal.api.modmed.com/reference/get_fhir-v2-coverage.md)
+- [Creates Coverage Resource](https://portal.api.modmed.com/reference/post_fhir-v2-coverage.md)
+- [Updates Coverage Resource](https://portal.api.modmed.com/reference/put_fhir-v2-coverage-id.md)
+- [Organization](https://portal.api.modmed.com/reference/organization-1.md)
+- [Search Organization by certain parameters](https://portal.api.modmed.com/reference/get_fhir-v2-organization.md)
+- [Retrieve information by ID](https://portal.api.modmed.com/reference/get_fhir-v2-organization-id.md)
+- [InsurancePlan](https://portal.api.modmed.com/reference/insuranceplan.md)
+- [Retrieve all InsurancePlan information for a Firm](https://portal.api.modmed.com/reference/get_fhir-v2-insuranceplan.md)
+- [Retrieve InsurancePlan by ID](https://portal.api.modmed.com/reference/get_fhir-v2-insuranceplan-id.md)
+- [Locations/Facilities](https://portal.api.modmed.com/reference/locationsfacilities.md)
+- [Retrieve Location by ID](https://portal.api.modmed.com/reference/get_fhir-v2-location-id.md)
+- [Retrieve List of all locations for that firm](https://portal.api.modmed.com/reference/get_fhir-v2-location.md)
+- [Documents](https://portal.api.modmed.com/reference/documents.md)
+- [Retrieve Document by ID](https://portal.api.modmed.com/reference/get_fhir-v2-documentreference-id.md)
+- [Retrieve Document resources meeting the specified search criteria](https://portal.api.modmed.com/reference/get_fhir-v2-documentreference.md)
+- [Upload document from S3 URL to EMA](https://portal.api.modmed.com/reference/post_fhir-v2-documentreference.md)
+- [Appointments and Slots](https://portal.api.modmed.com/reference/appoitments-and-slots.md)
+- [Slot](https://portal.api.modmed.com/reference/slot.md)
+- [Search for a slot](https://portal.api.modmed.com/reference/get_fhir-v2-slot.md)
+- [Retrieve details for a specific Appointment by ID](https://portal.api.modmed.com/reference/get_fhir-v2-appointment-id.md)
+- [Update an Appointment](https://portal.api.modmed.com/reference/put_fhir-v2-appointment-id.md)
+- [Retrieve All Appointments for a Practice/Firm](https://portal.api.modmed.com/reference/get_fhir-v2-appointment.md)
+- [Create an Appointment](https://portal.api.modmed.com/reference/post_fhir-v2-appointment.md)
+- [Clinical Data/Clipboard](https://portal.api.modmed.com/reference/clinical-dataclipboard.md)
+- [Medication Statement](https://portal.api.modmed.com/reference/medicationstatement.md)
+- [Retrieve MedicationStatement details for a Medication Statement ID](https://portal.api.modmed.com/reference/get_fhir-v2-medicationstatement-id.md)
+- [Update MedicationStatement resource](https://portal.api.modmed.com/reference/put_fhir-v2-medicationstatement-id.md)
+- [Retrieve MedicationStatement resources by the specified search criteria](https://portal.api.modmed.com/reference/get_fhir-v2-medicationstatement.md)
+- [Create MedicationStatement resource](https://portal.api.modmed.com/reference/post_fhir-v2-medicationstatement.md)
+- [AllergyIntolerance](https://portal.api.modmed.com/reference/allergyintolerance-1.md)
+- [Retrieve AllergyIntolerance details for an AllergyIntolerance ID](https://portal.api.modmed.com/reference/get_fhir-v2-allergyintolerance-id.md)
+- [Update AllergyIntolerance resource](https://portal.api.modmed.com/reference/put_fhir-v2-allergyintolerance-id.md)
+- [Retrieve AllergyIntolerance resources by the specified search criteria](https://portal.api.modmed.com/reference/get_fhir-v2-allergyintolerance.md)
+- [Create AllergyIntolerance resource](https://portal.api.modmed.com/reference/post_fhir-v2-allergyintolerance.md)
+- [Condition](https://portal.api.modmed.com/reference/condition-1.md)
+- [Retrieve Condition details for an ID](https://portal.api.modmed.com/reference/get_fhir-v2-condition-id.md)
+- [Update Condition resource](https://portal.api.modmed.com/reference/put_fhir-v2-condition-id.md)
+- [Retrieve Condition resources by the specified search criteria](https://portal.api.modmed.com/reference/get_fhir-v2-condition.md)
+- [Create Condition resource](https://portal.api.modmed.com/reference/post_fhir-v2-condition.md)
+- [FamilyMemberHistory](https://portal.api.modmed.com/reference/familymemberhistory.md)
+- [Retrieve FamilyMemberHistory details for an ID](https://portal.api.modmed.com/reference/get_fhir-v2-familymemberhistory-id.md)
+- [Retrieve FamilyMemberHistory resources by the specified search criteria](https://portal.api.modmed.com/reference/get_fhir-v2-familymemberhistory.md)
+- [Charges/Financial](https://portal.api.modmed.com/reference/chargesfinancial.md)
+- [Get a specific ChargeItem](https://portal.api.modmed.com/reference/get_fhir-v2-chargeitem-chg-id.md)
+- [Get a specific inbound Charge for a Practice](https://portal.api.modmed.com/reference/get_fhir-v2-chargeitem-inbound-id.md)
+- [Get all Inbound Charges for a Practice](https://portal.api.modmed.com/reference/get_fhir-v2-chargeitem-inbound.md)
+- [Get All ChargeItems for a Practice](https://portal.api.modmed.com/reference/get_fhir-v2-chargeitem.md)
+- [Create Charges Into ModMedPM](https://portal.api.modmed.com/reference/post_fhir-v2-chargeitem.md): Submit charges from an external billing system into ModMed PM. Each ChargeItem represents one transaction and may contain multiple `financialTransactionDetail` lines — one per CPT/HCPCS code billed.  **Billing pattern — fee schedule vs explicit costs:** Most integrations omit `totalCost` and `unitCost`. In that case ModMed PM looks up the applicable fee schedule and calculates the charge amounts automatically. Include `totalCost` at the transaction level and `unitCost` per line only when the sending system needs to override the fee schedule with explicit dollar amounts (for example, pathology or DME vendors that supply their own cost breakdown).  **Key fields:** - `sendingFacility` / `receivingFacility` — identify the sending system and the target ModMed practice (firm prefix). - `transactionId` — a unique identifier from the sending system; used to detect duplicate submissions. - `attendingProviderId` — the supervising or attending provider for the encounter. - `performingProviderId` (per line) — the provider who performed each procedure; may differ from attending. - `orderingProviderId` (per line, optional) — the ordering or referring provider for that procedure line.
+- [Account](https://portal.api.modmed.com/reference/account.md)
+- [Search for a patient’s account](https://portal.api.modmed.com/reference/get_fhir-v2-account.md)
+- [RelatedPerson](https://portal.api.modmed.com/reference/relatedperson.md)
+- [Retrieve RelatedPerson for an ID](https://portal.api.modmed.com/reference/get_fhir-v2-relatedperson-id.md)
+- [ServiceRequest (Orders)](https://portal.api.modmed.com/reference/servicerequest-orders.md)
+- [Search ServiceRequests by certain parameters](https://portal.api.modmed.com/reference/get_fhir-v2-servicerequest.md)
+- [Retrieve ServiceRequest for an ID](https://portal.api.modmed.com/reference/get_fhir-v2-servicerequest-id.md)
+- [DiagnosticReport (Results)](https://portal.api.modmed.com/reference/diagnosticreport-results.md)
+- [Retrieve DiagnosticReport for an ID](https://portal.api.modmed.com/reference/get_fhir-v2-diagnosticreport-id.md)
+- [Search DiagnosticReport by certain parameters](https://portal.api.modmed.com/reference/get_fhir-v2-diagnosticreport.md)
+- [Tasks/Recalls](https://portal.api.modmed.com/reference/tasksrecalls.md)
+- [Retrieve Task for an ID](https://portal.api.modmed.com/reference/get_fhir-v2-task-id.md)
+- [Search Tasks by certain parameters](https://portal.api.modmed.com/reference/get_fhir-v2-task.md)
+- [Transcription](https://portal.api.modmed.com/reference/transcription.md)
+- [Composition](https://portal.api.modmed.com/reference/composition.md)
+- [Create Composition](https://portal.api.modmed.com/reference/post_fhir-v2-composition.md)
+- [Authentication](https://portal.api.modmed.com/reference/authentication-2.md)
+- [Authorization endpoint (authorization_code)](https://portal.api.modmed.com/reference/get_auth-realms-fhir-protocol-openid-connect-auth.md): Begin the SMART App Launch `authorization_code` flow. Redirect the user's browser here; on approval the server redirects to your `redirect_uri` with a `code` to exchange at the token endpoint. PKCE (`S256`) is supported.
+- [Token endpoint](https://portal.api.modmed.com/reference/post_auth-realms-fhir-protocol-openid-connect-token.md): Exchange an authorization `code` for tokens, refresh a token, or obtain a `client_credentials` token. Send `client_id`/`client_secret` in the body (`client_secret_post`).
+- [server-capabilities: Fetch the server FHIR CapabilityStatement](https://portal.api.modmed.com/reference/get_metadata.md)
+- [read-instance: Read AllergyIntolerance instance](https://portal.api.modmed.com/reference/get_allergyintolerance-id.md)
+- [search-type: Search for AllergyIntolerance instances](https://portal.api.modmed.com/reference/get_allergyintolerance.md): This is a search type
+- [read-instance: Read CarePlan instance](https://portal.api.modmed.com/reference/get_careplan-id.md)
+- [search-type: Search for CarePlan instances](https://portal.api.modmed.com/reference/get_careplan.md): This is a search type
+- [read-instance: Read CareTeam instance](https://portal.api.modmed.com/reference/get_careteam-id.md)
+- [search-type: Search for CareTeam instances](https://portal.api.modmed.com/reference/get_careteam.md): This is a search type
+- [read-instance: Read Condition instance](https://portal.api.modmed.com/reference/get_condition-id.md)
+- [search-type: Search for Condition instances](https://portal.api.modmed.com/reference/get_condition.md): This is a search type
+- [read-instance: Read Coverage instance](https://portal.api.modmed.com/reference/get_coverage-id.md)
+- [search-type: Search for Coverage instances](https://portal.api.modmed.com/reference/get_coverage.md): This is a search type
+- [read-instance: Read Device instance](https://portal.api.modmed.com/reference/get_device-id.md)
+- [search-type: Search for Device instances](https://portal.api.modmed.com/reference/get_device.md): This is a search type
+- [read-instance: Read DiagnosticReport instance](https://portal.api.modmed.com/reference/get_diagnosticreport-id.md)
+- [search-type: Search for DiagnosticReport instances](https://portal.api.modmed.com/reference/get_diagnosticreport.md): This is a search type
+- [read-instance: Read DocumentReference instance](https://portal.api.modmed.com/reference/get_documentreference-id.md)
+- [search-type: Search for DocumentReference instances](https://portal.api.modmed.com/reference/get_documentreference.md): This is a search type
+- [read-instance: Read Encounter instance](https://portal.api.modmed.com/reference/get_encounter-id.md)
+- [search-type: Search for Encounter instances](https://portal.api.modmed.com/reference/get_encounter.md): This is a search type
+- [read-instance: Read Endpoint instance](https://portal.api.modmed.com/reference/get_endpoint-id.md)
+- [search-type: Search for Endpoint instances](https://portal.api.modmed.com/reference/get_endpoint.md): This is a search type
+- [read-instance: Read Goal instance](https://portal.api.modmed.com/reference/get_goal-id.md)
+- [search-type: Search for Goal instances](https://portal.api.modmed.com/reference/get_goal.md): This is a search type
+- [read-instance: Read Group instance](https://portal.api.modmed.com/reference/get_group-id.md)
+- [GET: /Group/$export](https://portal.api.modmed.com/reference/get_group-export.md)
+- [GET: /Group/{id}/$export](https://portal.api.modmed.com/reference/get_group-id-export.md)
+- [read-instance: Read Immunization instance](https://portal.api.modmed.com/reference/get_immunization-id.md)
+- [search-type: Search for Immunization instances](https://portal.api.modmed.com/reference/get_immunization.md): This is a search type
+- [read-instance: Read Location instance](https://portal.api.modmed.com/reference/get_location-id.md)
+- [search-type: Search for Location instances](https://portal.api.modmed.com/reference/get_location.md): This is a search type
+- [read-instance: Read Medication instance](https://portal.api.modmed.com/reference/get_medication-id.md)
+- [read-instance: Read MedicationDispense instance](https://portal.api.modmed.com/reference/get_medicationdispense-id.md)
+- [search-type: Search for MedicationDispense instances](https://portal.api.modmed.com/reference/get_medicationdispense.md): This is a search type
+- [read-instance: Read MedicationRequest instance](https://portal.api.modmed.com/reference/get_medicationrequest-id.md)
+- [search-type: Search for MedicationRequest instances](https://portal.api.modmed.com/reference/get_medicationrequest.md): This is a search type
+- [read-instance: Read Observation instance](https://portal.api.modmed.com/reference/get_observation-id.md)
+- [search-type: Search for Observation instances](https://portal.api.modmed.com/reference/get_observation.md): This is a search type
+- [read-instance: Read OperationDefinition instance](https://portal.api.modmed.com/reference/get_operationdefinition-id.md)
+- [read-instance: Read Organization instance](https://portal.api.modmed.com/reference/get_organization-id.md)
+- [search-type: Search for Organization instances](https://portal.api.modmed.com/reference/get_organization.md): This is a search type
+- [read-instance: Read Patient instance](https://portal.api.modmed.com/reference/get_patient-id.md)
+- [search-type: Search for Patient instances](https://portal.api.modmed.com/reference/get_patient.md): This is a search type
+- [GET: /Patient/$export](https://portal.api.modmed.com/reference/get_patient-export.md)
+- [GET: /Patient/{id}/$export](https://portal.api.modmed.com/reference/get_patient-id-export.md)
+- [read-instance: Read Practitioner instance](https://portal.api.modmed.com/reference/get_practitioner-id.md)
+- [search-type: Search for Practitioner instances](https://portal.api.modmed.com/reference/get_practitioner.md): This is a search type
+- [read-instance: Read PractitionerRole instance](https://portal.api.modmed.com/reference/get_practitionerrole-id.md)
+- [search-type: Search for PractitionerRole instances](https://portal.api.modmed.com/reference/get_practitionerrole.md): This is a search type
+- [read-instance: Read Procedure instance](https://portal.api.modmed.com/reference/get_procedure-id.md)
+- [search-type: Search for Procedure instances](https://portal.api.modmed.com/reference/get_procedure.md): This is a search type
+- [read-instance: Read Provenance instance](https://portal.api.modmed.com/reference/get_provenance-id.md)
+- [search-type: Search for Provenance instances](https://portal.api.modmed.com/reference/get_provenance.md): This is a search type
+- [read-instance: Read Questionnaire instance](https://portal.api.modmed.com/reference/get_questionnaire-id.md)
+- [search-type: Search for Questionnaire instances](https://portal.api.modmed.com/reference/get_questionnaire.md): This is a search type
+- [read-instance: Read QuestionnaireResponse instance](https://portal.api.modmed.com/reference/get_questionnaireresponse-id.md)
+- [search-type: Search for QuestionnaireResponse instances](https://portal.api.modmed.com/reference/get_questionnaireresponse.md): This is a search type
+- [read-instance: Read RelatedPerson instance](https://portal.api.modmed.com/reference/get_relatedperson-id.md)
+- [search-type: Search for RelatedPerson instances](https://portal.api.modmed.com/reference/get_relatedperson.md): This is a search type
+- [read-instance: Read ServiceRequest instance](https://portal.api.modmed.com/reference/get_servicerequest-id.md)
+- [search-type: Search for ServiceRequest instances](https://portal.api.modmed.com/reference/get_servicerequest.md): This is a search type
+- [read-instance: Read Specimen instance](https://portal.api.modmed.com/reference/get_specimen-id.md)
+- [search-type: Search for Specimen instances](https://portal.api.modmed.com/reference/get_specimen.md): This is a search type
+- [read-instance: Read ValueSet instance](https://portal.api.modmed.com/reference/get_valueset-id.md)
+- [search-type: Search for ValueSet instances](https://portal.api.modmed.com/reference/get_valueset.md): This is a search type
+
+## Pages
+- [Discussions](https://portal.api.modmed.com/discussions.md)
+- [Page Not Found](https://portal.api.modmed.com/page-not-found.md)
+- [UX Test Page](https://portal.api.modmed.com/ux-test-page.md)

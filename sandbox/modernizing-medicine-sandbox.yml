@@ -1,0 +1,62 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  https://portal.api.modmed.com/reference/authentication-1,
+  https://portal.api.modmed.com/reference/authentication-2,
+  https://portal.api.modmed.com/docs/getting-started
+environments:
+- api: EMA Proprietary API
+  name: Public API-portal sandbox
+  base_url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  firm_url_prefix: apiportal
+  token_endpoint_legacy: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/ws/oauth2/grant
+  token_endpoint_client_credentials: https://ssoqa01-lb-01.m2qa.com/auth/realms/ema-fhir/protocol/openid-connect/token
+  credentials_published: true
+  credentials_location: https://portal.api.modmed.com/reference/authentication-1
+  credentials_note: >-
+    ModMed publishes a working sandbox x-api-key, username and password in the Authentication
+    reference page and pre-fills the sandbox bearer token as the OpenAPI `x-default` on the
+    BearerAuth scheme. Those literal values are deliberately NOT mirrored into this repository —
+    read them from the ModMed docs page above. This is the environment the portal's "Try It"
+    console calls.
+  capabilities: READ, SEARCH, CREATE, UPDATE across the /fhir/v2 resource set
+- api: EMA Proprietary API
+  name: Practice (training) sandbox
+  base_url: https://stage.ema-api.com/ema-training/firm/{firm_url_prefix}/ema
+  credentials_published: false
+  access: >-
+    Provisioned per vendor through the synapSYS Marketplace developer program; the vendor works
+    with the synapSYS team on the ACLs the application needs, then passes a technical review
+    before touching a customer's production system.
+  request_access: https://www.modmed.com/synapsys/developers/
+- api: ModMed Certified FHIR API (ONC)
+  name: none
+  sandbox_available: false
+  evidence: >-
+    "Production only — The Certified FHIR API does not have a public sandbox. Authorization and API
+    calls run against the production environment."
+    (https://portal.api.modmed.com/reference/authentication-2)
+  registration: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  vendor_dashboard: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+production:
+  ema_proprietary: https://mmapi.ema-api.com/ema-prod/firm/{firm_url_prefix}/ema
+  certified_fhir: https://{firm}.mmi.prod.fhir.ema-api.com/fhir/r4
+  endpoint_directory: https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+test_data:
+  magic_values: none published
+  test_patients: none published
+  note: >-
+    ModMed does not publish synthetic test identifiers, magic values or fixtures — the sandbox is
+    a seeded practice instance rather than a documented test-data contract.
+console:
+  type: ReadMe "Try It" console on every reference page
+  url: https://portal.api.modmed.com/reference/get_fhir-v2-patient
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://portal.api.modmed.com/reference/authentication-1.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/authentication-2.md
+    http_status: 200
+  - url: https://portal.api.modmed.com/docs/getting-started.md
+    http_status: 200

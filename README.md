@@ -42,5 +42,23 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ModMed is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/modernizing-medicine_stock/
+ModMed (Modernizing Medicine, Inc.) builds specialty-specific cloud healthcare software — the EMA
+electronic health record, ModMed Practice Management, gGastro, analytics, revenue cycle management
+and telehealth — for allergy, dermatology, ENT, gastroenterology, OBGYN, ophthalmology, orthopedics,
+pain management, plastic surgery, podiatry and urology practices.
+
+- Company: https://www.modmed.com/
+- Developer portal: https://portal.api.modmed.com/
+- Customer FHIR service base URLs: https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+
+## APIs profiled here
+
+| API | Shape | Operations | Auth |
+|---|---|---|---|
+| EMA Proprietary API | FHIR R4-style REST under `/fhir/v2`, read/write | 58 | OAuth2 `client_credentials` (legacy `password` grant being sunset) + `x-api-key` |
+| ModMed Certified FHIR API (ONC) | HL7 FHIR R4 / US Core, read + search + Bulk `$export` | 64 | OAuth2 + SMART App Launch (PKCE S256) |
+
+The OpenAPI documents in `openapi/` were assembled from the per-operation OpenAPI definitions ModMed
+publishes on every reference page of its API portal (the `# OpenAPI definition` block on each
+`https://portal.api.modmed.com/reference/*.md` page). Paths, components, tags, servers and security
+were merged mechanically — no content was authored.

@@ -1,0 +1,64 @@
+generated: '2026-08-04'
+method: generated
+source: >-
+  Grounded in the operations published in openapi/*.json (assembled from the ModMed API portal) plus
+  the conventions, authentication, scopes, errors and rate-limit artifacts in this repository.
+note: >-
+  ModMed publishes no operationIds on any operation, so every skill addresses operations by
+  METHOD + path exactly as they appear in the harvested specs. No operation, parameter or field
+  name in these skills was invented.
+skills:
+- file: modernizing-medicine-schedule-appointment.md
+  name: Schedule a ModMed appointment
+  api: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+  operations:
+  - GET /fhir/v2/Patient
+  - GET /fhir/v2/Location
+  - GET /fhir/v2/Slot
+  - POST /fhir/v2/Appointment
+  - GET /fhir/v2/Appointment/{id}
+  - PUT /fhir/v2/Appointment/{id}
+  - GET /fhir/v2/ValueSet
+- file: modernizing-medicine-sync-patient-and-coverage.md
+  name: Sync a ModMed patient and their insurance coverage
+  api: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+  operations:
+  - GET /fhir/v2/Patient
+  - POST /fhir/v2/Patient
+  - PUT /fhir/v2/Patient/{id}
+  - GET /fhir/v2/Coverage
+  - POST /fhir/v2/Coverage
+  - PUT /fhir/v2/Coverage/{id}
+  - GET /fhir/v2/InsurancePlan
+  - GET /fhir/v2/Account
+- file: modernizing-medicine-submit-charges.md
+  name: Submit charges into ModMed Practice Management
+  api: openapi/modernizing-medicine-ema-proprietary-api-openapi.json
+  operations:
+  - POST /fhir/v2/ChargeItem
+  - GET /fhir/v2/ChargeItem
+  - GET /fhir/v2/ChargeItem/CHG|{id}
+  - GET /fhir/v2/ChargeItem/INBOUND
+  - GET /fhir/v2/ChargeItem/INBOUND|{id}
+- file: modernizing-medicine-bulk-fhir-export.md
+  name: Run a ModMed Bulk FHIR export
+  api: openapi/modernizing-medicine-certified-fhir-api-openapi.json
+  operations:
+  - POST /auth/realms/fhir/protocol/openid-connect/token
+  - GET /metadata
+  - GET /Group/{id}/$export
+  - GET /Group/$export
+  - GET /Patient/$export
+  - GET /Patient/{id}/$export
+- file: modernizing-medicine-smart-app-launch.md
+  name: Launch a SMART on FHIR app against ModMed
+  api: openapi/modernizing-medicine-certified-fhir-api-openapi.json
+  operations:
+  - GET /auth/realms/fhir/protocol/openid-connect/auth
+  - POST /auth/realms/fhir/protocol/openid-connect/token
+  - GET /Patient/{id}
+  - GET /Condition
+  - GET /Observation
+  - GET /MedicationRequest
+  - GET /AllergyIntolerance
+  - GET /DocumentReference

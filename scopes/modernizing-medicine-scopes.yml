@@ -1,0 +1,525 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/modernizing-medicine-certified-fhir-api-openapi.json + https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/.well-known/smart-configuration
+docs: https://portal.api.modmed.com/reference/authentication-2
+model: SMART on FHIR (SMART App Launch) scopes on the ONC Certified FHIR API. The EMA Proprietary API
+  does NOT use OAuth scopes for authorization — its client_credentials token carries a space-separated
+  list of ModMed-provisioned ACLs (e.g. "acl/enc_s acl/pat_s_name_dob_gen") granted per vendor application
+  by the synapSYS team; the ACL vocabulary is not published publicly.
+scope_groups:
+- group: context
+  scopes:
+  - launch
+  - launch/patient
+  - launch/encounter
+  description: Control what context claims the authorization server puts in the token.
+- group: identity
+  scopes:
+  - openid
+  - profile
+  - fhirUser
+  description: Control what the app learns about the authenticated user.
+- group: session
+  scopes:
+  - online_access
+  - offline_access
+  description: Control refresh-token lifetime.
+- group: resource
+  prefixes:
+  - patient/
+  - user/
+  - system/
+  description: Read/search access to a FHIR resource type. patient/ is scoped to the token patient; user/
+    to what the logged-in user can see; system/ is used by Bulk FHIR client_credentials apps.
+smart_capabilities:
+- context-style
+- client-public
+- sso-openid-connect
+- authorize-post
+- context-ehr-patient
+- launch-standalone
+- permission-patient
+- permission-offline
+- permission-user
+- client-confidential-symmetric
+- context-ehr-encounter
+- client-confidential-asymmetric
+- context-banner
+- launch-ehr
+- permission-v2
+- context-standalone-patient
+- permission-v1
+schemes:
+- name: smartOnFhir
+  source: openapi/modernizing-medicine-certified-fhir-api-openapi.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth
+    tokenUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token
+scopes:
+- scope: fhirUser
+  description: FHIR reference to the authenticated practitioner
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: launch
+  description: Tells the authorization server to honor the EHR launch context (always required for EHR
+    Launch apps)
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/modernizing-medicine-smart-configuration.json
+  - https://portal.api.modmed.com/reference/authentication-2
+- scope: launch/patient
+  description: Request patient context in the token
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: offline_access
+  description: Request a long-lived refresh token
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: online_access
+  description: Refresh token that expires when the user's EMA session ends
+  flows:
+  - authorizationCode
+  sources:
+  - well-known/modernizing-medicine-smart-configuration.json
+  - https://portal.api.modmed.com/reference/authentication-2
+- scope: openid
+  description: OpenID Connect (auto-granted)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/AllergyIntolerance.rs
+  description: Read/search AllergyIntolerance (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/CarePlan.rs
+  description: Read/search CarePlan (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/CareTeam.rs
+  description: Read/search CareTeam (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Condition.rs
+  description: Read/search Condition (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Coverage.rs
+  description: Read/search Coverage (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Device.rs
+  description: Read/search Device (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/DiagnosticReport.rs
+  description: Read/search DiagnosticReport (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/DocumentReference.rs
+  description: Read/search DocumentReference (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Encounter.rs
+  description: Read/search Encounter (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Goal.rs
+  description: Read/search Goal (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Immunization.rs
+  description: Read/search Immunization (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Location.rs
+  description: Read/search Location (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Medication.rs
+  description: Read/search Medication (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/MedicationRequest.rs
+  description: Read/search MedicationRequest (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Observation.rs
+  description: Read/search Observation (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Organization.rs
+  description: Read/search Organization (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Patient.rs
+  description: Read/search Patient (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Practitioner.rs
+  description: Read/search Practitioner (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/PractitionerRole.rs
+  description: Read/search PractitionerRole (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Procedure.rs
+  description: Read/search Procedure (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/Provenance.rs
+  description: Read/search Provenance (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/RelatedPerson.rs
+  description: Read/search RelatedPerson (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: patient/ServiceRequest.rs
+  description: Read/search ServiceRequest (patient context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: profile
+  description: Standard OIDC profile claims
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/AllergyIntolerance.rs
+  description: Read/search AllergyIntolerance (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/CarePlan.rs
+  description: Read/search CarePlan (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/CareTeam.rs
+  description: Read/search CareTeam (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Condition.rs
+  description: Read/search Condition (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Coverage.rs
+  description: Read/search Coverage (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Device.rs
+  description: Read/search Device (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/DiagnosticReport.rs
+  description: Read/search DiagnosticReport (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/DocumentReference.rs
+  description: Read/search DocumentReference (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Encounter.rs
+  description: Read/search Encounter (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Goal.rs
+  description: Read/search Goal (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Immunization.rs
+  description: Read/search Immunization (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Location.rs
+  description: Read/search Location (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Medication.rs
+  description: Read/search Medication (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/MedicationRequest.rs
+  description: Read/search MedicationRequest (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Observation.rs
+  description: Read/search Observation (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Organization.rs
+  description: Read/search Organization (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Patient.rs
+  description: Read/search Patient (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Practitioner.rs
+  description: Read/search Practitioner (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/PractitionerRole.rs
+  description: Read/search PractitionerRole (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Procedure.rs
+  description: Read/search Procedure (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/Provenance.rs
+  description: Read/search Provenance (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/RelatedPerson.rs
+  description: Read/search RelatedPerson (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: system/ServiceRequest.rs
+  description: Read/search ServiceRequest (system/bulk context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/AllergyIntolerance.rs
+  description: Read/search AllergyIntolerance (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/CarePlan.rs
+  description: Read/search CarePlan (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/CareTeam.rs
+  description: Read/search CareTeam (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Condition.rs
+  description: Read/search Condition (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Coverage.rs
+  description: Read/search Coverage (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Device.rs
+  description: Read/search Device (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/DiagnosticReport.rs
+  description: Read/search DiagnosticReport (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/DocumentReference.rs
+  description: Read/search DocumentReference (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Encounter.rs
+  description: Read/search Encounter (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Goal.rs
+  description: Read/search Goal (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Immunization.rs
+  description: Read/search Immunization (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Location.rs
+  description: Read/search Location (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Medication.rs
+  description: Read/search Medication (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/MedicationRequest.rs
+  description: Read/search MedicationRequest (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Observation.rs
+  description: Read/search Observation (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Organization.rs
+  description: Read/search Organization (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Patient.rs
+  description: Read/search Patient (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Practitioner.rs
+  description: Read/search Practitioner (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/PractitionerRole.rs
+  description: Read/search PractitionerRole (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Procedure.rs
+  description: Read/search Procedure (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/Provenance.rs
+  description: Read/search Provenance (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/RelatedPerson.rs
+  description: Read/search RelatedPerson (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+- scope: user/ServiceRequest.rs
+  description: Read/search ServiceRequest (user context)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/modernizing-medicine-certified-fhir-api-openapi.json
+x-evidence:
+  fetched: '2026-08-04'
+  urls:
+  - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/.well-known/smart-configuration
+    http_status: 200
+  - url: https://portal.api.modmed.com/reference/authentication-2.md
+    http_status: 200
