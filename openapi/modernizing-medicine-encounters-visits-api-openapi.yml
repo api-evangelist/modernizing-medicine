@@ -1,0 +1,257 @@
+openapi: 3.2.0
+info:
+  title: EMA Proprietary Encounters/Visits API
+  contact:
+    email: ankit.srivastava@modmed.com
+  version: 3.4.3_FINAL
+  description: 'The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
+
+
+    This documentation targets the **public sandbox** (`stage.ema-api.com`).
+
+
+    **Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.'
+servers:
+- url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+security:
+- BearerAuth: []
+  ApiKeyAuth: []
+tags:
+- name: Encounters/Visits
+  description: Encounters/Visits details
+paths:
+  /fhir/v2/Encounter/{id}:
+    get:
+      tags:
+      - Encounters/Visits
+      summary: Get a specific Encounter
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Encounter
+                id: '362378'
+                meta:
+                  lastUpdated: '2026-06-25T15:58:35.000+00:00'
+                status: finished
+                class:
+                  system: http://terminology.hl7.org/ValueSet/v3-ActEncounterCode
+                  code: AMB
+                  display: ambulatory
+                type:
+                - coding:
+                  - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type
+                    code: VISIT
+                    display: Visit
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                participant:
+                - type:
+                  - coding:
+                    - system: http://hl7.org/fhir/ValueSet/encounter-participant-type
+                      code: PPRF
+                      display: primary performer
+                    text: primary performer
+                  individual:
+                    reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399
+                    display: Jane Doe, MD
+                period:
+                  start: '2026-06-25T15:55:00+00:00'
+                  end: '2026-06-25T15:58:38+00:00'
+                diagnosis:
+                - condition:
+                    reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295
+                    display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295
+                location:
+                - location:
+                    reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826
+                    display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/Encounter:
+    get:
+      tags:
+      - Encounters/Visits
+      summary: Get All Encounters for a Practice
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50
+        required: false
+        schema:
+          type: string
+      - name: _lastUpdated
+        in: query
+        description: This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: appointment
+        in: query
+        description: The appointment that scheduled this encounter
+        required: false
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: A date within the period the Encounter lasted
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: The patient or group present at the encounter
+        required: false
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: planned | arrived | triaged | in-progress | onleave | finished | cancelled +
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: 96eabe58-f57f-47a0-9c9d-3d46db83888e
+                meta:
+                  lastUpdated: '2026-06-25T18:23:34.856+00:00'
+                type: searchset
+                total: 1
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter?patient=450858&_count=2
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter?patient=450858&_count=2&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/362378
+                  resource:
+                    resourceType: Encounter
+                    id: '362378'
+                    meta:
+                      lastUpdated: '2026-06-25T15:58:35.000+00:00'
+                    status: finished
+                    class:
+                      system: http://terminology.hl7.org/ValueSet/v3-ActEncounterCode
+                      code: AMB
+                      display: ambulatory
+                    type:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type
+                        code: VISIT
+                        display: Visit
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    participant:
+                    - type:
+                      - coding:
+                        - system: http://hl7.org/fhir/ValueSet/encounter-participant-type
+                          code: PPRF
+                          display: primary performer
+                        text: primary performer
+                      individual:
+                        reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399
+                        display: Jane Doe, MD
+                    period:
+                      start: '2026-06-25T15:55:00+00:00'
+                      end: '2026-06-25T15:58:38+00:00'
+                    diagnosis:
+                    - condition:
+                        reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295
+                        display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295
+                    location:
+                    - location:
+                        reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826
+                        display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  responses:
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    NotFound:
+      description: NOT FOUND
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
+    Forbidden:
+      description: FORBIDDEN
+  schemas:
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+      x-default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhN2NiZmYwZWUxYjk0ODkwOWMxZmQzYzk3ODhlZjc1NCIsImlzcyI6Im1vZG1lZCIsInN1YiI6ImZoaXJfUWZMbG8iLCJ1cmxQcmVmaXgiOiJhcGlwb3J0YWwiLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJ2ZW5kb3IiOiJmaGlyX1FmTGxvQGFwaXBvcnRhbCIsInBvbCI6ImNoYW5nZW1lIn0.f0VcA3R56IuAvdbPhInqUbhmEwk-tiOIeELVpTZCUZ8
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.
+
+
+        `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`'
+      x-default: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f

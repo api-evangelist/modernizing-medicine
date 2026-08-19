@@ -1,0 +1,203 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Appointments and Slots API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appointments and Slots",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve details for a specific Appointment by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment/:id",
+            "headers": [
+              {
+                "name": "Content-flag",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific Appointment by ID"
+        },
+        {
+          "info": {
+            "name": "Update an Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an Appointment"
+        },
+        {
+          "info": {
+            "name": "Retrieve All Appointments for a Practice/Firm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment",
+            "headers": [
+              {
+                "name": "Content-flag",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "appointment-type",
+                "value": "",
+                "type": "query",
+                "description": "The style of appointment or patient that has been booked in the slot (not service type)"
+              },
+              {
+                "name": "created",
+                "value": "",
+                "type": "query",
+                "description": "Created date in format of yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Appointment date/time."
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "This location is listed in the participants of the appointment"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "One of the individuals of the appointment is this patient"
+              },
+              {
+                "name": "practitioner",
+                "value": "",
+                "type": "query",
+                "description": "One of the individuals of the appointment is this practitioner"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The overall status of the appointment"
+              },
+              {
+                "name": "supporting-info",
+                "value": "",
+                "type": "query",
+                "description": "Additional information to support the appointment"
+              }
+            ]
+          },
+          "docs": "Retrieve All Appointments for a Practice/Firm"
+        },
+        {
+          "info": {
+            "name": "Create an Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Appointment"
+        },
+        {
+          "info": {
+            "name": "Search for a slot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Slot",
+            "params": [
+              {
+                "name": "appointment-type",
+                "value": "",
+                "type": "query",
+                "description": "The style of appointment or patient that may be booked in the slot"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The param \"date\" supports date with prefix of eq in yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ format AND date range with start date with ge prefix and yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ format and end date with le prefix and yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ format"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "List of identifiers to search by for Slots. Valid Identifier Systems are PRN with a system value of https://www.hl7.org/fhir/v2/0203/index.html#v2-0203-PRN which is used for Provider id,  FI with a system value of https://www.hl7.org/fhir/v2/0203/index.html#v2-0203-FI which is used for Location id"
+              }
+            ]
+          },
+          "docs": "Search for a slot"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

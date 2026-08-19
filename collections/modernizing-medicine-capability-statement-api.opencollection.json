@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modernizing Medicine Capability Statement API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Capability Statement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "server-capabilities: Fetch the server FHIR CapabilityStatement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/metadata"
+          },
+          "docs": "server-capabilities: Fetch the server FHIR CapabilityStatement"
+        },
+        {
+          "info": {
+            "name": "server-capabilities: Fetch the server FHIR CapabilityStatement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/fhir/v2/metadata",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "server-capabilities: Fetch the server FHIR CapabilityStatement"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

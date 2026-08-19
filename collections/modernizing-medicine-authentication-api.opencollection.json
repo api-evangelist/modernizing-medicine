@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modernizing Medicine Authentication API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorization endpoint (authorization_code)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sso.ema.md/auth/realms/fhir/protocol/openid-connect/auth",
+            "params": [
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "openid fhirUser launch/patient patient/Patient.rs",
+                "type": "query",
+                "description": "Space-separated SMART scopes"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aud",
+                "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+                "type": "query",
+                "description": "The FHIR base URL of the endpoint you're connecting to (a customer endpoint from the directory, or the demonstration endpoint for testing)"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Begin the SMART App Launch `authorization_code` flow. Redirect the user's browser here; on approval the server redirects to your `redirect_uri` with a `code` to exchange at the token endpoint. PKCE (`S256`) is supported."
+        },
+        {
+          "info": {
+            "name": "Token endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://sso.ema.md/auth/realms/fhir/protocol/openid-connect/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "code_verifier",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Exchange an authorization `code` for tokens, refresh a token, or obtain a `client_credentials` token. Send `client_id`/`client_secret` in the body (`client_secret_post`)."
+        },
+        {
+          "info": {
+            "name": "Obtain OAuth2 Token (Legacy — password grant)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://sso.ema.md/ws/oauth2/grant",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-api-key",
+              "value": "{{x-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "**Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the OAuth2 `client_credentials` flow described in the **Authentication** guide. Treat the returned `access_token` as an opaque Bearer token."
+        },
+        {
+          "info": {
+            "name": "Obtain OAuth2 Token (client_credentials)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://sso.ema.md/auth/realms/ema-fhir/protocol/openid-connect/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Obtain an access token using the OAuth2 `client_credentials` grant. Send your `client_id` and `client_secret`. Returns an RS256-signed JWT; the `scope` claim is a space-separated list of ACLs and no refresh token is returned."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

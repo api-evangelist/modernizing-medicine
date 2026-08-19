@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "ce98356b-910e-4c4e-8601-eba45eab7276",
+      "name": "Goal",
+      "description": {
+        "content": "The Goal FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80dc2cff-b853-4971-9806-b80909492fac",
+          "name": "read-instance: Read Goal instance",
+          "request": {
+            "name": "read-instance: Read Goal instance",
+            "description": {},
+            "url": {
+              "path": [
+                "Goal",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "881c9fa5-3ea7-41cb-80ae-76121f1c002f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Goal",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8adf386f-7559-4f91-927a-7b32f5cdfbf4",
+          "name": "search-type: Search for Goal instances",
+          "request": {
+            "name": "search-type: Search for Goal instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Goal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "lifecycle-status",
+                  "value": "<string>",
+                  "description": "proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "Who this goal is intended for"
+                },
+                {
+                  "disabled": false,
+                  "key": "target-date",
+                  "value": "<dateTime>",
+                  "description": "Reach goal on or before"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cff1a204-e203-4319-8da1-79a10847d6ae",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Goal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lifecycle-status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "target-date",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4c2541cb-8742-4ba2-9ede-0aa2c8c068b5",
+    "name": "ModMed Certified Goal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.",
+      "type": "text/plain"
+    }
+  }
+}

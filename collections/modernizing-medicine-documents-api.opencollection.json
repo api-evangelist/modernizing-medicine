@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Documents API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Document by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve Document by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve Document resources meeting the specified search criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 10"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The original upload date in format of yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "File extension type, this is an optional field, e.g. ccda, note"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "File title, this is an optional field"
+              },
+              {
+                "name": "encounter",
+                "value": "",
+                "type": "query",
+                "description": "Context of the document content"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "Document reference identifier, can be search by filename passing the identifier filename and the value in format filename|value. This is an optional field"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Patient reference url in format : /resoucrename/id or id, this is a mandatory field."
+              },
+              {
+                "name": "requisition",
+                "value": "",
+                "type": "query",
+                "description": "Composite Request ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "File extension type, this is an optional field e.g. type=pdf"
+              }
+            ]
+          },
+          "docs": "Retrieve Document resources meeting the specified search criteria"
+        },
+        {
+          "info": {
+            "name": "Upload document from S3 URL to EMA",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload document from S3 URL to EMA"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

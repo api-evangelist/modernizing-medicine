@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Diagnostic Report API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DiagnosticReport",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read DiagnosticReport instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/DiagnosticReport/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read DiagnosticReport instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for DiagnosticReport instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/DiagnosticReport",
+            "params": [
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the resource"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Which diagnostic discipline/department created the report"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The clinically relevant time of the report"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "The subject of the report if a patient"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the report"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

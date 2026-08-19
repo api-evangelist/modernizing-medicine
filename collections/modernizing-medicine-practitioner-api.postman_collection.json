@@ -1,0 +1,351 @@
+{
+  "item": [
+    {
+      "id": "78784b7c-ddb6-49a6-acbf-0cb7e5acc625",
+      "name": "Practitioner",
+      "description": {
+        "content": "The Practitioner FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b40a831d-2143-4e1e-9aab-cb9931597f6c",
+          "name": "read-instance: Read Practitioner instance",
+          "request": {
+            "name": "read-instance: Read Practitioner instance",
+            "description": {},
+            "url": {
+              "path": [
+                "Practitioner",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb664ab5-48d0-4ad6-b8a6-3aece3175e8d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Practitioner",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Practitioner\",\n  \"id\": \"1.120182.2.14672596\",\n  \"meta\": {\n    \"source\": \"Organization/1.120182\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner\"\n    ]\n  },\n  \"identifier\": [\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-npi\",\n      \"value\": \"3102489191\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Doe\",\n      \"given\": [\n        \"Jane\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"Jane.Doe@pb.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"1112223333\",\n      \"use\": \"mobile\"\n    }\n  ],\n  \"address\": [\n    {\n      \"line\": [\n        \"123 Main Street\"\n      ],\n      \"city\": \"Boca Raton\",\n      \"state\": \"FL\",\n      \"postalCode\": \"334371111\",\n      \"country\": \"United States of America\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f57b2e1-ee7f-4c78-98e2-bf078aabc6a0",
+          "name": "search-type: Search for Practitioner instances",
+          "request": {
+            "name": "search-type: Search for Practitioner instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Practitioner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<string>",
+                  "description": "Whether the practitioner record is active"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "A value in an email contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "family",
+                  "value": "<string>",
+                  "description": "A portion of the family name"
+                },
+                {
+                  "disabled": false,
+                  "key": "given",
+                  "value": "<string>",
+                  "description": "A portion of the given name"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "A practitioner's Identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "A value in a phone contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "telecom",
+                  "value": "<string>",
+                  "description": "The value in any kind of contact"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef3f1d29-9789-4169-9082-250f57bd94f5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Practitioner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "telecom",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"total\": 19,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner/1.120182.2.14672596\",\n      \"resource\": {\n        \"resourceType\": \"Practitioner\",\n        \"id\": \"1.120182.2.14672596\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://hl7.org/fhir/sid/us-npi\",\n            \"value\": \"3102489191\"\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Doe\",\n            \"given\": [\n              \"Jane\"\n            ]\n          }\n        ],\n        \"telecom\": [\n          {\n            \"system\": \"email\",\n            \"value\": \"Jane.Doe@pb.com\"\n          },\n          {\n            \"system\": \"phone\",\n            \"value\": \"1112223333\",\n            \"use\": \"mobile\"\n          }\n        ],\n        \"address\": [\n          {\n            \"line\": [\n              \"123 Main Street\"\n            ],\n            \"city\": \"Boca Raton\",\n            \"state\": \"FL\",\n            \"postalCode\": \"334371111\",\n            \"country\": \"United States of America\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner/1.120182.2.14672595\",\n      \"resource\": {\n        \"resourceType\": \"Practitioner\",\n        \"id\": \"1.120182.2.14672595\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://hl7.org/fhir/sid/us-npi\",\n            \"value\": \"9178840274\"\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Sherling\",\n            \"given\": [\n              \"Michael\"\n            ]\n          }\n        ],\n        \"telecom\": [\n          {\n            \"system\": \"email\",\n            \"value\": \"Michael.Sherling@pb.com\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner/1.120182.2.17081470\",\n      \"resource\": {\n        \"resourceType\": \"Practitioner\",\n        \"id\": \"1.120182.2.17081470\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://hl7.org/fhir/sid/us-npi\",\n            \"value\": \"0000000000\"\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Provider\",\n            \"given\": [\n              \"FHIR\"\n            ]\n          }\n        ],\n        \"telecom\": [\n          {\n            \"system\": \"email\",\n            \"value\": \"fhir-provider@modmed.com\"\n          },\n          {\n            \"system\": \"phone\",\n            \"value\": \"2155551212\",\n            \"use\": \"home\"\n          },\n          {\n            \"system\": \"phone\",\n            \"value\": \"2155551212\",\n            \"use\": \"mobile\"\n          },\n          {\n            \"system\": \"phone\",\n            \"value\": \"2155551212\",\n            \"use\": \"work\"\n          },\n          {\n            \"system\": \"fax\",\n            \"value\": \"2155551212\",\n            \"use\": \"work\"\n          }\n        ],\n        \"address\": [\n          {\n            \"line\": [\n              \"123 Main Street\"\n            ],\n            \"city\": \"Boca Raton\",\n            \"state\": \"FL\",\n            \"postalCode\": \"334371111\",\n            \"country\": \"United States of America\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner/1.120182.2.14672597\",\n      \"resource\": {\n        \"resourceType\": \"Practitioner\",\n        \"id\": \"1.120182.2.14672597\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"extension\": [\n              {\n                \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n                \"valueCode\": \"unknown\"\n              }\n            ]\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Practitioner\",\n            \"given\": [\n              \"Nurse\"\n            ]\n          }\n        ],\n        \"telecom\": [\n          {\n            \"system\": \"email\",\n            \"value\": \"nurse@pb.com\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner/1.120182.2.14657385\",\n      \"resource\": {\n        \"resourceType\": \"Practitioner\",\n        \"id\": \"1.120182.2.14657385\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"extension\": [\n              {\n                \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n                \"valueCode\": \"unknown\"\n              }\n            ]\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Admin\",\n            \"given\": [\n              \"Firm\"\n            ]\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "34ab320a-51b4-4ed6-a6bb-fffe8fd6052e",
+    "name": "ModMed Certified Practitioner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.",
+      "type": "text/plain"
+    }
+  }
+}

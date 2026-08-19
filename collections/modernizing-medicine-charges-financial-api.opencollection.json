@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Charges/Financial API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charges/Financial",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for a patient’s account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Account",
+            "params": [
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Account resources can be searched by patient id, which is a required field."
+              }
+            ]
+          },
+          "docs": "Search for a patient’s account"
+        },
+        {
+          "info": {
+            "name": "Get a specific ChargeItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem/CHG|:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Get a specific ChargeItem"
+        },
+        {
+          "info": {
+            "name": "Get a specific inbound Charge for a Practice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem/INBOUND|:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Get a specific inbound Charge for a Practice"
+        },
+        {
+          "info": {
+            "name": "Get all Inbound Charges for a Practice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem/INBOUND"
+          },
+          "docs": "Get all Inbound Charges for a Practice"
+        },
+        {
+          "info": {
+            "name": "Get All ChargeItems for a Practice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Encounter reference url in format : /resoucrename/id or id."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Patient reference url in format : /resoucrename/id or id."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Charge Item Type Search Parameter."
+              }
+            ]
+          },
+          "docs": "Get All ChargeItems for a Practice"
+        },
+        {
+          "info": {
+            "name": "Create Charges Into ModMedPM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit charges from an external billing system into ModMed PM. Each ChargeItem represents one transaction and may contain multiple `financialTransactionDetail` lines — one per CPT/HCPCS code billed.\n\n**Billing pattern — fee schedule vs explicit costs:** Most integrations omit `totalCost` and `unitCost`. In that case ModMed PM looks up the applicable fee schedule and calculates the charge amounts automatically. Include `totalCost` at the transaction level and `unitCost` per line only when the sen"
+        },
+        {
+          "info": {
+            "name": "Retrieve RelatedPerson for an ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/RelatedPerson/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve RelatedPerson for an ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

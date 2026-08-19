@@ -1,0 +1,2898 @@
+{
+  "item": [
+    {
+      "id": "551cafa7-b42b-4d58-a007-e03073337741",
+      "name": "Appointments and Slots",
+      "description": {
+        "content": "Appoitments and Slots Details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3aaf57c-6eb6-4870-832b-2398a67def02",
+          "name": "Retrieve details for a specific Appointment by ID",
+          "request": {
+            "name": "Retrieve details for a specific Appointment by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Appointment",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                "key": "Content-flag",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82e029df-7927-42d1-b936-7885ec5fc582",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"204865\",\n  \"meta\": {\n    \"lastUpdated\": \"2025-05-15T18:02:15.000+00:00\"\n  },\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1957\",\n        \"display\": \"Follow-up\"\n      }\n    ],\n    \"text\": \"Follow-up\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Other\",\n          \"display\": \"OTHER\"\n        }\n      ],\n      \"text\": \"OTHER\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"false\"\n      },\n      \"display\": \"Example SupportingInformation\"\n    }\n  ],\n  \"start\": \"2025-05-08T19:00:00.000+00:00\",\n  \"end\": \"2025-05-08T19:10:00.000+00:00\",\n  \"minutesDuration\": 10,\n  \"created\": \"2025-05-08T18:41:05+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e5e0820-2e5f-4c6b-bef3-05832aea1eea",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3048f1f-130a-470e-82dd-0e15d897f6d8",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e44fd0a-54cf-4c37-ab5e-1b560f896064",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05c26b85-384a-4755-b17b-611effb80816",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7bbc4915-6811-4fb0-8503-b50bb730e9cf",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46ccfe08-c23d-4b4e-b4c2-6088bb430afa",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7649f51e-2909-49be-b048-2209986ba841",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "704717af-5994-4246-9770-e4d6e771878b",
+          "name": "Update an Appointment",
+          "request": {
+            "name": "Update an Appointment",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Appointment",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bafb4a2b-7eee-4f43-933f-004e336d0267",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c57d0615-7f2e-4c77-88b6-a25c52c82f47",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72a03e9e-87f5-405e-b61b-75a2892c9f42",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "97df5929-48cf-4367-acc1-39cf63bede65",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2669e8a8-1b39-4929-981a-bec4c55d469e",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e89ab80-fcdf-46d6-bf4b-23870d766c45",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a75f1da9-34f8-4903-bfbe-c9434e92dd4c",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "075d06df-37a5-48e9-9dff-26efb2b432b2",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"id\": \"328983\",\n  \"status\": \"booked\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1959\",\n        \"display\": \"Surgery\"\n      }\n    ],\n    \"text\": \"Surgery\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"identifier\": {\n        \"system\": \"NEW_PATIENT\",\n        \"value\": \"true\"\n      },\n      \"display\": \"New Patient: true\"\n    }\n  ],\n  \"start\": \"2026-06-26T16:30:00.000+00:00\",\n  \"end\": \"2026-06-26T17:00:00.000+00:00\",\n  \"minutesDuration\": 30,\n  \"created\": \"2026-06-25T15:51:20+00:00\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375397\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4ba4150-8a60-4f3d-9ebd-ee38aa36b60b",
+          "name": "Retrieve All Appointments for a Practice/Firm",
+          "request": {
+            "name": "Retrieve All Appointments for a Practice/Firm",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Appointment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<string>",
+                  "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+                },
+                {
+                  "disabled": false,
+                  "key": "_lastUpdated",
+                  "value": "<date>",
+                  "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "appointment-type",
+                  "value": "<string>",
+                  "description": "The style of appointment or patient that has been booked in the slot (not service type)"
+                },
+                {
+                  "disabled": false,
+                  "key": "created",
+                  "value": "<date>",
+                  "description": "Created date in format of yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "Appointment date/time."
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "<string>",
+                  "description": "This location is listed in the participants of the appointment"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page to be used for paginated search"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "One of the individuals of the appointment is this patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "practitioner",
+                  "value": "<string>",
+                  "description": "One of the individuals of the appointment is this practitioner"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The overall status of the appointment"
+                },
+                {
+                  "disabled": false,
+                  "key": "supporting-info",
+                  "value": "<string>",
+                  "description": "Additional information to support the appointment"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                "key": "Content-flag",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4da23119-240c-4844-9520-13fdc29c25bf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"id\": \"09f7a0bc-d577-4854-bcad-b54fa68749e4\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T14:56:06.963+00:00\"\n  },\n  \"type\": \"searchset\",\n  \"total\": 2,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment?_count=2\"\n    },\n    {\n      \"relation\": \"next\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment?_count=2&page=2\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment/204865\",\n      \"resource\": {\n        \"resourceType\": \"Appointment\",\n        \"id\": \"204865\",\n        \"meta\": {\n          \"lastUpdated\": \"2025-05-15T18:02:15.000+00:00\"\n        },\n        \"status\": \"pending\",\n        \"appointmentType\": {\n          \"coding\": [\n            {\n              \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n              \"code\": \"1957\",\n              \"display\": \"Follow-up\"\n            }\n          ],\n          \"text\": \"Follow-up\"\n        },\n        \"reasonCode\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n                \"code\": \"Other\",\n                \"display\": \"OTHER\"\n              }\n            ],\n            \"text\": \"OTHER\"\n          }\n        ],\n        \"supportingInformation\": [\n          {\n            \"identifier\": {\n              \"system\": \"NEW_PATIENT\",\n              \"value\": \"false\"\n            },\n            \"display\": \"Example SupportingInformation\"\n          }\n        ],\n        \"start\": \"2025-05-08T19:00:00.000+00:00\",\n        \"end\": \"2025-05-08T19:10:00.000+00:00\",\n        \"minutesDuration\": 10,\n        \"created\": \"2025-05-08T18:41:05+00:00\",\n        \"participant\": [\n          {\n            \"actor\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n            }\n          },\n          {\n            \"actor\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871\"\n            }\n          },\n          {\n            \"actor\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment/205149\",\n      \"resource\": {\n        \"resourceType\": \"Appointment\",\n        \"id\": \"205149\",\n        \"meta\": {\n          \"lastUpdated\": \"2025-10-14T01:23:10.000+00:00\"\n        },\n        \"status\": \"fulfilled\",\n        \"appointmentType\": {\n          \"coding\": [\n            {\n              \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n              \"code\": \"1957\",\n              \"display\": \"Follow-up\"\n            }\n          ],\n          \"text\": \"Follow-up\"\n        },\n        \"reasonCode\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n                \"code\": \"Other\",\n                \"display\": \"OTHER\"\n              }\n            ],\n            \"text\": \"OTHER\"\n          }\n        ],\n        \"supportingInformation\": [\n          {\n            \"identifier\": {\n              \"system\": \"NEW_PATIENT\",\n              \"value\": \"false\"\n            },\n            \"display\": \"Example SupportingInformation\"\n          }\n        ],\n        \"start\": \"2025-05-12T12:00:00.000+00:00\",\n        \"end\": \"2025-05-12T12:10:00.000+00:00\",\n        \"minutesDuration\": 10,\n        \"created\": \"2025-05-09T16:32:26+00:00\",\n        \"participant\": [\n          {\n            \"actor\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827\"\n            }\n          },\n          {\n            \"actor\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871\"\n            }\n          },\n          {\n            \"actor\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65494929-3fe0-43bd-9769-85f0df89cf27",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40c6f34e-8507-49ce-a759-42fd442b97be",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "600f1ba9-1f73-4fff-8f6a-89081e7349dc",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8233bf4-efd7-4ef8-bc53-de3dfdf1efa8",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf4bc3de-d9ad-49f8-a585-6774f609ae32",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0eda91b3-d422-450c-b756-4d64a44f56fd",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e020907-fd18-4d6e-ae28-7e439d2de9fc",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "supporting-info",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Appointment payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb95490c-7455-48e6-8039-f326e5924c95",
+          "name": "Create an Appointment",
+          "request": {
+            "name": "Create an Appointment",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Appointment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "aa9e23ed-6469-4e3d-beaf-893552aab9ae",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "\"<object>\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a3ec9ea-62d5-422f-bdd0-4c9cb71f009d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ef2b04f-6ad7-43df-a93d-ab04fffcee28",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "644e93be-4987-45fd-8691-9af3069bce64",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84f17181-577a-493a-8c4f-f7a0bf633382",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51ea0958-de53-4eb7-9501-80a0b44426c1",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f358d3d-08e5-487e-8133-3882462574b1",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "542b5563-4d32-4e4f-a0b3-d6e60cfd9a75",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9d97f62-ebd3-4cc5-9b46-a0d32350200f",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Appointment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Appointment\",\n  \"status\": \"pending\",\n  \"appointmentType\": {\n    \"coding\": [\n      {\n        \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n        \"code\": \"1152\",\n        \"display\": \"New Patient\"\n      }\n    ],\n    \"text\": \"New Patient\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason\",\n          \"code\": \"Medical Non-emergency\",\n          \"display\": \"MEDICAL_NON_EMERGENCY\"\n        }\n      ],\n      \"text\": \"MEDICAL_NON_EMERGENCY\"\n    }\n  ],\n  \"start\": \"2019-09-25T20:00:00.000+00:00\",\n  \"end\": \"2019-09-25T20:15:00.000+00:00\",\n  \"minutesDuration\": \"15\",\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/9487211\",\n        \"display\": \"Test Sample\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Location/822\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/822\"\n      }\n    },\n    {\n      \"actor\": {\n        \"reference\": \"Practitioner/317044\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/317044\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56f366a2-0b4c-4ebc-a847-2d3c20649c2c",
+          "name": "Search for a slot",
+          "request": {
+            "name": "Search for a slot",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Slot"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "appointment-type",
+                  "value": "<string>",
+                  "description": "(Required) The style of appointment or patient that may be booked in the slot"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "The param \"date\" supports date with prefix of eq in yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ format AND date range with start date with ge prefix and yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ format and end date with le prefix and yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ format"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "List of identifiers to search by for Slots. Valid Identifier Systems are PRN with a system value of https://www.hl7.org/fhir/v2/0203/index.html#v2-0203-PRN which is used for Provider id,  FI with a system value of https://www.hl7.org/fhir/v2/0203/index.html#v2-0203-FI which is used for Location id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8dbb08e-2a7f-4cc7-b9bb-782d23894b7a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"id\": \"3e9ef3b4-70db-41be-bb3e-fe01eaaeca60\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T16:22:41.214+00:00\"\n  },\n  \"type\": \"searchset\",\n  \"total\": 2,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Slot?appointment-type=1957&identifier=http%3A%2F%2Fwww.hl7.org%2Ffhir%2Fv2%2F0203%2Findex.html%23v2-0203-PRN%7C450861&date=ge2026-07-06T00%3A00%3A00.000Z&date=le2026-07-11T00%3A00%3A00.000Z&_count=2\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Slot/fc7bd826-8ed8-443e-86df-f46eb2b9d5e0\",\n      \"resource\": {\n        \"resourceType\": \"Slot\",\n        \"id\": \"fc7bd826-8ed8-443e-86df-f46eb2b9d5e0\",\n        \"identifier\": [\n          {\n            \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n            \"value\": \"1957\"\n          },\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-FI\",\n            \"value\": \"826\"\n          },\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-PRN\",\n            \"value\": \"450861\"\n          }\n        ],\n        \"schedule\": {\n          \"display\": \"Available Slot for Frederick Frankenstein at Main Street Clinic\"\n        },\n        \"status\": \"free\",\n        \"start\": \"2026-07-06T12:20:00.000+00:00\",\n        \"end\": \"2026-07-06T12:30:00.000+00:00\"\n      }\n    },\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Slot/e141b829-13b4-4101-9ec3-9f3733240fbf\",\n      \"resource\": {\n        \"resourceType\": \"Slot\",\n        \"id\": \"e141b829-13b4-4101-9ec3-9f3733240fbf\",\n        \"identifier\": [\n          {\n            \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type\",\n            \"value\": \"1957\"\n          },\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-FI\",\n            \"value\": \"826\"\n          },\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-PRN\",\n            \"value\": \"450861\"\n          }\n        ],\n        \"schedule\": {\n          \"display\": \"Available Slot for Frederick Frankenstein at Main Street Clinic\"\n        },\n        \"status\": \"free\",\n        \"start\": \"2026-07-06T12:45:00.000+00:00\",\n        \"end\": \"2026-07-06T12:55:00.000+00:00\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e820b71-a0c0-47ef-871b-a13dbd2d6344",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4ce3514-4998-4ab3-ba9f-11347eeb8715",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5a62f45-6f1e-4a09-9a10-7070c23bdd36",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03d20a67-1dba-4d07-9939-59dcbf85d01e",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bcf20d05-fd5e-47be-b7c4-7959155d01c1",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "adbf55b9-3d94-46de-9528-9f1bfaff33e8",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15cd098c-67da-4f7e-afe6-38dc06755b8c",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Slot"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "appointment-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3a79911d-cc58-4db9-8798-2d78e2f7774f",
+    "name": "EMA Proprietary Appointments and Slots API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.\n\nContact Support:\n Email: ankit.srivastava@modmed.com",
+      "type": "text/plain"
+    }
+  }
+}

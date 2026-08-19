@@ -1,0 +1,3736 @@
+{
+  "item": [
+    {
+      "id": "972c4aba-51ed-4af3-9191-02c853b895dc",
+      "name": "Patient",
+      "description": {
+        "content": "The Patient FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f5792695-5b3e-4d89-b402-864f5bc435b9",
+          "name": "GET: /Patient/$export",
+          "request": {
+            "name": "GET: /Patient/$export",
+            "description": {},
+            "url": {
+              "path": [
+                "Patient",
+                "$export"
+              ],
+              "host": [
+                "{{Patient-$export-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_outputFormat",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "42102530-fd37-472b-a925-731b964b7c9c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient",
+                    "$export"
+                  ],
+                  "host": [
+                    "{{Patient-$export-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_outputFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a04c533c-6a46-499c-8e5a-16523a296745",
+          "name": "GET: /Patient/{id}/$export",
+          "request": {
+            "name": "GET: /Patient/{id}/$export",
+            "description": {},
+            "url": {
+              "path": [
+                "Patient",
+                ":id",
+                "$export"
+              ],
+              "host": [
+                "{{Patient-id-$export-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_outputFormat",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_since",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "_type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "158095e4-3235-49c1-89ec-a455aa8a0b7e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient",
+                    ":id",
+                    "$export"
+                  ],
+                  "host": [
+                    "{{Patient-id-$export-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_outputFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_since",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ad052b8-0f4f-4706-9076-538848c87220",
+          "name": "read-instance: Read Patient instance",
+          "request": {
+            "name": "read-instance: Read Patient instance",
+            "description": {},
+            "url": {
+              "path": [
+                "Patient",
+                ":id"
+              ],
+              "host": [
+                "{{Patient-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83ccddec-3411-4340-9578-9789bccef1c3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"1.120182.1.17082675\",\n  \"meta\": {\n    \"source\": \"Organization/1.120182\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient\"\n    ]\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex\",\n      \"valueCode\": \"F\"\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex\",\n      \"valueCode\": \"248152002\"\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity\",\n      \"valueCodeableConcept\": {\n        \"coding\": [\n          {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"unknown\"\n          }\n        ]\n      }\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"http://hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"MM0000000002\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/v2/0203/index.html#v2-0203-PT\",\n      \"value\": \"120182PAT000000002\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/v2/0203/index.html#v2-0203-PI\",\n      \"value\": \"17082675\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Syrup\",\n      \"given\": [\n        \"Mabel\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"mabel.syrup@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"9998887777\",\n      \"use\": \"mobile\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"female\",\n  \"birthDate\": \"1991-06-14\",\n  \"address\": [\n    {\n      \"type\": \"both\",\n      \"postalCode\": \"17033\"\n    },\n    {\n      \"type\": \"both\",\n      \"line\": [\n        \"1 Main St\"\n      ],\n      \"city\": \"Hershey\",\n      \"district\": \"Dauphin County\",\n      \"state\": \"PA\",\n      \"postalCode\": \"17033\",\n      \"country\": \"United_States_of_America\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n        \"code\": \"UNK\",\n        \"display\": \"Unknown\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2e1bb8b-69e1-400e-9e71-6f53923655fd",
+          "name": "search-type: Search for Patient instances",
+          "request": {
+            "name": "search-type: Search for Patient instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Patient"
+              ],
+              "host": [
+                "{{Patient-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<string>",
+                  "description": "Whether the patient record is active"
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+                },
+                {
+                  "disabled": false,
+                  "key": "address-city",
+                  "value": "<string>",
+                  "description": "A city specified in an address"
+                },
+                {
+                  "disabled": false,
+                  "key": "address-country",
+                  "value": "<string>",
+                  "description": "A country specified in an address"
+                },
+                {
+                  "disabled": false,
+                  "key": "address-postalcode",
+                  "value": "<string>",
+                  "description": "A postalCode specified in an address"
+                },
+                {
+                  "disabled": false,
+                  "key": "address-state",
+                  "value": "<string>",
+                  "description": "A state specified in an address"
+                },
+                {
+                  "disabled": false,
+                  "key": "address-use",
+                  "value": "<string>",
+                  "description": "A use code specified in an address"
+                },
+                {
+                  "disabled": false,
+                  "key": "birthdate",
+                  "value": "<dateTime>",
+                  "description": "The patient's date of birth"
+                },
+                {
+                  "disabled": false,
+                  "key": "deceased",
+                  "value": "<string>",
+                  "description": "This patient has been marked as deceased, or as a death date entered"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "A value in an email contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "family",
+                  "value": "<string>",
+                  "description": "A portion of the family name of the patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "gender",
+                  "value": "<string>",
+                  "description": "Gender of the patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "general-practitioner",
+                  "value": "<string>",
+                  "description": "Patient's nominated general practitioner, not the organization that manages the record"
+                },
+                {
+                  "disabled": false,
+                  "key": "given",
+                  "value": "<string>",
+                  "description": "A portion of the given name of the patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "A patient identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Language code (irrespective of use value)"
+                },
+                {
+                  "disabled": false,
+                  "key": "link",
+                  "value": "<string>",
+                  "description": "All patients linked to the given patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "link-type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "A value in a phone contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "telecom",
+                  "value": "<string>",
+                  "description": "The value in any kind of telecom details of the patient"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "55d66404-ca9d-4a3b-870c-0d4741639c91",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address-city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address-country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address-state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address-use",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "deceased",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "link",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "link-type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "telecom",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"total\": 1,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Patient?family=Syrup\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Patient/1.120182.1.17082675\",\n      \"resource\": {\n        \"resourceType\": \"Patient\",\n        \"id\": \"1.120182.1.17082675\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient\"\n          ]\n        },\n        \"extension\": [\n          {\n            \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n            \"extension\": [\n              {\n                \"url\": \"ombCategory\",\n                \"valueCoding\": {\n                  \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n                  \"code\": \"UNK\",\n                  \"display\": \"Unknown\"\n                }\n              },\n              {\n                \"url\": \"text\",\n                \"valueString\": \"Unknown\"\n              }\n            ]\n          },\n          {\n            \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n            \"extension\": [\n              {\n                \"url\": \"text\",\n                \"valueString\": \"Unspecified\"\n              }\n            ]\n          },\n          {\n            \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex\",\n            \"valueCode\": \"F\"\n          },\n          {\n            \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex\",\n            \"valueCode\": \"248152002\"\n          },\n          {\n            \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity\",\n            \"valueCodeableConcept\": {\n              \"coding\": [\n                {\n                  \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n                  \"code\": \"UNK\",\n                  \"display\": \"unknown\"\n                }\n              ]\n            }\n          }\n        ],\n        \"identifier\": [\n          {\n            \"system\": \"http://hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n            \"value\": \"MM0000000002\"\n          },\n          {\n            \"system\": \"http://hl7.org/fhir/v2/0203/index.html#v2-0203-PT\",\n            \"value\": \"120182PAT000000002\"\n          },\n          {\n            \"system\": \"http://hl7.org/fhir/v2/0203/index.html#v2-0203-PI\",\n            \"value\": \"17082675\"\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Syrup\",\n            \"given\": [\n              \"Mabel\"\n            ]\n          }\n        ],\n        \"telecom\": [\n          {\n            \"system\": \"email\",\n            \"value\": \"mabel.syrup@example.com\"\n          },\n          {\n            \"system\": \"phone\",\n            \"value\": \"9998887777\",\n            \"use\": \"mobile\",\n            \"rank\": 1\n          }\n        ],\n        \"gender\": \"female\",\n        \"birthDate\": \"1991-06-14\",\n        \"address\": [\n          {\n            \"type\": \"both\",\n            \"postalCode\": \"17033\"\n          },\n          {\n            \"type\": \"both\",\n            \"line\": [\n              \"1 Main St\"\n            ],\n            \"city\": \"Hershey\",\n            \"district\": \"Dauphin County\",\n            \"state\": \"PA\",\n            \"postalCode\": \"17033\",\n            \"country\": \"United_States_of_America\"\n          }\n        ],\n        \"maritalStatus\": {\n          \"coding\": [\n            {\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n              \"code\": \"UNK\",\n              \"display\": \"Unknown\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bd036de-d854-46e0-aeb1-9f1bad1b0fe7",
+          "name": "read-instance: Read Patient instance",
+          "request": {
+            "name": "read-instance: Read Patient instance",
+            "description": {
+              "content": "Retrieve a single Patient resource by its MMI id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Patient",
+                ":id"
+              ],
+              "host": [
+                "{{fhir-v2-Patient-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                "key": "Content-flag",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "943a15f8-2166-4522-9b0b-58d96767f7ec",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"450858\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T15:55:00.000+00:00\"\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"MM0000000059\"\n    },\n    {\n      \"system\": \"PMS\",\n      \"value\": \"112416PAT000000057\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Syrup\",\n      \"given\": [\n        \"Mabel\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"mabel.syrup@modmed.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"9998887777\",\n      \"use\": \"mobile\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"female\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 MAIN ST\"\n      ],\n      \"city\": \"BOCA RATON\",\n      \"state\": \"FL\",\n      \"postalCode\": \"33431\",\n      \"country\": \"United States of America\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"T\",\n        \"display\": \"Unreported\"\n      }\n    ],\n    \"text\": \"Unreported\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "276109b7-927f-4a58-b7ca-04307674ec6c",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8f3cff8-f6bd-44a4-94de-121bd9f7e32d",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17d3ec33-5926-4201-9a57-166edd6c4e7e",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "35420a0c-bc5d-400b-b14c-790c72bce698",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fd19167-a9a1-4d66-b182-629a197b0182",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2716dd7f-3466-441c-9c17-4ee0a4c96981",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3d9bec2-9a41-4dea-b416-b6f4844f3fb5",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "342791b0-9288-4b82-97ed-41e8ab1700c8",
+          "name": "Updates Patient Resource",
+          "request": {
+            "name": "Updates Patient Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Patient",
+                ":id"
+              ],
+              "host": [
+                "{{fhir-v2-Patient-id-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10ce7222-db78-48c8-83e1-d2d03e5cbc34",
+              "name": "Updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"375390\",\n  \"meta\": {\n    \"lastUpdated\": \"2025-09-23T14:51:45.000+00:00\"\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"MM0000000002\"\n    },\n    {\n      \"system\": \"PMS\",\n      \"value\": \"112416PAT000000002\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Test\",\n      \"given\": [\n        \"Female\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"2000-09-09\",\n  \"deceasedBoolean\": false,\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"T\",\n        \"display\": \"Unreported\"\n      }\n    ],\n    \"text\": \"Unreported\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58364a34-6042-4927-8a25-676b1521aae2",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e15e409a-645b-454f-8180-9e04d1adebfc",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21b5a6ea-4c46-4a07-9586-5b7c3e739bac",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f15e176-4fb7-4348-834c-f5f04d5db8f2",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b27bf7a5-9757-4e1d-8463-5598f19d4a7f",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7042c2ee-2770-4e93-9cc9-8db82007af66",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8535166d-b673-4073-9544-18d7791a5b09",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-id-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"50181\",\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race\",\n      \"extension\": [\n        {\n          \"url\": \"ombCategory\",\n          \"valueCoding\": {\n            \"system\": \"http://terminology.hl7.org/CodeSystem/v3-NullFlavor\",\n            \"code\": \"UNK\",\n            \"display\": \"Unknown\"\n          }\n        },\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unknown\"\n        }\n      ]\n    },\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"PMS\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://hl7.org/fhir/sid/us-ssn\",\n      \"value\": \"EXAMPLE-ID\"\n    },\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"telecom\": [\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    },\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"deceasedBoolean\": false,\n  \"address\": [\n    {\n      \"use\": \"home\",\n      \"type\": \"both\",\n      \"line\": [\n        \"123 Example St\"\n      ],\n      \"city\": \"Anytown\",\n      \"state\": \"FL\",\n      \"postalCode\": \"00000\",\n      \"country\": \"Chile\"\n    }\n  ],\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"R\",\n        \"display\": \"Registered Domestic Partner\"\n      }\n    ],\n    \"text\": \"Registered Domestic Partner\"\n  },\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0131\",\n              \"code\": \"C\",\n              \"display\": \"Emergency Contact\"\n            }\n          ],\n          \"text\": \"Emergency Contact\"\n        }\n      ],\n      \"name\": {\n        \"given\": [\n          \"Test\"\n        ]\n      },\n      \"telecom\": [\n        {\n          \"system\": \"phone\",\n          \"value\": \"555-555-0100\"\n        }\n      ]\n    }\n  ],\n  \"generalPractitioner\": [\n    {\n      \"identifier\": {\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"REF\",\n              \"display\": \"referrer\"\n            }\n          ],\n          \"text\": \"referrer\"\n        },\n        \"system\": \"NPI\",\n        \"value\": \"EXAMPLE-ID\"\n      },\n      \"display\": \"Example GeneralPractitioner\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9fa77fa-f7e8-419b-a718-245c9eded280",
+          "name": "search-type: Search for Patient instances",
+          "request": {
+            "name": "search-type: Search for Patient instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Patient"
+              ],
+              "host": [
+                "{{fhir-v2-Patient-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<string>",
+                  "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+                },
+                {
+                  "disabled": false,
+                  "key": "_lastUpdated",
+                  "value": "<date>",
+                  "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "address-postalcode",
+                  "value": "<string>",
+                  "description": "A postalCode specified in an address"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<string>",
+                  "description": "Whether the patient record is active (true|false)"
+                },
+                {
+                  "disabled": false,
+                  "key": "birthdate",
+                  "value": "<date>",
+                  "description": "This is the patient's Date of birth - Valid format yyyy-MM-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "A value in an email contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "family",
+                  "value": "<string>",
+                  "description": "This is the patient's last name - Supports exact matches"
+                },
+                {
+                  "disabled": false,
+                  "key": "gender",
+                  "value": "<string>",
+                  "description": "This is the patient's gender - male, female, or unknown"
+                },
+                {
+                  "disabled": false,
+                  "key": "general-practitioner",
+                  "value": "<string>",
+                  "description": "Patient's nominated general practitioner, not the organization that manages the record"
+                },
+                {
+                  "disabled": false,
+                  "key": "given",
+                  "value": "<string>",
+                  "description": "A portion of the given name of the patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "This is a List of Identifiers for a Patient. Valid Identifier Systems are MRN with a system value of https://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR, SSN with a system value of http://hl7.org/fhir/sid/us-ssn, or PMS to be used for the PMS Id"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Language code (irrespective of use value)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page to be used for paginated search"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "A value in a phone contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "us-core-ethnicity",
+                  "value": "<string>",
+                  "description": "Returns patients with an ethnicity extension matching the specified code. Detailed Extension specification can be found at: http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity."
+                },
+                {
+                  "disabled": false,
+                  "key": "us-core-race",
+                  "value": "<string>",
+                  "description": "Returns patients with a race extension matching the specified code. Detailed Extension specification can be found at: http://hl7.org/fhir/us/core/StructureDefinition/us-core-race."
+                },
+                {
+                  "disabled": false,
+                  "key": "referral-source",
+                  "value": "<string>",
+                  "description": "If the Patient has been assigned a Referral Source in MMPM, this will be a reference to that ID. Referral Sources can be found by querying the following Value Set: {base url}/{firm_url_prefix}/ema/fhir/v2/ValueSet/referral-source"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                "key": "Content-flag",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "acbd91ab-7ff0-4473-8f94-b3798f37e474",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"id\": \"3a9ac9dd-ccaa-4caa-8e00-a995adccf77b\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T16:07:28.079+00:00\"\n  },\n  \"type\": \"searchset\",\n  \"total\": 1,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient?family=Syrup&_count=2\"\n    },\n    {\n      \"relation\": \"next\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient?family=Syrup&_count=2&page=2\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n      \"resource\": {\n        \"resourceType\": \"Patient\",\n        \"id\": \"450858\",\n        \"meta\": {\n          \"lastUpdated\": \"2026-06-25T15:55:00.000+00:00\"\n        },\n        \"extension\": [\n          {\n            \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n            \"extension\": [\n              {\n                \"url\": \"text\",\n                \"valueString\": \"Unspecified\"\n              }\n            ]\n          }\n        ],\n        \"identifier\": [\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n            \"value\": \"MM0000000059\"\n          },\n          {\n            \"system\": \"PMS\",\n            \"value\": \"112416PAT000000057\"\n          }\n        ],\n        \"active\": true,\n        \"name\": [\n          {\n            \"family\": \"Syrup\",\n            \"given\": [\n              \"Mabel\"\n            ]\n          }\n        ],\n        \"telecom\": [\n          {\n            \"system\": \"email\",\n            \"value\": \"mabel.syrup@modmed.com\"\n          },\n          {\n            \"system\": \"phone\",\n            \"value\": \"9998887777\",\n            \"use\": \"mobile\",\n            \"rank\": 1\n          }\n        ],\n        \"gender\": \"female\",\n        \"birthDate\": \"1980-01-01\",\n        \"deceasedBoolean\": false,\n        \"address\": [\n          {\n            \"use\": \"home\",\n            \"type\": \"both\",\n            \"line\": [\n              \"123 MAIN ST\"\n            ],\n            \"city\": \"BOCA RATON\",\n            \"state\": \"FL\",\n            \"postalCode\": \"33431\",\n            \"country\": \"United States of America\"\n          }\n        ],\n        \"maritalStatus\": {\n          \"coding\": [\n            {\n              \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n              \"code\": \"T\",\n              \"display\": \"Unreported\"\n            }\n          ],\n          \"text\": \"Unreported\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30c923fd-628c-4968-853b-409d582745d3",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a5bb1ed-b09f-496d-adf4-a25199ec67ab",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a31a3e7d-9de2-46a4-a74b-1c3b4962b8e7",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24ee62c5-c397-439b-831b-79c5864320db",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13886bf7-2879-4c69-9d14-0bfbc9a46a6a",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fba64661-f5a0-4063-80b3-b08744b84b4c",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de8c860e-6f5f-4732-811e-8691b75c25b2",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "address-postalcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "birthdate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "family",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "general-practitioner",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "given",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-ethnicity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "us-core-race",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "referral-source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Optional header. `Referral` adds Referral Contact and Referral Source information to the Patient payload.",
+                    "key": "Content-flag",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d207afd-6ad9-46eb-86b3-0a8d74db80f9",
+          "name": "Creates Patient Resource",
+          "request": {
+            "name": "Creates Patient Resource",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Patient"
+              ],
+              "host": [
+                "{{fhir-v2-Patient-Url}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04c6d65f-bc39-4b9d-8bff-648ed8f9dc7c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "\"<object>\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11495cac-90cf-45bf-95e3-e1dc2f25a961",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Patient\",\n  \"id\": \"375390\",\n  \"meta\": {\n    \"lastUpdated\": \"2025-09-23T14:51:45.000+00:00\"\n  },\n  \"extension\": [\n    {\n      \"url\": \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity\",\n      \"extension\": [\n        {\n          \"url\": \"text\",\n          \"valueString\": \"Unspecified\"\n        }\n      ]\n    }\n  ],\n  \"identifier\": [\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR\",\n      \"value\": \"MM0000000002\"\n    },\n    {\n      \"system\": \"PMS\",\n      \"value\": \"112416PAT000000002\"\n    }\n  ],\n  \"active\": true,\n  \"name\": [\n    {\n      \"family\": \"Test\",\n      \"given\": [\n        \"Female\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"2000-09-09\",\n  \"deceasedBoolean\": false,\n  \"maritalStatus\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.hl7.org/fhir/v2/0002\",\n        \"code\": \"T\",\n        \"display\": \"Unreported\"\n      }\n    ],\n    \"text\": \"Unreported\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a87cfbfb-053a-41d6-8514-ca86808774e5",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "49bc9d34-34ad-476c-8ed6-6c70656d9fe6",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d53323b1-aa3f-4f59-9590-4db3438b78a1",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3362e2b8-62a0-405a-ac01-67d2854ae616",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7862606-8278-4c23-953c-e53a37e1d23d",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47574580-745d-4839-b35b-a82c6a9591e2",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31908ce9-a827-4f54-9a63-96f2558029aa",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{fhir-v2-Patient-Url}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Patient\",\n  \"name\": [\n    {\n      \"use\": \"official\",\n      \"family\": \"Sample\",\n      \"given\": [\n        \"Test\"\n      ]\n    }\n  ],\n  \"gender\": \"male\",\n  \"birthDate\": \"1980-01-01\",\n  \"telecom\": [\n    {\n      \"system\": \"phone\",\n      \"value\": \"555-555-0100\",\n      \"use\": \"home\",\n      \"rank\": 1\n    },\n    {\n      \"system\": \"email\",\n      \"value\": \"test@example.com\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    },
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "Patient-$export-Url"
+    },
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "Patient-id-$export-Url"
+    },
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "Patient-id-Url"
+    },
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "Patient-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "fhir-v2-Patient-id-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "fhir-v2-Patient-Url"
+    }
+  ],
+  "info": {
+    "_postman_id": "3cb81d35-0ece-46af-8490-d6979469e24c",
+    "name": "Modernizing Medicine Patient API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Operations tagged Patient across 2 of this provider's published API definitions: modernizing-medicine-certified-fhir-api-openapi.json, modernizing-medicine-ema-proprietary-api-openapi.json. Each path carries the servers of the definition it was published in.",
+      "type": "text/plain"
+    }
+  }
+}

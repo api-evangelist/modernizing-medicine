@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Value Set API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ValueSet",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read ValueSet instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ValueSet/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read ValueSet instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for ValueSet instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ValueSet",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "This special parameter searches for codes in the value set. See additional notes on the ValueSet resource"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Computationally friendly name of the value set"
+              },
+              {
+                "name": "publisher",
+                "value": "",
+                "type": "query",
+                "description": "Name of the publisher of the value set"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The human-friendly name of the value set"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1589 @@
+openapi: 3.2.0
+info:
+  title: EMA Proprietary Clinical Data/Clipboard API
+  contact:
+    email: ankit.srivastava@modmed.com
+  version: 3.4.3_FINAL
+  description: 'The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
+
+
+    This documentation targets the **public sandbox** (`stage.ema-api.com`).
+
+
+    **Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.'
+servers:
+- url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+security:
+- BearerAuth: []
+  ApiKeyAuth: []
+tags:
+- name: Clinical Data/Clipboard
+  description: Clinical Data/Clipboard details
+paths:
+  /fhir/v2/AllergyIntolerance/{id}:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve AllergyIntolerance details for an AllergyIntolerance ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: AllergyIntolerance
+                id: '16086'
+                clinicalStatus:
+                  coding:
+                  - system: https://www.hl7.org/fhir/valueset-allergyintolerance-clinical.html
+                    code: active
+                    display: Active
+                  text: Active
+                code:
+                  coding:
+                  - system: RxNorm
+                    code: '2670'
+                    display: codeine
+                  text: codeine
+                patient:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                onsetDateTime: '2026-06-25T15:53:26+00:00'
+                recordedDate: '2026-06-25T15:53:26+00:00'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Update AllergyIntolerance resource
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      requestBody:
+        description: Send Valid AllergyIntolerance attributes to be updated in JSON form
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/AllergyIntolerance:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve AllergyIntolerance resources by the specified search criteria
+      parameters:
+      - name: patient
+        in: query
+        description: Returns statements for a specific patient.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: 3232c8b4-d6d6-463d-8c74-f26c187cf9e3
+                meta:
+                  lastUpdated: '2026-06-25T16:49:26.678+00:00'
+                type: searchset
+                total: 1
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/AllergyIntolerance?patient=450858&_count=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/AllergyIntolerance/16086
+                  resource:
+                    resourceType: AllergyIntolerance
+                    id: '16086'
+                    clinicalStatus:
+                      coding:
+                      - system: https://www.hl7.org/fhir/valueset-allergyintolerance-clinical.html
+                        code: active
+                        display: Active
+                      text: Active
+                    code:
+                      coding:
+                      - system: RxNorm
+                        code: '2670'
+                        display: codeine
+                      text: codeine
+                    patient:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    onsetDateTime: '2026-06-25T15:53:26+00:00'
+                    recordedDate: '2026-06-25T15:53:26+00:00'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Create AllergyIntolerance resource
+      requestBody:
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example:
+              resourceType: AllergyIntolerance
+              clinicalStatus:
+                coding:
+                - system: https://www.hl7.org/fhir/valueset-allergyintolerance-clinical.html
+                  code: active
+                  display: Active
+                text: Active
+              code:
+                coding:
+                - system: RxNorm
+                  code: '219147'
+                  display: Penecort
+                text: Penecort
+              patient:
+                reference: Patient/5003
+                display: Test Sample
+              onsetDateTime: '1988-08-01T00:00:00+00:00'
+              recordedDate: '2019-11-07T00:00:00+00:00'
+              lastOccurrence: '2019-11-01T00:00:00+00:00'
+              reaction:
+              - substance:
+                  coding:
+                  - system: RxNorm
+                    code: '219147'
+                    display: Penecort
+                  text: Penecort
+                manifestation:
+                - coding:
+                  - system: SNOMED CT
+                    code: '417516000'
+                    display: Anaphylaxis
+                  text: Anaphylaxis
+                description: Anaphylaxis
+                severity: severe
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '201':
+          description: Created
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: AllergyIntolerance
+                clinicalStatus:
+                  coding:
+                  - system: https://www.hl7.org/fhir/valueset-allergyintolerance-clinical.html
+                    code: active
+                    display: Active
+                  text: Active
+                code:
+                  coding:
+                  - system: RxNorm
+                    code: '219147'
+                    display: Penecort
+                  text: Penecort
+                patient:
+                  reference: Patient/5003
+                  display: Test Sample
+                onsetDateTime: '1988-08-01T00:00:00+00:00'
+                recordedDate: '2019-11-07T00:00:00+00:00'
+                lastOccurrence: '2019-11-01T00:00:00+00:00'
+                reaction:
+                - substance:
+                    coding:
+                    - system: RxNorm
+                      code: '219147'
+                      display: Penecort
+                    text: Penecort
+                  manifestation:
+                  - coding:
+                    - system: SNOMED CT
+                      code: '417516000'
+                      display: Anaphylaxis
+                    text: Anaphylaxis
+                  description: Anaphylaxis
+                  severity: severe
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-readme:
+        explorer-enabled: false
+  /fhir/v2/Condition/{id}:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve Condition details for an ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Condition
+                id: '17295'
+                meta:
+                  lastUpdated: '2026-06-25T15:59:28.000+00:00'
+                identifier:
+                - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-type
+                  value: PROB
+                - type:
+                    coding:
+                    - system: ICD10
+                      code: L72.8
+                      display: Other follicular cysts of the skin and subcutaneous tissue
+                    - system: ICD9
+                      code: '706.2'
+                      display: Sebaceous cyst
+                    text: Additional Codes
+                clinicalStatus:
+                  coding:
+                  - system: http://hl7.org/fhir/ValueSet/condition-clinical
+                    code: ACTIVE
+                    display: Active
+                  text: Active
+                category:
+                - coding:
+                  - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-category
+                    code: DIAGNOSIS
+                    display: Diagnosis
+                  text: Diagnosis
+                code:
+                  coding:
+                  - system: SNOMED CT
+                    code: '201294000'
+                    display: Follicular cysts of skin and subcutaneous tissue (disorder)
+                  text: Follicular cysts of skin and subcutaneous tissue (disorder)
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                onsetDateTime: '2026-06-25T11:55:00+00:00'
+                recordedDate: '2026-06-25T15:55:00+00:00'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Update Condition resource
+      parameters:
+      - name: id
+        in: path
+        description: The Condition ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      requestBody:
+        description: Send Valid Condition attributes to be updated in JSON form
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/Condition:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve Condition resources by the specified search criteria
+      parameters:
+      - name: patient
+        in: query
+        description: Returns statements for a specific patient.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: 8785e4d6-f7fd-4fa9-9e62-06e75922716c
+                meta:
+                  lastUpdated: '2026-06-25T16:49:26.407+00:00'
+                type: searchset
+                total: 2
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition?patient=450858&_count=2
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition?patient=450858&_count=2&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295
+                  resource:
+                    resourceType: Condition
+                    id: '17295'
+                    meta:
+                      lastUpdated: '2026-06-25T15:59:28.000+00:00'
+                    identifier:
+                    - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-type
+                      value: PROB
+                    - type:
+                        coding:
+                        - system: ICD10
+                          code: L72.8
+                          display: Other follicular cysts of the skin and subcutaneous tissue
+                        - system: ICD9
+                          code: '706.2'
+                          display: Sebaceous cyst
+                        text: Additional Codes
+                    clinicalStatus:
+                      coding:
+                      - system: http://hl7.org/fhir/ValueSet/condition-clinical
+                        code: ACTIVE
+                        display: Active
+                      text: Active
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-category
+                        code: DIAGNOSIS
+                        display: Diagnosis
+                      text: Diagnosis
+                    code:
+                      coding:
+                      - system: SNOMED CT
+                        code: '201294000'
+                        display: Follicular cysts of skin and subcutaneous tissue (disorder)
+                      text: Follicular cysts of skin and subcutaneous tissue (disorder)
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    onsetDateTime: '2026-06-25T11:55:00+00:00'
+                    recordedDate: '2026-06-25T15:55:00+00:00'
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17296
+                  resource:
+                    resourceType: Condition
+                    id: '17296'
+                    meta:
+                      lastUpdated: '2026-06-25T15:59:40.000+00:00'
+                    identifier:
+                    - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-type
+                      value: PROB
+                    clinicalStatus:
+                      coding:
+                      - system: http://hl7.org/fhir/ValueSet/condition-clinical
+                        code: ACTIVE
+                        display: Active
+                      text: Active
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-category
+                        code: PROBLEM
+                        display: Problem
+                      text: Problem
+                    code:
+                      coding:
+                      - system: SNOMED CT
+                        code: '195967001'
+                        display: Asthma (disorder)
+                      text: Asthma (disorder)
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    onsetDateTime: '2026-06-25T15:59:40+00:00'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Create Condition resource
+      requestBody:
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example:
+              resourceType: Condition
+              clinicalStatus:
+                coding:
+                - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+                  code: active
+                  display: Active
+              category:
+              - coding:
+                - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-category
+                  code: CONDITION
+                  display: Condition
+              code:
+                coding:
+                - system: SNOMED CT
+                  code: '161501007'
+                  display: History of hypertension (situation)
+              subject:
+                reference: Patient/450858
+                display: Patient/450858
+              recordedDate: '2026-06-11'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '201':
+          description: Created
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Condition
+                clinicalStatus:
+                  coding:
+                  - system: http://terminology.hl7.org/CodeSystem/condition-clinical
+                    code: active
+                    display: Active
+                category:
+                - coding:
+                  - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/condition-category
+                    code: CONDITION
+                    display: Condition
+                code:
+                  coding:
+                  - system: SNOMED CT
+                    code: '161501007'
+                    display: History of hypertension (situation)
+                subject:
+                  reference: Patient/450858
+                  display: Patient/450858
+                recordedDate: '2026-06-11'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-readme:
+        explorer-enabled: false
+  /fhir/v2/DiagnosticReport/{id}:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve DiagnosticReport for an ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: DiagnosticReport
+                id: 1.112213.8.1.2258586
+                meta:
+                  lastUpdated: '2023-03-16T19:44:26.132+00:00'
+                  source: Organization/1.112213
+                status: final
+                category:
+                - coding:
+                  - system: http://terminology.hl7.org/CodeSystem/v2-0074
+                    code: LAB
+                    display: Laboratory
+                  text: Laboratory
+                code:
+                  coding:
+                  - system: http://loinc.org
+                    code: 14363-6
+                  text: Gram Stn Snv
+                subject:
+                  reference: Patient/1.112213.1.19041015
+                  type: Patient
+                encounter:
+                  reference: Encounter/1.112213.10.17761589
+                  type: Encounter
+                _effectiveDateTime:
+                  extension:
+                  - url: http://hl7.org/fhir/StructureDefinition/data-absent-reason
+                    valueCode: unknown
+                issued: '2023-03-16T18:52:06.000+00:00'
+                performer:
+                - reference: Practitioner/1.112213.2.5352
+                  type: Practitioner
+                - reference: Organization/1.112213
+                  type: Organization
+                result:
+                - reference: Observation/1.112213.17.3.3285894
+                  type: Observation
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/DiagnosticReport:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Search DiagnosticReport by certain parameters
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50
+        required: false
+        schema:
+          type: string
+      - name: _lastUpdated
+        in: query
+        description: This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: encounter
+        in: query
+        description: An encounter in which this request is made
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: Search by subject - a patient
+        required: false
+        schema:
+          type: string
+      - name: requisition
+        in: query
+        description: Composite Request ID
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: Diagnostic Report Type Search Parameter.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/FamilyMemberHistory/{id}:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve FamilyMemberHistory details for an ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: FamilyMemberHistory
+                id: '612'
+                status: partial
+                patient:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                date: '2026-06-25T15:54:28+00:00'
+                relationship:
+                  coding:
+                  - system: SNOMED CT
+                    code: '66839005'
+                    display: FATHER
+                  text: FATHER
+                condition:
+                - code:
+                    coding:
+                    - system: SNOMED CT
+                      code: '429236009'
+                      display: Family history of malignant neoplasm of liver (situation)
+                    text: Family history of malignant neoplasm of liver (situation)
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/FamilyMemberHistory:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve FamilyMemberHistory resources by the specified search criteria
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: The identity of a subject to list family member history items for
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: 4d1c74bb-83a2-4905-92a2-a39033bf6f35
+                meta:
+                  lastUpdated: '2026-06-25T16:49:27.492+00:00'
+                type: searchset
+                total: 1
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/FamilyMemberHistory?patient=450858&_count=2
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/FamilyMemberHistory?patient=450858&_count=2&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/FamilyMemberHistory/612
+                  resource:
+                    resourceType: FamilyMemberHistory
+                    id: '612'
+                    status: partial
+                    patient:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    date: '2026-06-25T15:54:28+00:00'
+                    relationship:
+                      coding:
+                      - system: SNOMED CT
+                        code: '66839005'
+                        display: FATHER
+                      text: FATHER
+                    condition:
+                    - code:
+                        coding:
+                        - system: SNOMED CT
+                          code: '429236009'
+                          display: Family history of malignant neoplasm of liver (situation)
+                        text: Family history of malignant neoplasm of liver (situation)
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/MedicationStatement/{id}:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve MedicationStatement details for a Medication Statement ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: MedicationStatement
+                id: '1927'
+                status: active
+                medicationCodeableConcept:
+                  coding:
+                  - system: RxNorm
+                    code: '312961'
+                    display: simvastatin (tablet)
+                  text: simvastatin (tablet)
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                dosage:
+                - route:
+                    coding:
+                    - system: FDA RouteOfAdministration
+                      code: C38288
+                      display: ORAL
+                    text: ORAL
+                  doseAndRate:
+                  - doseQuantity:
+                      unit: mg
+                      code: '20'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    put:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Update MedicationStatement resource
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      requestBody:
+        description: Send Valid MedicationStatement attributes to be updated in JSON form
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/MedicationStatement:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve MedicationStatement resources by the specified search criteria
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: Returns statements for a specific patient.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: c6b0010a-8c10-43cf-933a-689af6924c61
+                meta:
+                  lastUpdated: '2026-06-25T16:49:27.085+00:00'
+                type: searchset
+                total: 2
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement?patient=450858&_count=2
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement?patient=450858&_count=2&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement/1927
+                  resource:
+                    resourceType: MedicationStatement
+                    id: '1927'
+                    status: active
+                    medicationCodeableConcept:
+                      coding:
+                      - system: RxNorm
+                        code: '312961'
+                        display: simvastatin (tablet)
+                      text: simvastatin (tablet)
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    dosage:
+                    - route:
+                        coding:
+                        - system: FDA RouteOfAdministration
+                          code: C38288
+                          display: ORAL
+                        text: ORAL
+                      doseAndRate:
+                      - doseQuantity:
+                          unit: mg
+                          code: '20'
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement/1928
+                  resource:
+                    resourceType: MedicationStatement
+                    id: '1928'
+                    status: active
+                    medicationCodeableConcept:
+                      coding:
+                      - system: RxNorm
+                        code: '352304'
+                        display: Zetia (tablet)
+                      text: Zetia (tablet)
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    dosage:
+                    - route:
+                        coding:
+                        - system: FDA RouteOfAdministration
+                          code: C38288
+                          display: ORAL
+                        text: ORAL
+                      doseAndRate:
+                      - doseQuantity:
+                          unit: mg
+                          code: '10'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Create MedicationStatement resource
+      requestBody:
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example:
+              resourceType: MedicationStatement
+              status: active
+              medicationCodeableConcept:
+                coding:
+                - system: RxNorm
+                  code: '209387'
+                  display: Tylenol (tablet)
+                text: Tylenol (tablet)
+              subject:
+                reference: Patient/73337
+                display: Test Sample
+              dosage:
+              - route:
+                  coding:
+                  - system: FDA RouteOfAdministration
+                    code: C38288
+                    display: ORAL
+                  text: ORAL
+                doseAndRate:
+                - doseQuantity:
+                    value: 325
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '201':
+          description: Created
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: MedicationStatement
+                status: active
+                medicationCodeableConcept:
+                  coding:
+                  - system: RxNorm
+                    code: '209387'
+                    display: Tylenol (tablet)
+                  text: Tylenol (tablet)
+                subject:
+                  reference: Patient/73337
+                  display: Test Sample
+                dosage:
+                - route:
+                    coding:
+                    - system: FDA RouteOfAdministration
+                      code: C38288
+                      display: ORAL
+                    text: ORAL
+                  doseAndRate:
+                  - doseQuantity:
+                      value: 325
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-readme:
+        explorer-enabled: false
+  /fhir/v2/ServiceRequest/{id}:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Retrieve ServiceRequest for an ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: ServiceRequest
+                id: 1-A
+                basedOn:
+                - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/RequestGroup/5922
+                  display: RequestGroup/5922
+                requisition:
+                  system: https://www.hl7.org/fhir/request.html#requisitionid
+                  value: '1'
+                status: active
+                intent: order
+                category:
+                - coding:
+                  - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/service-request-category-type
+                    code: PATHOLOGY
+                    display: Pathology
+                code:
+                  coding:
+                  - system: ICD10
+                    code: D48.5
+                    display: ' Biopsy by Shave Method H and E'
+                  text: Biopsy by Shave Method
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: Mabel Syrup
+                encounter:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/362431
+                  display: Encounter/362431
+                occurrenceDateTime: '2026-06-29T15:36:00+00:00'
+                authoredOn: '2026-06-29T15:37:47+00:00'
+                requester:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/450861
+                  display: Frederick Frankenstein
+                performer:
+                - display: ModMed Demo Pathology Lab
+                reasonCode:
+                - coding:
+                  - system: ICD10
+                    code: D48.5
+                    display: Neoplasm of uncertain behavior of skin
+                  text: Neoplasm of Uncertain Behavior
+                insurance:
+                - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/286892
+                  display: Coverage/286892
+                supportingInfo:
+                - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/REQ%7C5922
+                  display: DocumentReference/REQ%7C5922
+                specimen:
+                - display: left anterior shoulder
+                bodySite:
+                - text: left anterior shoulder
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/ServiceRequest:
+    get:
+      tags:
+      - Clinical Data/Clipboard
+      summary: Search ServiceRequests by certain parameters
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50
+        required: false
+        schema:
+          type: string
+      - name: _lastUpdated
+        in: query
+        description: This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: authored
+        in: query
+        description: Date request signed
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: category
+        in: query
+        description: Classification of service
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: Search by subject - a patient
+        required: false
+        schema:
+          type: string
+      - name: encounter
+        in: query
+        description: An encounter in which this request is made
+        required: false
+        schema:
+          type: string
+      - name: requester
+        in: query
+        description: Who/what is requesting service
+        required: false
+        schema:
+          type: string
+      - name: requisition
+        in: query
+        description: Composite Request ID
+        required: false
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: draft | active | suspended | completed | entered-in-error | cancelled
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                type: searchset
+                total: 5
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest?patient=450858
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest?patient=450858&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest/1-A
+                  resource:
+                    resourceType: ServiceRequest
+                    id: 1-A
+                    basedOn:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/RequestGroup/5922
+                      display: RequestGroup/5922
+                    requisition:
+                      system: https://www.hl7.org/fhir/request.html#requisitionid
+                      value: '1'
+                    status: active
+                    intent: order
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/service-request-category-type
+                        code: PATHOLOGY
+                        display: Pathology
+                    code:
+                      coding:
+                      - system: ICD10
+                        code: D48.5
+                        display: ' Biopsy by Shave Method H and E'
+                      text: Biopsy by Shave Method
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: Mabel Syrup
+                    encounter:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/362431
+                      display: Encounter/362431
+                    occurrenceDateTime: '2026-06-29T15:36:00+00:00'
+                    authoredOn: '2026-06-29T15:37:47+00:00'
+                    requester:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/450861
+                      display: Frederick Frankenstein
+                    performer:
+                    - display: ModMed Demo Pathology Lab
+                    reasonCode:
+                    - coding:
+                      - system: ICD10
+                        code: D48.5
+                        display: Neoplasm of uncertain behavior of skin
+                      text: Neoplasm of Uncertain Behavior
+                    insurance:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/286892
+                      display: Coverage/286892
+                    supportingInfo:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/REQ%7C5922
+                      display: DocumentReference/REQ%7C5922
+                    specimen:
+                    - display: left anterior shoulder
+                    bodySite:
+                    - text: left anterior shoulder
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest/2
+                  resource:
+                    resourceType: ServiceRequest
+                    id: '2'
+                    basedOn:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/RequestGroup/5923
+                      display: RequestGroup/5923
+                    requisition:
+                      system: https://www.hl7.org/fhir/request.html#requisitionid
+                      value: '2'
+                    status: draft
+                    intent: order
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/service-request-category-type
+                        code: RADIOLOGY
+                        display: Radiology
+                    priority: routine
+                    code:
+                      coding:
+                      - system: LOINC
+                        code: 37826-5
+                        display: ' 2 Views, Wrist'
+                      text: Order Plain X-ray/Interpretation
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: Mabel Syrup
+                    encounter:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/362432
+                      display: Encounter/362432
+                    occurrenceDateTime: '2026-06-29T15:44:38+00:00'
+                    authoredOn: '2026-06-29T15:45:39+00:00'
+                    requester:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/450861
+                      display: Frederick Frankenstein
+                    performer:
+                    - display: ModMed Demo Radiology Lab
+                    reasonCode:
+                    - coding:
+                      - system: ICD10
+                        code: M25.531
+                        display: Pain in right wrist
+                      text: Wrist Pain
+                    insurance:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/286892
+                      display: Coverage/286892
+                    supportingInfo:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/REQ%7C5923
+                      display: DocumentReference/REQ%7C5923
+                    note:
+                    - text: 'reasonStudy|Wrist Pain: '
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest/3-29846
+                  resource:
+                    resourceType: ServiceRequest
+                    id: 3-29846
+                    basedOn:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/RequestGroup/5924
+                      display: RequestGroup/5924
+                    requisition:
+                      system: https://www.hl7.org/fhir/request.html#requisitionid
+                      value: '3'
+                    status: active
+                    intent: order
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/service-request-category-type
+                        code: SURGICAL
+                        display: Surgical
+                    priority: routine
+                    code:
+                      coding:
+                      - system: CPT-4
+                        code: '29846'
+                        display: ' arthroscopy of wrist (29846)'
+                      text: 'Order Surgery: Hand/Wrist'
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: Mabel Syrup
+                    encounter:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/362432
+                      display: Encounter/362432
+                    occurrenceDateTime: '2026-06-29T15:44:38+00:00'
+                    authoredOn: '2026-06-29T15:46:31+00:00'
+                    requester:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/450861
+                      display: Frederick Frankenstein
+                    performer:
+                    - display: ModMed Demo Surgical Lab
+                    reasonCode:
+                    - coding:
+                      - system: ICD10
+                        code: M25.531
+                        display: Pain in right wrist
+                      text: Wrist Pain
+                    insurance:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/286892
+                      display: Coverage/286892
+                    supportingInfo:
+                    - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/REQ%7C5924
+                      display: DocumentReference/REQ%7C5924
+                    bodySite:
+                    - text: right wrist joint
+                    note:
+                    - text: clinical_note|{Complexity (necessary for coding)=major (90 day global period), Photos Needed?=No, Estimated Length of Surgery=15 minutes, Position=Supine, Neuromonitoring=no, Perform at=ModMed Demo Surgical Lab, Priority=Normal, Estimated Length of Stay (Days)=0, Provider=Frederick Frankenstein, MD, Render Order Details in Note?=render full order details, Major surgery (90 day global surgeries only) to be performed today or tomorrow=no, Admission Status=Outpatient, Rescheduled Surgery=n/a, Surgery to be Performed=arthroscopy of wrist (29846), Time frame unit=day(s), Initial Decision for Surgery?=Yes}
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  responses:
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    NotFound:
+      description: NOT FOUND
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
+    Forbidden:
+      description: FORBIDDEN
+  schemas:
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+      x-default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhN2NiZmYwZWUxYjk0ODkwOWMxZmQzYzk3ODhlZjc1NCIsImlzcyI6Im1vZG1lZCIsInN1YiI6ImZoaXJfUWZMbG8iLCJ1cmxQcmVmaXgiOiJhcGlwb3J0YWwiLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJ2ZW5kb3IiOiJmaGlyX1FmTGxvQGFwaXBvcnRhbCIsInBvbCI6ImNoYW5nZW1lIn0.f0VcA3R56IuAvdbPhInqUbhmEwk-tiOIeELVpTZCUZ8
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.
+
+
+        `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`'
+      x-default: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f

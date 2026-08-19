@@ -1,0 +1,1196 @@
+{
+  "item": [
+    {
+      "id": "bbec5c32-4002-4495-b16c-0525258d50f5",
+      "name": "Authentication",
+      "description": {
+        "content": "SMART-on-FHIR OAuth 2.0 endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6ca0016-18b5-499a-b72f-4fb4fc4074d3",
+          "name": "Authorization endpoint (authorization_code)",
+          "request": {
+            "name": "Authorization endpoint (authorization_code)",
+            "description": {
+              "content": "Begin the SMART App Launch `authorization_code` flow. Redirect the user's browser here; on approval the server redirects to your `redirect_uri` with a `code` to exchange at the token endpoint. PKCE (`S256`) is supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "realms",
+                "fhir",
+                "protocol",
+                "openid-connect",
+                "auth"
+              ],
+              "host": [
+                "{{auth-realms-fhir-protocol-openid-connect-auth-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "code",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "(Required) Space-separated SMART scopes"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "aud",
+                  "value": "<string>",
+                  "description": "(Required) The FHIR base URL of the endpoint you're connecting to (a customer endpoint from the directory, or the demonstration endpoint for testing)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "S256"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2708f961-046e-4ed5-9eb0-529f6590366b",
+              "name": "Redirect to redirect_uri with an authorization code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "realms",
+                    "fhir",
+                    "protocol",
+                    "openid-connect",
+                    "auth"
+                  ],
+                  "host": [
+                    "{{auth-realms-fhir-protocol-openid-connect-auth-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "openid fhirUser launch/patient patient/Patient.rs"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aud",
+                      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "S256"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f876207-e5df-40b1-bd22-360fdfa9133e",
+          "name": "Token endpoint",
+          "request": {
+            "name": "Token endpoint",
+            "description": {
+              "content": "Exchange an authorization `code` for tokens, refresh a token, or obtain a `client_credentials` token. Send `client_id`/`client_secret` in the body (`client_secret_post`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "realms",
+                "fhir",
+                "protocol",
+                "openid-connect",
+                "token"
+              ],
+              "host": [
+                "{{auth-realms-fhir-protocol-openid-connect-token-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "authorization_code",
+                  "description": "(Required) `authorization_code`, `refresh_token`, or `client_credentials`"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Authorization code (authorization_code grant)"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "Must match the authorize request (authorization_code grant)"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_verifier",
+                  "value": "<string>",
+                  "description": "PKCE code verifier (authorization_code grant)"
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "(refresh_token grant)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "73a6d379-fa40-4b11-a0bf-88bb3a7fec54",
+              "name": "Token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "realms",
+                    "fhir",
+                    "protocol",
+                    "openid-connect",
+                    "token"
+                  ],
+                  "host": [
+                    "{{auth-realms-fhir-protocol-openid-connect-token-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) `authorization_code`, `refresh_token`, or `client_credentials`",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "authorization_code"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Authorization code (authorization_code grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Must match the authorize request (authorization_code grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "PKCE code verifier (authorization_code grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "code_verifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(refresh_token grant)",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 7226,\n  \"refresh_token\": \"string\",\n  \"scope\": \"string\",\n  \"id_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6b7a520-a265-411d-9e01-8e8b24de4e74",
+          "name": "Obtain OAuth2 Token (Legacy — password grant)",
+          "request": {
+            "name": "Obtain OAuth2 Token (Legacy — password grant)",
+            "description": {
+              "content": "**Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the OAuth2 `client_credentials` flow described in the **Authentication** guide. Treat the returned `access_token` as an opaque Bearer token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ws",
+                "oauth2",
+                "grant"
+              ],
+              "host": [
+                "{{ws-oauth2-grant-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "password",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "fhir_QfLlo",
+                  "description": "(Required) The username provided to you"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "925X3LZ505",
+                  "description": "(Required) The password provided to you"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a65db727-712d-4b4f-ac07-f5c1627cb2b9",
+              "name": "Access token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"expires_in\": 4095,\n  \"refresh_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0eedadea-9c7a-4ec7-9d97-4770e50b5103",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "70a603e2-db59-4dde-b06a-d4e0ecb107dc",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b97bc1d-06cf-495c-8b14-4e10b68e673c",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21cb8833-4aae-4d99-a6d4-d13d8a89f900",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27e59ae2-14b8-4145-b338-8a4873d6949b",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "be2f113d-c809-4fcb-9837-1161b6f663cc",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fbfb38a-1f22-4789-a9c9-b6917d476fcf",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ws",
+                    "oauth2",
+                    "grant"
+                  ],
+                  "host": [
+                    "{{ws-oauth2-grant-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "password"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The username provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "fhir_QfLlo"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The password provided to you",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "925X3LZ505"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6174a330-9d31-44bf-a3f1-a7b41128b8f2",
+          "name": "Obtain OAuth2 Token (client_credentials)",
+          "request": {
+            "name": "Obtain OAuth2 Token (client_credentials)",
+            "description": {
+              "content": "Obtain an access token using the OAuth2 `client_credentials` grant. Send your `client_id` and `client_secret`. Returns an RS256-signed JWT; the `scope` claim is a space-separated list of ACLs and no refresh token is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "realms",
+                "ema-fhir",
+                "protocol",
+                "openid-connect",
+                "token"
+              ],
+              "host": [
+                "{{auth-realms-ema-fhir-protocol-openid-connect-token-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "client_credentials",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "fhir-emasuppo-dc01454f-73b3-4ba1-bacc-01a8fdbc1417",
+                  "description": "(Required) Your vendor application's client_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "0vVGfU4LNgQPySyrNjthFl9Y3usbt1uP",
+                  "description": "(Required) Your vendor application's client_secret"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "238116f5-9998-4ce1-a782-f18d007757f8",
+              "name": "Access token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "realms",
+                    "ema-fhir",
+                    "protocol",
+                    "openid-connect",
+                    "token"
+                  ],
+                  "host": [
+                    "{{auth-realms-ema-fhir-protocol-openid-connect-token-Url}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "client_credentials"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your vendor application's client_id",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "fhir-emasuppo-dc01454f-73b3-4ba1-bacc-01a8fdbc1417"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Your vendor application's client_secret",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "0vVGfU4LNgQPySyrNjthFl9Y3usbt1uP"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"expires_in\": 900,\n  \"refresh_expires_in\": 0,\n  \"token_type\": \"Bearer\",\n  \"not-before-policy\": 0,\n  \"scope\": \"acl/enc_s acl/pat_s_name_dob_gen\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sso.ema.md",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://sso.ema.md",
+      "key": "auth-realms-fhir-protocol-openid-connect-auth-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://sso.ema.md",
+      "key": "auth-realms-fhir-protocol-openid-connect-token-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "ws-oauth2-grant-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://ssoqa01-lb-01.m2qa.com",
+      "key": "auth-realms-ema-fhir-protocol-openid-connect-token-Url"
+    }
+  ],
+  "info": {
+    "_postman_id": "b9fe07d2-0343-4953-beb7-a61d170cb444",
+    "name": "Modernizing Medicine Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Operations tagged Authentication across 3 of this provider's published API definitions: modernizing-medicine-certified-fhir-auth-openapi.json, modernizing-medicine-ema-proprietary-api-openapi.json, modernizing-medicine-ema-proprietary-auth-openapi.json. Each path carries the servers of the definition it was published in.",
+      "type": "text/plain"
+    }
+  }
+}

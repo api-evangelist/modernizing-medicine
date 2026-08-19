@@ -1,0 +1,311 @@
+{
+  "item": [
+    {
+      "id": "702f24a4-38e5-4f9f-a84d-9a4c9b06c465",
+      "name": "CarePlan",
+      "description": {
+        "content": "The CarePlan FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0505f5e1-cfb1-465e-a56a-323916fa46bc",
+          "name": "read-instance: Read CarePlan instance",
+          "request": {
+            "name": "read-instance: Read CarePlan instance",
+            "description": {},
+            "url": {
+              "path": [
+                "CarePlan",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3a78a2b-d790-45e0-88ba-b168ec3a4a04",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CarePlan",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"CarePlan\",\n  \"id\": \"1.120182.5.1.13819514\",\n  \"meta\": {\n    \"source\": \"Organization/1.120182\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan\"\n    ]\n  },\n  \"text\": {\n    \"status\": \"additional\",\n    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">&lt;table&gt;\\n &lt;thead&gt;\\n  &lt;tr&gt;\\n   &lt;td&gt;Code&lt;/td&gt;\\n   &lt;td&gt;Detail&lt;/td&gt;\\n   &lt;td&gt;Instructions&lt;/td&gt;\\n  &lt;/tr&gt;\\n &lt;/thead&gt;\\n &lt;tbody&gt;\\n  &lt;tr&gt;\\n   &lt;td&gt;105585&lt;/td&gt;\\n   &lt;td&gt;methotrexate sodium 2.5 mg tablet&lt;/td&gt;\\n   &lt;td&gt;Take six pills (15mg) once weekly.&lt;/td&gt;\\n  &lt;/tr&gt;\\n &lt;/tbody&gt;\\n&lt;/table&gt;</div>\"\n  },\n  \"status\": \"active\",\n  \"intent\": \"proposal\",\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://hl7.org/fhir/us/core/CodeSystem/careplan-category\",\n          \"code\": \"assess-plan\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/1.120182.1.17082675\",\n    \"type\": \"Patient\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "296bcf94-7e25-4c21-8bad-52d3418a95db",
+          "name": "search-type: Search for CarePlan instances",
+          "request": {
+            "name": "search-type: Search for CarePlan instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CarePlan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Type of plan"
+                },
+                {
+                  "disabled": false,
+                  "key": "intent",
+                  "value": "<string>",
+                  "description": "proposal | plan | order | option"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "Who the care plan is for"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd03dfd1-7c30-41f7-9003-ff1881fa41c5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CarePlan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "intent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"total\": 16,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan?patient=1.120182.1.17082675\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan/1.120182.5.1.13818759\",\n      \"resource\": {\n        \"resourceType\": \"CarePlan\",\n        \"id\": \"1.120182.5.1.13818759\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan\"\n          ]\n        },\n        \"text\": {\n          \"status\": \"generated\",\n          \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th&gt;Detail&lt;/th&gt;&lt;th&gt;Instructions&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;57021-8&lt;/td&gt;&lt;td&gt;CBC W Auto Diff Bld&lt;/td&gt;&lt;td&gt;March 02, 2026&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</div>\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"order\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/us/core/CodeSystem/careplan-category\",\n                \"code\": \"assess-plan\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        }\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan/1.120182.5.1.13819513\",\n      \"resource\": {\n        \"resourceType\": \"CarePlan\",\n        \"id\": \"1.120182.5.1.13819513\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan\"\n          ]\n        },\n        \"text\": {\n          \"status\": \"generated\",\n          \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">&lt;div&gt;\\n &lt;p&gt;Future visit for 03/02/2027 - Follow up in 1 year&lt;/p&gt;\\n&lt;/div&gt;</div>\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"proposal\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/us/core/CodeSystem/careplan-category\",\n                \"code\": \"assess-plan\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        }\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan/1.120182.5.1.13819514\",\n      \"resource\": {\n        \"resourceType\": \"CarePlan\",\n        \"id\": \"1.120182.5.1.13819514\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan\"\n          ]\n        },\n        \"text\": {\n          \"status\": \"additional\",\n          \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">&lt;table&gt;\\n &lt;thead&gt;\\n  &lt;tr&gt;\\n   &lt;td&gt;Code&lt;/td&gt;\\n   &lt;td&gt;Detail&lt;/td&gt;\\n   &lt;td&gt;Instructions&lt;/td&gt;\\n  &lt;/tr&gt;\\n &lt;/thead&gt;\\n &lt;tbody&gt;\\n  &lt;tr&gt;\\n   &lt;td&gt;105585&lt;/td&gt;\\n   &lt;td&gt;methotrexate sodium 2.5 mg tablet&lt;/td&gt;\\n   &lt;td&gt;Take six pills (15mg) once weekly.&lt;/td&gt;\\n  &lt;/tr&gt;\\n &lt;/tbody&gt;\\n&lt;/table&gt;</div>\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"proposal\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/us/core/CodeSystem/careplan-category\",\n                \"code\": \"assess-plan\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7fc21815-e24e-4d20-bb2e-3af84468286f",
+    "name": "ModMed Certified Care Plan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.",
+      "type": "text/plain"
+    }
+  }
+}

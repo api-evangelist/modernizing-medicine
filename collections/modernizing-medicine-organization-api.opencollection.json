@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Organization API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read Organization instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Organization/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read Organization instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for Organization instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Organization",
+            "params": [
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the resource"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the organization's name or alias"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Medication Request API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MedicationRequest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read MedicationRequest instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/MedicationRequest/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read MedicationRequest instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for MedicationRequest instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/MedicationRequest",
+            "params": [
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the resource"
+              },
+              {
+                "name": "authoredon",
+                "value": "",
+                "type": "query",
+                "description": "Return prescriptions written on this date"
+              },
+              {
+                "name": "encounter",
+                "value": "",
+                "type": "query",
+                "description": "Return prescriptions with this encounter identifier"
+              },
+              {
+                "name": "intent",
+                "value": "",
+                "type": "query",
+                "description": "Returns prescriptions with different intents"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Returns prescriptions for a specific patient"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Status of the prescription"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

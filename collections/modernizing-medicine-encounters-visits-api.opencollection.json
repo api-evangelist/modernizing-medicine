@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Encounters/Visits API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Encounters/Visits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a specific Encounter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Get a specific Encounter"
+        },
+        {
+          "info": {
+            "name": "Get All Encounters for a Practice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "appointment",
+                "value": "",
+                "type": "query",
+                "description": "The appointment that scheduled this encounter"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "A date within the period the Encounter lasted"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "The patient or group present at the encounter"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
+              }
+            ]
+          },
+          "docs": "Get All Encounters for a Practice"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

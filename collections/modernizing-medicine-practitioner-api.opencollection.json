@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Practitioner API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Practitioner",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read Practitioner instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read Practitioner instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for Practitioner instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Practitioner",
+            "params": [
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the resource"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Whether the practitioner record is active"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "A value in an email contact"
+              },
+              {
+                "name": "family",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the family name"
+              },
+              {
+                "name": "given",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the given name"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "A practitioner's Identifier"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "A value in a phone contact"
+              },
+              {
+                "name": "telecom",
+                "value": "",
+                "type": "query",
+                "description": "The value in any kind of contact"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

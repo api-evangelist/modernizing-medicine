@@ -1,0 +1,1129 @@
+{
+  "item": [
+    {
+      "id": "848b4be2-b68c-470b-993c-0f9c92c22c82",
+      "name": "Encounters/Visits",
+      "description": {
+        "content": "Encounters/Visits details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6161d10-616c-4e4c-a801-3cfbc3aa2a99",
+          "name": "Get a specific Encounter",
+          "request": {
+            "name": "Get a specific Encounter",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Encounter",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c07f5c83-d655-4f19-b519-dc0c628c7f9c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Encounter\",\n  \"id\": \"362378\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T15:58:35.000+00:00\"\n  },\n  \"status\": \"finished\",\n  \"class\": {\n    \"system\": \"http://terminology.hl7.org/ValueSet/v3-ActEncounterCode\",\n    \"code\": \"AMB\",\n    \"display\": \"ambulatory\"\n  },\n  \"type\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type\",\n          \"code\": \"VISIT\",\n          \"display\": \"Visit\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n  },\n  \"participant\": [\n    {\n      \"type\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n              \"code\": \"PPRF\",\n              \"display\": \"primary performer\"\n            }\n          ],\n          \"text\": \"primary performer\"\n        }\n      ],\n      \"individual\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\",\n        \"display\": \"Jane Doe, MD\"\n      }\n    }\n  ],\n  \"period\": {\n    \"start\": \"2026-06-25T15:55:00+00:00\",\n    \"end\": \"2026-06-25T15:58:38+00:00\"\n  },\n  \"diagnosis\": [\n    {\n      \"condition\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295\"\n      }\n    }\n  ],\n  \"location\": [\n    {\n      \"location\": {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "217c6532-772d-4f65-bd8e-5f39eb56b69b",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a493844-ad86-4009-a156-33e116660f37",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "101bf082-bcb6-4a87-831e-abb6f7607731",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4eed617-140a-4902-b51f-2fa421720ecb",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7857a370-cad6-440a-98ff-cd3b32c4d542",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "081d366d-0341-45f8-bcd9-e0d088302f20",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04ac279d-5f68-42d5-9fb4-517b96973a12",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6dc60075-ffff-4f08-ae17-cea2af2fde51",
+          "name": "Get All Encounters for a Practice",
+          "request": {
+            "name": "Get All Encounters for a Practice",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Encounter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<string>",
+                  "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+                },
+                {
+                  "disabled": false,
+                  "key": "_lastUpdated",
+                  "value": "<date>",
+                  "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "appointment",
+                  "value": "<string>",
+                  "description": "The appointment that scheduled this encounter"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "A date within the period the Encounter lasted"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page to be used for paginated search"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "The patient or group present at the encounter"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c186f8c-54ec-4620-a090-f174e1d18993",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"id\": \"96eabe58-f57f-47a0-9c9d-3d46db83888e\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T18:23:34.856+00:00\"\n  },\n  \"type\": \"searchset\",\n  \"total\": 1,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter?patient=450858&_count=2\"\n    },\n    {\n      \"relation\": \"next\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter?patient=450858&_count=2&page=2\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/362378\",\n      \"resource\": {\n        \"resourceType\": \"Encounter\",\n        \"id\": \"362378\",\n        \"meta\": {\n          \"lastUpdated\": \"2026-06-25T15:58:35.000+00:00\"\n        },\n        \"status\": \"finished\",\n        \"class\": {\n          \"system\": \"http://terminology.hl7.org/ValueSet/v3-ActEncounterCode\",\n          \"code\": \"AMB\",\n          \"display\": \"ambulatory\"\n        },\n        \"type\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type\",\n                \"code\": \"VISIT\",\n                \"display\": \"Visit\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n          \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n        },\n        \"participant\": [\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://hl7.org/fhir/ValueSet/encounter-participant-type\",\n                    \"code\": \"PPRF\",\n                    \"display\": \"primary performer\"\n                  }\n                ],\n                \"text\": \"primary performer\"\n              }\n            ],\n            \"individual\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399\",\n              \"display\": \"Jane Doe, MD\"\n            }\n          }\n        ],\n        \"period\": {\n          \"start\": \"2026-06-25T15:55:00+00:00\",\n          \"end\": \"2026-06-25T15:58:38+00:00\"\n        },\n        \"diagnosis\": [\n          {\n            \"condition\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/17295\"\n            }\n          }\n        ],\n        \"location\": [\n          {\n            \"location\": {\n              \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826\",\n              \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0adf5ebb-b2e6-4af5-ae32-568167c8704c",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "76520ba7-747f-4feb-8b8b-4579406c6ca0",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "633796c8-3e57-4909-9fc3-20fdda191f86",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6cb7856c-e597-485d-93d3-008577643f97",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74950c63-7c98-4af6-80aa-d4079c82c1df",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "512822fc-138f-46e1-9f0f-f68037a120dd",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c401ed5-3d09-41ff-8356-e30525090e7d",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_lastUpdated",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "appointment",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cf10c0c3-23c7-48a9-b05e-1ed115c7a543",
+    "name": "EMA Proprietary Encounters/Visits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.\n\nContact Support:\n Email: ankit.srivastava@modmed.com",
+      "type": "text/plain"
+    }
+  }
+}

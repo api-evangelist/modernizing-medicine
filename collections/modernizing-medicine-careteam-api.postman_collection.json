@@ -1,0 +1,291 @@
+{
+  "item": [
+    {
+      "id": "5d9c85ff-df46-458c-b865-886b04bdadfc",
+      "name": "CareTeam",
+      "description": {
+        "content": "The CareTeam FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "01072b07-c10b-4db3-8e7c-6cd736c473e7",
+          "name": "read-instance: Read CareTeam instance",
+          "request": {
+            "name": "read-instance: Read CareTeam instance",
+            "description": {},
+            "url": {
+              "path": [
+                "CareTeam",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "610e1c77-aa9b-4a13-ad80-cd2f2de48f52",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CareTeam",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"CareTeam\",\n  \"id\": \"1.120182.6.17082675\",\n  \"meta\": {\n    \"source\": \"Organization/1.120182\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam\"\n    ]\n  },\n  \"status\": \"active\",\n  \"subject\": {\n    \"reference\": \"Patient/1.120182.1.17082675\",\n    \"type\": \"Patient\"\n  },\n  \"participant\": [\n    {\n      \"role\": [\n        {\n          \"coding\": [\n            {\n              \"code\": \"DOCTOR\",\n              \"display\": \"Doctor\"\n            }\n          ]\n        }\n      ],\n      \"member\": {\n        \"reference\": \"Practitioner/1.120182.2.14672591\",\n        \"type\": \"Practitioner\",\n        \"_display\": {\n          \"extension\": [\n            {\n              \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n              \"valueCode\": \"unknown\"\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"role\": [\n        {\n          \"coding\": [\n            {\n              \"code\": \"DOCTOR\",\n              \"display\": \"Doctor\"\n            }\n          ]\n        }\n      ],\n      \"member\": {\n        \"reference\": \"Practitioner/1.120182.2.14672596\",\n        \"type\": \"Practitioner\",\n        \"_display\": {\n          \"extension\": [\n            {\n              \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n              \"valueCode\": \"unknown\"\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"role\": [\n        {\n          \"coding\": [\n            {\n              \"code\": \"DOCTOR\",\n              \"display\": \"Doctor\"\n            }\n          ]\n        }\n      ],\n      \"member\": {\n        \"reference\": \"Practitioner/1.120182.2.17081470\",\n        \"type\": \"Practitioner\",\n        \"_display\": {\n          \"extension\": [\n            {\n              \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n              \"valueCode\": \"unknown\"\n            }\n          ]\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "879c93b0-e6bb-4ecb-afa8-c24caf851a6b",
+          "name": "search-type: Search for CareTeam instances",
+          "request": {
+            "name": "search-type: Search for CareTeam instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CareTeam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "Who care team is for"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "proposed | active | suspended | inactive | entered-in-error"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd953ddb-c38b-40c0-ae93-f166cbcc2297",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CareTeam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"total\": 1,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CareTeam?patient=1.120182.1.17082675\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CareTeam/1.120182.6.17082675\",\n      \"resource\": {\n        \"resourceType\": \"CareTeam\",\n        \"id\": \"1.120182.6.17082675\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam\"\n          ]\n        },\n        \"status\": \"active\",\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"participant\": [\n          {\n            \"role\": [\n              {\n                \"coding\": [\n                  {\n                    \"code\": \"DOCTOR\",\n                    \"display\": \"Doctor\"\n                  }\n                ]\n              }\n            ],\n            \"member\": {\n              \"reference\": \"Practitioner/1.120182.2.14672591\",\n              \"type\": \"Practitioner\",\n              \"_display\": {\n                \"extension\": [\n                  {\n                    \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n                    \"valueCode\": \"unknown\"\n                  }\n                ]\n              }\n            }\n          },\n          {\n            \"role\": [\n              {\n                \"coding\": [\n                  {\n                    \"code\": \"DOCTOR\",\n                    \"display\": \"Doctor\"\n                  }\n                ]\n              }\n            ],\n            \"member\": {\n              \"reference\": \"Practitioner/1.120182.2.14672596\",\n              \"type\": \"Practitioner\",\n              \"_display\": {\n                \"extension\": [\n                  {\n                    \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n                    \"valueCode\": \"unknown\"\n                  }\n                ]\n              }\n            }\n          },\n          {\n            \"role\": [\n              {\n                \"coding\": [\n                  {\n                    \"code\": \"DOCTOR\",\n                    \"display\": \"Doctor\"\n                  }\n                ]\n              }\n            ],\n            \"member\": {\n              \"reference\": \"Practitioner/1.120182.2.17081470\",\n              \"type\": \"Practitioner\",\n              \"_display\": {\n                \"extension\": [\n                  {\n                    \"url\": \"http://hl7.org/fhir/StructureDefinition/data-absent-reason\",\n                    \"valueCode\": \"unknown\"\n                  }\n                ]\n              }\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d9a5d1f-83e8-4acb-8276-59aa11fb2548",
+    "name": "ModMed Certified Care Team API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.",
+      "type": "text/plain"
+    }
+  }
+}

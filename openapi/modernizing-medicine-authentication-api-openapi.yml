@@ -1,0 +1,295 @@
+openapi: 3.2.0
+info:
+  title: Modernizing Medicine Authentication API
+  version: '1.0'
+  description: 'Operations tagged Authentication across 3 of this provider''s published API definitions: modernizing-medicine-certified-fhir-auth-openapi.json, modernizing-medicine-ema-proprietary-api-openapi.json, modernizing-medicine-ema-proprietary-auth-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://sso.ema.md
+  description: Production
+- url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+- url: https://ssoqa01-lb-01.m2qa.com
+  description: Sandbox
+tags:
+- name: Authentication
+  description: SMART-on-FHIR OAuth 2.0 endpoints.
+paths:
+  /auth/realms/fhir/protocol/openid-connect/auth:
+    servers:
+    - url: https://sso.ema.md
+      description: Production
+    get:
+      tags:
+      - Authentication
+      summary: Authorization endpoint (authorization_code)
+      description: Begin the SMART App Launch `authorization_code` flow. Redirect the user's browser here; on approval the server redirects to your `redirect_uri` with a `code` to exchange at the token endpoint. PKCE (`S256`) is supported.
+      parameters:
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+          default: code
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: scope
+        in: query
+        required: true
+        description: Space-separated SMART scopes
+        schema:
+          type: string
+        example: openid fhirUser launch/patient patient/Patient.rs
+      - name: state
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: aud
+        in: query
+        required: true
+        description: The FHIR base URL of the endpoint you're connecting to (a customer endpoint from the directory, or the demonstration endpoint for testing)
+        schema:
+          type: string
+        example: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
+      - name: code_challenge
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        required: false
+        schema:
+          type: string
+          default: S256
+      responses:
+        '302':
+          description: Redirect to redirect_uri with an authorization code
+  /auth/realms/fhir/protocol/openid-connect/token:
+    servers:
+    - url: https://sso.ema.md
+      description: Production
+    post:
+      tags:
+      - Authentication
+      summary: Token endpoint
+      description: Exchange an authorization `code` for tokens, refresh a token, or obtain a `client_credentials` token. Send `client_id`/`client_secret` in the body (`client_secret_post`).
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  description: '`authorization_code`, `refresh_token`, or `client_credentials`'
+                  default: authorization_code
+                code:
+                  type: string
+                  description: Authorization code (authorization_code grant)
+                redirect_uri:
+                  type: string
+                  description: Must match the authorize request (authorization_code grant)
+                code_verifier:
+                  type: string
+                  description: PKCE code verifier (authorization_code grant)
+                refresh_token:
+                  type: string
+                  description: (refresh_token grant)
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+      responses:
+        '200':
+          description: Token response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                  refresh_token:
+                    type: string
+                    description: Present when offline_access is granted
+                  scope:
+                    type: string
+                  id_token:
+                    type: string
+                    description: Present when the openid scope is requested
+  /ws/oauth2/grant:
+    servers:
+    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+    post:
+      tags:
+      - Authentication
+      summary: Obtain OAuth2 Token (Legacy — password grant)
+      description: '**Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the OAuth2 `client_credentials` flow described in the **Authentication** guide. Treat the returned `access_token` as an opaque Bearer token.'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  default: password
+                username:
+                  type: string
+                  default: fhir_QfLlo
+                  description: The username provided to you
+                password:
+                  type: string
+                  default: 925X3LZ505
+                  description: The password provided to you
+              required:
+              - grant_type
+              - username
+              - password
+      security:
+      - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Access token response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_in:
+                    type: integer
+                  refresh_token:
+                    type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /auth/realms/ema-fhir/protocol/openid-connect/token:
+    servers:
+    - url: https://ssoqa01-lb-01.m2qa.com
+      description: Sandbox
+    - url: https://sso.ema.md
+      description: Production
+    post:
+      tags:
+      - Authentication
+      summary: Obtain OAuth2 Token (client_credentials)
+      description: Obtain an access token using the OAuth2 `client_credentials` grant. Send your `client_id` and `client_secret`. Returns an RS256-signed JWT; the `scope` claim is a space-separated list of ACLs and no refresh token is returned.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  default: client_credentials
+                client_id:
+                  type: string
+                  description: Your vendor application's client_id
+                  default: fhir-emasuppo-dc01454f-73b3-4ba1-bacc-01a8fdbc1417
+                client_secret:
+                  type: string
+                  description: Your vendor application's client_secret
+                  default: 0vVGfU4LNgQPySyrNjthFl9Y3usbt1uP
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+      responses:
+        '200':
+          description: Access token response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    description: RS256-signed JWT
+                  expires_in:
+                    type: integer
+                    example: 900
+                  refresh_expires_in:
+                    type: integer
+                    example: 0
+                  token_type:
+                    type: string
+                    example: Bearer
+                  not-before-policy:
+                    type: integer
+                    example: 0
+                  scope:
+                    type: string
+                    description: Space-separated list of ACL scopes
+                    example: acl/enc_s acl/pat_s_name_dob_gen
+components:
+  responses:
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    NotFound:
+      description: NOT FOUND
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
+    Forbidden:
+      description: FORBIDDEN
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+      x-default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhN2NiZmYwZWUxYjk0ODkwOWMxZmQzYzk3ODhlZjc1NCIsImlzcyI6Im1vZG1lZCIsInN1YiI6ImZoaXJfUWZMbG8iLCJ1cmxQcmVmaXgiOiJhcGlwb3J0YWwiLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJ2ZW5kb3IiOiJmaGlyX1FmTGxvQGFwaXBvcnRhbCIsInBvbCI6ImNoYW5nZW1lIn0.f0VcA3R56IuAvdbPhInqUbhmEwk-tiOIeELVpTZCUZ8
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.
+
+
+        `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`'
+      x-default: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f
+x-refined-from:
+- modernizing-medicine-certified-fhir-auth-openapi.json
+- modernizing-medicine-ema-proprietary-api-openapi.json
+- modernizing-medicine-ema-proprietary-auth-openapi.json

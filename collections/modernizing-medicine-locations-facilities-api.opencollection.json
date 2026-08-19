@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Locations/Facilities API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations/Facilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Location by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve Location by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve List of all locations for that firm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 100"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "address-city",
+                "value": "",
+                "type": "query",
+                "description": "A city specified in an address"
+              },
+              {
+                "name": "address-country",
+                "value": "",
+                "type": "query",
+                "description": "A country specified in an address"
+              },
+              {
+                "name": "address-postalcode",
+                "value": "",
+                "type": "query",
+                "description": "Is the Organization record active"
+              },
+              {
+                "name": "address-state",
+                "value": "",
+                "type": "query",
+                "description": "A state specified in an address"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the location's name or alias"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Searches for locations with a specific kind of status"
+              }
+            ]
+          },
+          "docs": "Retrieve List of all locations for that firm"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

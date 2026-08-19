@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Group API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Group",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET: /Group/$export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Group/$export",
+            "params": [
+              {
+                "name": "_outputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET: /Group/$export"
+        },
+        {
+          "info": {
+            "name": "GET: /Group/{id}/$export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Group/:id/$export",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "_outputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET: /Group/{id}/$export"
+        },
+        {
+          "info": {
+            "name": "read-instance: Read Group instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Group/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read Group instance"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

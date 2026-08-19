@@ -1,0 +1,483 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modernizing Medicine Patient API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Patient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET: /Patient/$export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Patient/$export",
+            "params": [
+              {
+                "name": "_outputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_type",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+              "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "GET: /Patient/$export"
+        },
+        {
+          "info": {
+            "name": "GET: /Patient/{id}/$export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Patient/:id/$export",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "_outputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_since",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "_type",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+              "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "GET: /Patient/{id}/$export"
+        },
+        {
+          "info": {
+            "name": "read-instance: Read Patient instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Patient/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+              "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "read-instance: Read Patient instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for Patient instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Patient",
+            "params": [
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the resource"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Whether the patient record is active"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+              },
+              {
+                "name": "address-city",
+                "value": "",
+                "type": "query",
+                "description": "A city specified in an address"
+              },
+              {
+                "name": "address-country",
+                "value": "",
+                "type": "query",
+                "description": "A country specified in an address"
+              },
+              {
+                "name": "address-postalcode",
+                "value": "",
+                "type": "query",
+                "description": "A postalCode specified in an address"
+              },
+              {
+                "name": "address-state",
+                "value": "",
+                "type": "query",
+                "description": "A state specified in an address"
+              },
+              {
+                "name": "address-use",
+                "value": "",
+                "type": "query",
+                "description": "A use code specified in an address"
+              },
+              {
+                "name": "birthdate",
+                "value": "",
+                "type": "query",
+                "description": "The patient's date of birth"
+              },
+              {
+                "name": "deceased",
+                "value": "",
+                "type": "query",
+                "description": "This patient has been marked as deceased, or as a death date entered"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "A value in an email contact"
+              },
+              {
+                "name": "family",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the family name of the patient"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query",
+                "description": "Gender of the patient"
+              },
+              {
+                "name": "general-practitioner",
+                "value": "",
+                "type": "query",
+                "description": "Patient's nominated general practitioner, not the organization that manages the record"
+              },
+              {
+                "name": "given",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the given name of the patient"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "A patient identifier"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (irrespective of use value)"
+              },
+              {
+                "name": "link",
+                "value": "",
+                "type": "query",
+                "description": "All patients linked to the given patient"
+              },
+              {
+                "name": "link-type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "A value in a phone contact"
+              },
+              {
+                "name": "telecom",
+                "value": "",
+                "type": "query",
+                "description": "The value in any kind of telecom details of the patient"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+              "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "read-instance: Read Patient instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/fhir/v2/Patient/:id",
+            "headers": [
+              {
+                "name": "Content-flag",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a single Patient resource by its MMI id."
+        },
+        {
+          "info": {
+            "name": "Updates Patient Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/fhir/v2/Patient/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates Patient Resource"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for Patient instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/fhir/v2/Patient",
+            "headers": [
+              {
+                "name": "Content-flag",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "address-postalcode",
+                "value": "",
+                "type": "query",
+                "description": "A postalCode specified in an address"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Whether the patient record is active (true|false)"
+              },
+              {
+                "name": "birthdate",
+                "value": "",
+                "type": "query",
+                "description": "This is the patient's Date of birth - Valid format yyyy-MM-dd"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "A value in an email contact"
+              },
+              {
+                "name": "family",
+                "value": "",
+                "type": "query",
+                "description": "This is the patient's last name - Supports exact matches"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query",
+                "description": "This is the patient's gender - male, female, or unknown"
+              },
+              {
+                "name": "general-practitioner",
+                "value": "",
+                "type": "query",
+                "description": "Patient's nominated general practitioner, not the organization that manages the record"
+              },
+              {
+                "name": "given",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the given name of the patient"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "This is a List of Identifiers for a Patient. Valid Identifier Systems are MRN with a system value of https://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR, SSN with a system value of http://hl7.org/fhir/sid/us-ssn, or PMS to be used for the PMS Id"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Language code (irrespective of use value)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "A value in a phone contact"
+              },
+              {
+                "name": "us-core-ethnicity",
+                "value": "",
+                "type": "query",
+                "description": "Returns patients with an ethnicity extension matching the specified code. Detailed Extension specification can be found at: http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity."
+              },
+              {
+                "name": "us-core-race",
+                "value": "",
+                "type": "query",
+                "description": "Returns patients with a race extension matching the specified code. Detailed Extension specification can be found at: http://hl7.org/fhir/us/core/StructureDefinition/us-core-race."
+              },
+              {
+                "name": "referral-source",
+                "value": "",
+                "type": "query",
+                "description": "If the Patient has been assigned a Referral Source in MMPM, this will be a reference to that ID. Referral Sources can be found by querying the following Value Set: {base url}/{firm_url_prefix}/ema/fhir/v2/ValueSet/referral-source"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "Creates Patient Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/fhir/v2/Patient",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates Patient Resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

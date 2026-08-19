@@ -1,0 +1,180 @@
+openapi: 3.2.0
+info:
+  title: EMA Proprietary Transcription API
+  contact:
+    email: ankit.srivastava@modmed.com
+  version: 3.4.3_FINAL
+  description: 'The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
+
+
+    This documentation targets the **public sandbox** (`stage.ema-api.com`).
+
+
+    **Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.'
+servers:
+- url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+security:
+- BearerAuth: []
+  ApiKeyAuth: []
+tags:
+- name: Transcription
+  description: Transcription details
+paths:
+  /fhir/v2/Composition:
+    post:
+      tags:
+      - Transcription
+      summary: Create Composition
+      requestBody:
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example:
+              resourceType: Composition
+              status: preliminary
+              type:
+                coding:
+                - system: http://loinc.org
+                  code: 11488-4
+                  display: Consult note
+              category:
+              - coding:
+                - system: http://loinc.org
+                  code: LP173421-1
+                  display: Report
+              subject:
+                reference: Patient/6353
+                display: Test Sample
+              encounter:
+                reference: Encounter/289317
+              date: '2021-06-04T09:10:14Z'
+              author:
+              - reference: Practitioner/1178
+                display: Provider Sample
+              title: 'This is the title of the note IF we need to create a chart note  '
+              section:
+              - title: Plan of treatment (narrative)
+                code:
+                  text: Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.
+                  coding:
+                  - system: http://loinc.org
+                    code: 18776-5
+                    display: Plan of treatment (narrative)
+              - title: Instructions
+                code:
+                  text: Here is a blob of text that will go into the Transcriptionist notes section.
+                  coding:
+                  - system: http://loinc.org
+                    code: 69730-0
+                    display: Instructions
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '201':
+          description: Created
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Composition
+                status: preliminary
+                type:
+                  coding:
+                  - system: http://loinc.org
+                    code: 11488-4
+                    display: Consult note
+                category:
+                - coding:
+                  - system: http://loinc.org
+                    code: LP173421-1
+                    display: Report
+                subject:
+                  reference: Patient/6353
+                  display: Test Sample
+                encounter:
+                  reference: Encounter/289317
+                date: '2021-06-04T09:10:14Z'
+                author:
+                - reference: Practitioner/1178
+                  display: Provider Sample
+                title: 'This is the title of the note IF we need to create a chart note  '
+                section:
+                - title: Plan of treatment (narrative)
+                  code:
+                    text: Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.
+                    coding:
+                    - system: http://loinc.org
+                      code: 18776-5
+                      display: Plan of treatment (narrative)
+                - title: Instructions
+                  code:
+                    text: Here is a blob of text that will go into the Transcriptionist notes section.
+                    coding:
+                    - system: http://loinc.org
+                      code: 69730-0
+                      display: Instructions
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-readme:
+        explorer-enabled: false
+components:
+  responses:
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    NotFound:
+      description: NOT FOUND
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
+    Forbidden:
+      description: FORBIDDEN
+  schemas:
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+      x-default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhN2NiZmYwZWUxYjk0ODkwOWMxZmQzYzk3ODhlZjc1NCIsImlzcyI6Im1vZG1lZCIsInN1YiI6ImZoaXJfUWZMbG8iLCJ1cmxQcmVmaXgiOiJhcGlwb3J0YWwiLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJ2ZW5kb3IiOiJmaGlyX1FmTGxvQGFwaXBvcnRhbCIsInBvbCI6ImNoYW5nZW1lIn0.f0VcA3R56IuAvdbPhInqUbhmEwk-tiOIeELVpTZCUZ8
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.
+
+
+        `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`'
+      x-default: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f

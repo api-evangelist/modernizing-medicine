@@ -1,0 +1,281 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Insurance API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Insurance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Coverage details for an ID (Note: this is the specific coverage ID, not the Patient ID) In order to get this ID, you’d want to do a Coverage search with the ‘patient=value’ parameter. ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve Coverage details for an ID (Note: this is the specific coverage ID, not the Patient ID) In order to get this ID, you’d want to do a Coverage search with the ‘patient=value’ parameter. "
+        },
+        {
+          "info": {
+            "name": "Updates Coverage Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates Coverage Resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve Coverage resources meeting the specified search criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 100"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "The order of the insurance policy, it can be 1= Primary , 2= Secondary 3 = Tertiary "
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "The unique Patient Identifier"
+              },
+              {
+                "name": "reconciliationId",
+                "value": "",
+                "type": "query",
+                "description": "Reconciliation Id Received from  a successful Coverage CREATE call"
+              }
+            ]
+          },
+          "docs": "Retrieve Coverage resources meeting the specified search criteria"
+        },
+        {
+          "info": {
+            "name": "Creates Coverage Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates Coverage Resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve InsurancePlan by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/InsurancePlan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve InsurancePlan by ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve all InsurancePlan information for a Firm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/InsurancePlan",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 100"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "owned-by",
+                "value": "",
+                "type": "query",
+                "description": "An organization of which this organization forms a part"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Is the Organization record active"
+              }
+            ]
+          },
+          "docs": "Retrieve all InsurancePlan information for a Firm"
+        },
+        {
+          "info": {
+            "name": "Retrieve information by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID append id with pay| or prov|"
+              }
+            ]
+          },
+          "docs": "Retrieve information by ID"
+        },
+        {
+          "info": {
+            "name": "Search Organization by certain parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 100"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Is the Organization record active"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "Any identifier for the organization (not the accreditation issuer's identifier)"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the organization's name or alias"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "A code for the type of organization use pay or prov"
+              }
+            ]
+          },
+          "docs": "Search Organization by certain parameters"
+        },
+        {
+          "info": {
+            "name": "Create Referring Institution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Referring Institution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

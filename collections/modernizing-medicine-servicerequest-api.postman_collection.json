@@ -1,0 +1,321 @@
+{
+  "item": [
+    {
+      "id": "e9bb8027-0b47-450b-b3dd-40329ac6e833",
+      "name": "ServiceRequest",
+      "description": {
+        "content": "The ServiceRequest FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2186e7c2-b41d-4acf-8f28-d05b638fe8d3",
+          "name": "read-instance: Read ServiceRequest instance",
+          "request": {
+            "name": "read-instance: Read ServiceRequest instance",
+            "description": {},
+            "url": {
+              "path": [
+                "ServiceRequest",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e17db34f-5f23-4e15-b7e2-0ea0216bbf1e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ServiceRequest",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"ServiceRequest\",\n  \"id\": \"1.120182.24.8904468\",\n  \"meta\": {\n    \"source\": \"Organization/1.120182\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest\"\n    ]\n  },\n  \"requisition\": {\n    \"value\": \"2\"\n  },\n  \"status\": \"active\",\n  \"intent\": \"order\",\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://snomed.info/sct\",\n          \"code\": \"108252007\",\n          \"display\": \"Laboratory procedure\"\n        }\n      ]\n    }\n  ],\n  \"code\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"57021-8\",\n        \"display\": \"Complete blood count W Auto Differential panel:-:Pt:Bld:Qn\"\n      }\n    ]\n  },\n  \"subject\": {\n    \"reference\": \"Patient/1.120182.1.17082675\",\n    \"type\": \"Patient\"\n  },\n  \"occurrencePeriod\": {\n    \"start\": \"2026-03-02\"\n  },\n  \"authoredOn\": \"2026-03-02T13:35:50+00:00\",\n  \"requester\": {\n    \"reference\": \"Practitioner/1.120182.2.17081470\",\n    \"type\": \"Practitioner\"\n  },\n  \"reasonCode\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\n          \"code\": \"L40.0\",\n          \"display\": \"Psoriasis vulgaris\"\n        }\n      ],\n      \"text\": \"Psoriasis vulgaris\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21559b2c-52a9-4598-9f43-7ca605adc150",
+          "name": "search-type: Search for ServiceRequest instances",
+          "request": {
+            "name": "search-type: Search for ServiceRequest instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ServiceRequest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "authored",
+                  "value": "<dateTime>",
+                  "description": "Date request signed"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Classification of service"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "What is being requested/ordered"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "Search by subject - a patient"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d5d2749-e54b-4e4c-9335-2fe8f9df0c44",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ServiceRequest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authored",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"total\": 10,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest?patient=1.120182.1.17082675\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest/1.120182.24.8904460\",\n      \"resource\": {\n        \"resourceType\": \"ServiceRequest\",\n        \"id\": \"1.120182.24.8904460\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest\"\n          ]\n        },\n        \"requisition\": {\n          \"value\": \"2\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"order\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://snomed.info/sct\",\n                \"code\": \"108252007\",\n                \"display\": \"Laboratory procedure\"\n              }\n            ]\n          }\n        ],\n        \"code\": {\n          \"coding\": [\n            {\n              \"system\": \"http://loinc.org\",\n              \"code\": \"42272-5\",\n              \"display\": \"Views PA + lateral:Find:Pt:Chest:Doc:XR\"\n            }\n          ]\n        },\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"occurrencePeriod\": {\n          \"start\": \"2026-03-02\"\n        },\n        \"authoredOn\": \"2026-03-02T13:35:50+00:00\",\n        \"requester\": {\n          \"reference\": \"Practitioner/1.120182.2.17081470\",\n          \"type\": \"Practitioner\"\n        },\n        \"reasonCode\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\n                \"code\": \"L40.0\",\n                \"display\": \"Psoriasis vulgaris\"\n              }\n            ],\n            \"text\": \"Psoriasis vulgaris\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest/1.120182.24.8904461\",\n      \"resource\": {\n        \"resourceType\": \"ServiceRequest\",\n        \"id\": \"1.120182.24.8904461\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest\"\n          ]\n        },\n        \"requisition\": {\n          \"value\": \"2\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"order\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://snomed.info/sct\",\n                \"code\": \"108252007\",\n                \"display\": \"Laboratory procedure\"\n              }\n            ]\n          }\n        ],\n        \"code\": {\n          \"coding\": [\n            {\n              \"system\": \"http://loinc.org\",\n              \"code\": \"57698-3\",\n              \"display\": \"Lipid panel with direct LDL:-:Pt:Ser/Plas:Qn\"\n            }\n          ]\n        },\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"occurrencePeriod\": {\n          \"start\": \"2026-03-02\"\n        },\n        \"authoredOn\": \"2026-03-02T13:35:50+00:00\",\n        \"requester\": {\n          \"reference\": \"Practitioner/1.120182.2.17081470\",\n          \"type\": \"Practitioner\"\n        },\n        \"reasonCode\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\n                \"code\": \"L40.0\",\n                \"display\": \"Psoriasis vulgaris\"\n              }\n            ],\n            \"text\": \"Psoriasis vulgaris\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest/1.120182.24.8904468\",\n      \"resource\": {\n        \"resourceType\": \"ServiceRequest\",\n        \"id\": \"1.120182.24.8904468\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest\"\n          ]\n        },\n        \"requisition\": {\n          \"value\": \"2\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"order\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://snomed.info/sct\",\n                \"code\": \"108252007\",\n                \"display\": \"Laboratory procedure\"\n              }\n            ]\n          }\n        ],\n        \"code\": {\n          \"coding\": [\n            {\n              \"system\": \"http://loinc.org\",\n              \"code\": \"57021-8\",\n              \"display\": \"Complete blood count W Auto Differential panel:-:Pt:Bld:Qn\"\n            }\n          ]\n        },\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"occurrencePeriod\": {\n          \"start\": \"2026-03-02\"\n        },\n        \"authoredOn\": \"2026-03-02T13:35:50+00:00\",\n        \"requester\": {\n          \"reference\": \"Practitioner/1.120182.2.17081470\",\n          \"type\": \"Practitioner\"\n        },\n        \"reasonCode\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\n                \"code\": \"L40.0\",\n                \"display\": \"Psoriasis vulgaris\"\n              }\n            ],\n            \"text\": \"Psoriasis vulgaris\"\n          }\n        ]\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest/1.120182.24.8904469\",\n      \"resource\": {\n        \"resourceType\": \"ServiceRequest\",\n        \"id\": \"1.120182.24.8904469\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest\"\n          ]\n        },\n        \"requisition\": {\n          \"value\": \"2\"\n        },\n        \"status\": \"active\",\n        \"intent\": \"order\",\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://snomed.info/sct\",\n                \"code\": \"108252007\",\n                \"display\": \"Laboratory procedure\"\n              }\n            ]\n          }\n        ],\n        \"code\": {\n          \"coding\": [\n            {\n              \"system\": \"http://loinc.org\",\n              \"code\": \"45323-3\",\n              \"display\": \"Mycobacterium tuberculosis tuberculin stimulated gamma interferon:PrThr:Pt:Bld:Ord\"\n            }\n          ]\n        },\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"occurrencePeriod\": {\n          \"start\": \"2026-03-02\"\n        },\n        \"authoredOn\": \"2026-03-02T13:35:50+00:00\",\n        \"requester\": {\n          \"reference\": \"Practitioner/1.120182.2.17081470\",\n          \"type\": \"Practitioner\"\n        },\n        \"reasonCode\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/sid/icd-10-cm\",\n                \"code\": \"L40.0\",\n                \"display\": \"Psoriasis vulgaris\"\n              }\n            ],\n            \"text\": \"Psoriasis vulgaris\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "85d1c59a-1bfd-41c6-9648-a261ad96ebfe",
+    "name": "ModMed Certified Service Request API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.",
+      "type": "text/plain"
+    }
+  }
+}

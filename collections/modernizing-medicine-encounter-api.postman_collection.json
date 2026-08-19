@@ -1,0 +1,331 @@
+{
+  "item": [
+    {
+      "id": "988253b0-dd24-4628-9e99-8b6877db19e0",
+      "name": "Encounter",
+      "description": {
+        "content": "The Encounter FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9c4f624-efe9-42a7-8059-a2c465c4387a",
+          "name": "read-instance: Read Encounter instance",
+          "request": {
+            "name": "read-instance: Read Encounter instance",
+            "description": {},
+            "url": {
+              "path": [
+                "Encounter",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                },
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75e0e271-7681-4955-b8f8-507f77208b1f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Encounter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    },
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Encounter\",\n  \"id\": \"1.120182.10.32975932\",\n  \"meta\": {\n    \"source\": \"Organization/1.120182\",\n    \"profile\": [\n      \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter\"\n    ]\n  },\n  \"identifier\": [\n    {\n      \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-VN\",\n      \"value\": \"120182VIS000000955\"\n    }\n  ],\n  \"status\": \"finished\",\n  \"class\": {\n    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\n    \"code\": \"AMB\",\n    \"display\": \"ambulatory\"\n  },\n  \"type\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://www.ama-assn.org/go/cpt\",\n          \"code\": \"99203\",\n          \"display\": \"Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and low level of medical decision making. When using total time on the date of the encounter for code selection, 30 minutes must be met or exceeded.\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/1.120182.1.17082675\",\n    \"type\": \"Patient\"\n  },\n  \"participant\": [\n    {\n      \"type\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n              \"code\": \"PPRF\",\n              \"display\": \"primary performer\"\n            }\n          ]\n        }\n      ],\n      \"period\": {\n        \"start\": \"2025-03-03T13:32:19+00:00\",\n        \"end\": \"2026-03-02T13:38:07+00:00\"\n      },\n      \"individual\": {\n        \"reference\": \"Practitioner/1.120182.2.17081470\",\n        \"type\": \"Practitioner\"\n      }\n    },\n    {\n      \"type\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n              \"code\": \"SPRF\",\n              \"display\": \"secondary performer\"\n            }\n          ]\n        }\n      ],\n      \"period\": {\n        \"start\": \"2025-03-03T13:32:19+00:00\",\n        \"end\": \"2026-03-02T13:38:07+00:00\"\n      },\n      \"individual\": {\n        \"reference\": \"Practitioner/1.120182.2.17081470\",\n        \"type\": \"Practitioner\"\n      }\n    }\n  ],\n  \"period\": {\n    \"start\": \"2025-03-03T13:32:19+00:00\",\n    \"end\": \"2026-03-02T13:38:07+00:00\"\n  },\n  \"reasonCode\": [\n    {\n      \"text\": \"Evaluation of Skin Lesion(s)\"\n    }\n  ],\n  \"reasonReference\": [\n    {\n      \"reference\": \"Condition/1.120182.7.1.60732921\",\n      \"type\": \"Condition\"\n    }\n  ],\n  \"hospitalization\": {\n    \"dischargeDisposition\": {\n      \"coding\": [\n        {\n          \"system\": \"http://terminology.hl7.org/CodeSystem/discharge-disposition\",\n          \"code\": \"oth\",\n          \"display\": \"Other\"\n        }\n      ]\n    }\n  },\n  \"location\": [\n    {\n      \"location\": {\n        \"reference\": \"Location/1.120182.14.5975\",\n        \"type\": \"Location\"\n      }\n    }\n  ],\n  \"serviceProvider\": {\n    \"reference\": \"Organization/1.120182\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2de830c0-13a1-4d0d-9e64-6ea9ca994bed",
+          "name": "search-type: Search for Encounter instances",
+          "request": {
+            "name": "search-type: Search for Encounter instances",
+            "description": {
+              "content": "This is a search type",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Encounter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "The ID of the resource"
+                },
+                {
+                  "disabled": false,
+                  "key": "class",
+                  "value": "<string>",
+                  "description": "Classification of patient encounter"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<dateTime>",
+                  "description": "A date within the period the Encounter lasted"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "Identifier(s) by which this encounter is known"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "The patient or group present at the encounter"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Specific type of encounter"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                  "type": "any",
+                  "value": "{{firm}}",
+                  "key": "firm"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "273429bf-2dd1-4724-b24a-0dfe42a25c43",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Encounter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+                      "type": "any",
+                      "value": "{{firm}}",
+                      "key": "firm"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"type\": \"searchset\",\n  \"total\": 4,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Encounter?patient=1.120182.1.17082675\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Encounter/1.120182.10.32975932\",\n      \"resource\": {\n        \"resourceType\": \"Encounter\",\n        \"id\": \"1.120182.10.32975932\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-VN\",\n            \"value\": \"120182VIS000000955\"\n          }\n        ],\n        \"status\": \"finished\",\n        \"class\": {\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\n          \"code\": \"AMB\",\n          \"display\": \"ambulatory\"\n        },\n        \"type\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://www.ama-assn.org/go/cpt\",\n                \"code\": \"99203\",\n                \"display\": \"Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and low level of medical decision making. When using total time on the date of the encounter for code selection, 30 minutes must be met or exceeded.\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"participant\": [\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"PPRF\",\n                    \"display\": \"primary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2025-03-03T13:32:19+00:00\",\n              \"end\": \"2026-03-02T13:38:07+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.17081470\",\n              \"type\": \"Practitioner\"\n            }\n          },\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"SPRF\",\n                    \"display\": \"secondary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2025-03-03T13:32:19+00:00\",\n              \"end\": \"2026-03-02T13:38:07+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.17081470\",\n              \"type\": \"Practitioner\"\n            }\n          }\n        ],\n        \"period\": {\n          \"start\": \"2025-03-03T13:32:19+00:00\",\n          \"end\": \"2026-03-02T13:38:07+00:00\"\n        },\n        \"reasonCode\": [\n          {\n            \"text\": \"Evaluation of Skin Lesion(s)\"\n          }\n        ],\n        \"reasonReference\": [\n          {\n            \"reference\": \"Condition/1.120182.7.1.60732921\",\n            \"type\": \"Condition\"\n          }\n        ],\n        \"hospitalization\": {\n          \"dischargeDisposition\": {\n            \"coding\": [\n              {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/discharge-disposition\",\n                \"code\": \"oth\",\n                \"display\": \"Other\"\n              }\n            ]\n          }\n        },\n        \"location\": [\n          {\n            \"location\": {\n              \"reference\": \"Location/1.120182.14.5975\",\n              \"type\": \"Location\"\n            }\n          }\n        ],\n        \"serviceProvider\": {\n          \"reference\": \"Organization/1.120182\"\n        }\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Encounter/1.120182.10.32976936\",\n      \"resource\": {\n        \"resourceType\": \"Encounter\",\n        \"id\": \"1.120182.10.32976936\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-VN\",\n            \"value\": \"120182VIS000000956\"\n          }\n        ],\n        \"status\": \"finished\",\n        \"class\": {\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\n          \"code\": \"AMB\",\n          \"display\": \"ambulatory\"\n        },\n        \"type\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://www.ama-assn.org/go/cpt\",\n                \"code\": \"99213\",\n                \"display\": \"Office or other outpatient visit for the evaluation and management of an established patient, which requires a medically appropriate history and/or examination and low level of medical decision making. When using total time on the date of the encounter for code selection, 20 minutes must be met or exceeded.\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"participant\": [\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"PPRF\",\n                    \"display\": \"primary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-03-02T14:00:21+00:00\",\n              \"end\": \"2026-03-02T14:02:35+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.17081470\",\n              \"type\": \"Practitioner\"\n            }\n          },\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"SPRF\",\n                    \"display\": \"secondary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-03-02T14:00:21+00:00\",\n              \"end\": \"2026-03-02T14:02:35+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.17081470\",\n              \"type\": \"Practitioner\"\n            }\n          }\n        ],\n        \"period\": {\n          \"start\": \"2026-03-02T14:00:21+00:00\",\n          \"end\": \"2026-03-02T14:02:35+00:00\"\n        },\n        \"reasonCode\": [\n          {\n            \"text\": \"Evaluation of Skin Lesion(s)\"\n          }\n        ],\n        \"reasonReference\": [\n          {\n            \"reference\": \"Condition/1.120182.7.1.60734256\",\n            \"type\": \"Condition\"\n          }\n        ],\n        \"hospitalization\": {\n          \"dischargeDisposition\": {\n            \"coding\": [\n              {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/discharge-disposition\",\n                \"code\": \"oth\",\n                \"display\": \"Other\"\n              }\n            ]\n          }\n        },\n        \"location\": [\n          {\n            \"location\": {\n              \"reference\": \"Location/1.120182.14.5975\",\n              \"type\": \"Location\"\n            }\n          }\n        ],\n        \"serviceProvider\": {\n          \"reference\": \"Organization/1.120182\"\n        }\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Encounter/1.120182.10.33611285\",\n      \"resource\": {\n        \"resourceType\": \"Encounter\",\n        \"id\": \"1.120182.10.33611285\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-VN\",\n            \"value\": \"120182VIS000000957\"\n          }\n        ],\n        \"status\": \"finished\",\n        \"class\": {\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\n          \"code\": \"AMB\",\n          \"display\": \"ambulatory\"\n        },\n        \"type\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://snomed.info/sct\",\n                \"code\": \"11429006\",\n                \"display\": \"Consultation\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"participant\": [\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"PPRF\",\n                    \"display\": \"primary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-04-06T16:35:13+00:00\",\n              \"end\": \"2026-04-06T17:51:51+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.14672596\",\n              \"type\": \"Practitioner\"\n            }\n          },\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"SPRF\",\n                    \"display\": \"secondary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-04-06T16:35:13+00:00\",\n              \"end\": \"2026-04-06T17:51:51+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.14672596\",\n              \"type\": \"Practitioner\"\n            }\n          },\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"SPRF\",\n                    \"display\": \"secondary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-04-06T16:35:13+00:00\",\n              \"end\": \"2026-04-06T17:51:51+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.17081470\",\n              \"type\": \"Practitioner\"\n            }\n          }\n        ],\n        \"period\": {\n          \"start\": \"2026-04-06T16:35:13+00:00\",\n          \"end\": \"2026-04-06T17:51:51+00:00\"\n        },\n        \"reasonReference\": [\n          {\n            \"reference\": \"Condition/1.120182.7.1.62507158\",\n            \"type\": \"Condition\"\n          }\n        ],\n        \"hospitalization\": {\n          \"dischargeDisposition\": {\n            \"coding\": [\n              {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/discharge-disposition\",\n                \"code\": \"oth\",\n                \"display\": \"Other\"\n              }\n            ]\n          }\n        },\n        \"location\": [\n          {\n            \"location\": {\n              \"reference\": \"Location/1.120182.14.5975\",\n              \"type\": \"Location\"\n            }\n          }\n        ],\n        \"serviceProvider\": {\n          \"reference\": \"Organization/1.120182\"\n        }\n      }\n    },\n    {\n      \"fullUrl\": \"https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/Encounter/1.120182.10.34997323\",\n      \"resource\": {\n        \"resourceType\": \"Encounter\",\n        \"id\": \"1.120182.10.34997323\",\n        \"meta\": {\n          \"source\": \"Organization/1.120182\",\n          \"profile\": [\n            \"http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter\"\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-VN\",\n            \"value\": \"120182VIS000000960\"\n          }\n        ],\n        \"status\": \"finished\",\n        \"class\": {\n          \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ActCode\",\n          \"code\": \"AMB\",\n          \"display\": \"ambulatory\"\n        },\n        \"type\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"http://snomed.info/sct\",\n                \"code\": \"11429006\",\n                \"display\": \"Consultation\"\n              }\n            ]\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"Patient/1.120182.1.17082675\",\n          \"type\": \"Patient\"\n        },\n        \"participant\": [\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"PPRF\",\n                    \"display\": \"primary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-05-14T18:24:31+00:00\",\n              \"end\": \"2026-05-14T18:27:41+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.14672591\",\n              \"type\": \"Practitioner\"\n            }\n          },\n          {\n            \"type\": [\n              {\n                \"coding\": [\n                  {\n                    \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ParticipationType\",\n                    \"code\": \"SPRF\",\n                    \"display\": \"secondary performer\"\n                  }\n                ]\n              }\n            ],\n            \"period\": {\n              \"start\": \"2026-05-14T18:24:31+00:00\",\n              \"end\": \"2026-05-14T18:27:41+00:00\"\n            },\n            \"individual\": {\n              \"reference\": \"Practitioner/1.120182.2.14672591\",\n              \"type\": \"Practitioner\"\n            }\n          }\n        ],\n        \"period\": {\n          \"start\": \"2026-05-14T18:24:31+00:00\",\n          \"end\": \"2026-05-14T18:27:41+00:00\"\n        },\n        \"reasonReference\": [\n          {\n            \"reference\": \"Condition/1.120182.7.1.64546691\",\n            \"type\": \"Condition\"\n          }\n        ],\n        \"hospitalization\": {\n          \"dischargeDisposition\": {\n            \"coding\": [\n              {\n                \"system\": \"http://terminology.hl7.org/CodeSystem/discharge-disposition\",\n                \"code\": \"oth\",\n                \"display\": \"Other\"\n              }\n            ]\n          }\n        },\n        \"location\": [\n          {\n            \"location\": {\n              \"reference\": \"Location/1.120182.14.5975\",\n              \"type\": \"Location\"\n            }\n          }\n        ],\n        \"serviceProvider\": {\n          \"reference\": \"Organization/1.120182\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "fhirmp",
+      "key": "firm"
+    },
+    {
+      "type": "string",
+      "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "openid fhirUser profile launch/patient offline_access patient/AllergyIntolerance.rs patient/CarePlan.rs patient/CareTeam.rs patient/Condition.rs patient/Coverage.rs patient/Device.rs patient/DiagnosticReport.rs patient/DocumentReference.rs patient/Encounter.rs patient/Goal.rs patient/Immunization.rs patient/Location.rs patient/Medication.rs patient/MedicationRequest.rs patient/Observation.rs patient/Organization.rs patient/Patient.rs patient/Practitioner.rs patient/PractitionerRole.rs patient/Procedure.rs patient/Provenance.rs patient/RelatedPerson.rs patient/ServiceRequest.rs user/AllergyIntolerance.rs user/CarePlan.rs user/CareTeam.rs user/Condition.rs user/Coverage.rs user/Device.rs user/DiagnosticReport.rs user/DocumentReference.rs user/Encounter.rs user/Goal.rs user/Immunization.rs user/Location.rs user/Medication.rs user/MedicationRequest.rs user/Observation.rs user/Organization.rs user/Patient.rs user/Practitioner.rs user/PractitionerRole.rs user/Procedure.rs user/Provenance.rs user/RelatedPerson.rs user/ServiceRequest.rs system/AllergyIntolerance.rs system/CarePlan.rs system/CareTeam.rs system/Condition.rs system/Coverage.rs system/Device.rs system/DiagnosticReport.rs system/DocumentReference.rs system/Encounter.rs system/Goal.rs system/Immunization.rs system/Location.rs system/Medication.rs system/MedicationRequest.rs system/Observation.rs system/Organization.rs system/Patient.rs system/Practitioner.rs system/PractitionerRole.rs system/Procedure.rs system/Provenance.rs system/RelatedPerson.rs system/ServiceRequest.rs"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "579c0714-adaf-44a3-a2af-8985e3477b69",
+    "name": "ModMed Certified Encounter API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,380 @@
+openapi: 3.2.0
+info:
+  title: EMA Proprietary Documents API
+  contact:
+    email: ankit.srivastava@modmed.com
+  version: 3.4.3_FINAL
+  description: 'The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
+
+
+    This documentation targets the **public sandbox** (`stage.ema-api.com`).
+
+
+    **Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.'
+servers:
+- url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+security:
+- BearerAuth: []
+  ApiKeyAuth: []
+tags:
+- name: Documents
+  description: Documents details
+paths:
+  /fhir/v2/DocumentReference/{id}:
+    get:
+      tags:
+      - Documents
+      summary: Retrieve Document by ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: DocumentReference
+                id: file|139977
+                identifier:
+                - system: filename
+                  value: Discharge_Sumary.pdf
+                status: current
+                type:
+                  text: application/pdf
+                category:
+                - coding:
+                  - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category
+                    code: '25169'
+                    display: External Clinical Note
+                  text: External Clinical Note
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                date: '2026-06-25T19:30:20.000+00:00'
+                description: Sample Discharge Summary
+                content:
+                - attachment:
+                    url: https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/112416/689/secure/users/g45/450858/attachments/Discharge_Sumary.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIEQg2oA3yG9FIhIscLXr5MiqqL73PAvuLPJOqdi%2F09nVAiATOPcQTnqH9KUy6dZIGFCIttp0RVEeJ345lGtQJB9ZgSqyBQhWEAAaDDg3NDgyMzcyMzI1NiIMAGczIFMvjZ4WJMUZKo8FeSmeHy2Sdfn5KvITe71iOJWMAyJAl9v1Fil9SOc8EJULf9cp%2F0Hnwj5%2BzHlMTl7krY5eFExdzmUTkbwT9MCefyiwqfAAaFrZvo3GroKwyZ8J%2BkptYPY9zMdTVqdBQnas03b6lwQM5p1JsWXJz67TNBe%2FfrrZGRh0sivghUAGcZi%2Bj04gdMGAwxTfzvGyJZxmaBSwjMlnAFIyO8B73x7HGgmxKqRLFdWNYhe31JXnr33zRqR6J0OjgZnBE9szO9tX0KSCMvYbl7%2BXqYBbFuTdjg2gGdVZeR3y59Srh0FUg6gV6osNpFDx053ISU1HHG6ghN56RxqSXVkOdGjimxJ3thGBvDtrhNXVn%2BtHeRZqTdOLTSfn9J%2FbOfKBckLhtjd2U515q83Zx3S9EVMSZiQhsU3%2FFjvORvC%2FLADpd7eDOsjSJFiP%2BJquKHbUj48rbaPxsHU%2BBHj3q7vcax31fKxbAMkdATzA8S5sf%2FZDFngH%2Fw%2FrjvSZIL4KdXljvn98vP10WHAE8j15owPjKh5TAxm0RX6C9aO19Ip6Z1tEzIwhKW8hj278TpO2aa1KStaMkkq2KIScKTYPDcWgD5qP%2BW4L6%2Bkyrr7csXeU%2BNh%2FqKf9A7WtWufnSM%2BWee4Pz32YvnctxnDuxJ0vek1ZDdzi1fcFSfYbtZUCb87W8HplMphu%2FbKyRCsSvCAYOaOZwyZyaY2JKonIsyUO0s5FTR01VfrwTJyGmBCKBD5k2NtM%2FHEyhdwDBG5t697%2Bz4rzFEsU0mpS1NiRA%2B2K%2F%2BS19MZlMPkzM0zj7IrEhFz%2F%2BEhoOlxKMJF4ySDiktPKGY8bSamwvhCIugnNoeoFSR6qmA85zmzWS3gHpWBT%2F84%2FyTkbHv1rkjCgpvbRBjqyAX0Ts7nkGCcnpbghUJcxHGDDOKA3lLB3Oi8eeC3nbTy0%2B1pEuoWgZCKXxl8G2F4qHfSJTyaOmW3nQbyPTP55IYzrlHpepcnhWRPh1h7aOH6VjXC63JsOOwYhXgOQyIBjztD9KgPlCQgvqpOadvnHhLuZmpCFdy95t8T2Hh5E9Wq9oXuFiRTpDPTaGTm4EwoZyy1dmqi9QYck4ZIWEUPIvnU2zhCmmzbGdOme74VtgBEP9s8%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260625T212923Z&X-Amz-SignedHeaders=host&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20260625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=300&X-Amz-Signature=c0aaf0f956536a36291da4522006a5c6948aecfb215e7f983348ef4552555dd4
+                    size: 14558
+                    title: Sample Discharge Summary
+                    creation: '2026-06-25T19:30:20+00:00'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/DocumentReference:
+    get:
+      tags:
+      - Documents
+      summary: Retrieve Document resources meeting the specified search criteria
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 10
+        required: false
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: The original upload date in format of yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: category
+        in: query
+        description: File extension type, this is an optional field, e.g. ccda, note
+        required: false
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: File title, this is an optional field
+        required: false
+        schema:
+          type: string
+      - name: encounter
+        in: query
+        description: Context of the document content
+        required: false
+        schema:
+          type: string
+      - name: identifier
+        in: query
+        description: Document reference identifier, can be search by filename passing the identifier filename and the value in format filename|value. This is an optional field
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: 'Patient reference url in format : /resoucrename/id or id, this is a mandatory field.'
+        required: true
+        schema:
+          type: string
+      - name: requisition
+        in: query
+        description: Composite Request ID
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: File extension type, this is an optional field e.g. type=pdf
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: e883f6d0-12f1-43f3-bf3b-84803a4a2310
+                meta:
+                  lastUpdated: '2026-06-25T21:29:23.050+00:00'
+                  tag:
+                  - system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
+                    code: SUBSETTED
+                    display: Resource encoded in summary mode
+                type: searchset
+                total: 2
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference?patient=450858&_count=2
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference?patient=450858&_count=2&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/file%7C139977
+                  resource:
+                    resourceType: DocumentReference
+                    id: file|139977
+                    meta:
+                      tag:
+                      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
+                        code: SUBSETTED
+                        display: Resource encoded in summary mode
+                    identifier:
+                    - system: filename
+                      value: Discharge_Sumary.pdf
+                    status: current
+                    type:
+                      text: application/pdf
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category
+                        code: '25169'
+                        display: External Clinical Note
+                      text: External Clinical Note
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    date: '2026-06-25T19:30:20.000+00:00'
+                    description: Sample Discharge Summary
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/file%7C139978
+                  resource:
+                    resourceType: DocumentReference
+                    id: file|139978
+                    meta:
+                      tag:
+                      - system: http://terminology.hl7.org/CodeSystem/v3-ObservationValue
+                        code: SUBSETTED
+                        display: Resource encoded in summary mode
+                    identifier:
+                    - system: filename
+                      value: Consent_Form.pdf
+                    status: current
+                    type:
+                      text: application/pdf
+                    category:
+                    - coding:
+                      - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category
+                        code: '25185'
+                        display: Consent
+                      text: Consent
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858
+                    date: '2026-06-25T19:30:56.000+00:00'
+                    description: Sample Consent Form
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+      - Documents
+      summary: Upload document from S3 URL to EMA
+      requestBody:
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example:
+              resourceType: DocumentReference
+              identifier:
+              - system: filename
+                value: EXAMPLE-ID
+              status: current
+              type:
+                text: application/pdf
+              category:
+              - coding:
+                - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category
+                  code: '1804'
+                  display: Results - Radiology
+                text: Results - Radiology
+              subject:
+                reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353
+                display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353
+              date: '2022-12-12T14:45:46.000+00:00'
+              description: Radiology_Report
+              content:
+              - attachment:
+                  url: https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626
+                  size: 34685
+                  title: Radiology_Report
+                  creation: '2022-12-12T14:45:46+00:00'
+              context:
+                encounter:
+                - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '201':
+          description: Created
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: DocumentReference
+                identifier:
+                - system: filename
+                  value: EXAMPLE-ID
+                status: current
+                type:
+                  text: application/pdf
+                category:
+                - coding:
+                  - system: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category
+                    code: '1804'
+                    display: Results - Radiology
+                  text: Results - Radiology
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353
+                date: '2022-12-12T14:45:46.000+00:00'
+                description: Radiology_Report
+                content:
+                - attachment:
+                    url: https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626
+                    size: 34685
+                    title: Radiology_Report
+                    creation: '2022-12-12T14:45:46+00:00'
+                context:
+                  encounter:
+                  - reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339
+                    display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-readme:
+        explorer-enabled: false
+components:
+  responses:
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    NotFound:
+      description: NOT FOUND
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
+    Forbidden:
+      description: FORBIDDEN
+  schemas:
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+      x-default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhN2NiZmYwZWUxYjk0ODkwOWMxZmQzYzk3ODhlZjc1NCIsImlzcyI6Im1vZG1lZCIsInN1YiI6ImZoaXJfUWZMbG8iLCJ1cmxQcmVmaXgiOiJhcGlwb3J0YWwiLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJ2ZW5kb3IiOiJmaGlyX1FmTGxvQGFwaXBvcnRhbCIsInBvbCI6ImNoYW5nZW1lIn0.f0VcA3R56IuAvdbPhInqUbhmEwk-tiOIeELVpTZCUZ8
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.
+
+
+        `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`'
+      x-default: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f

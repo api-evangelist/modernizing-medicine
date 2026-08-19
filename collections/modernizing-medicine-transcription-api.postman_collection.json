@@ -1,0 +1,537 @@
+{
+  "item": [
+    {
+      "id": "26c7f414-a734-40db-9057-0072c26d8bd5",
+      "name": "Transcription",
+      "description": {
+        "content": "Transcription details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1062c5b9-fe55-4aa7-a169-315cffd0ad46",
+          "name": "Create Composition",
+          "request": {
+            "name": "Create Composition",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Composition"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a66889b4-35d3-41ab-adc4-6bf530c8d521",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "\"<object>\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "592dd310-aa84-4f07-9305-f76472f1d7a3",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07ba40bf-3393-4b30-8fc8-e1075419b788",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3652a1b9-6a52-4a5d-9c9f-b7e715b1d32f",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b402df26-542a-4548-9360-ce2643c65f2a",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a68d1bd0-605d-424c-85d3-c6cbf17f40f5",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "235db04b-2a48-4874-a61b-65334e5797d4",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c40f2a03-2be2-48e6-840b-23c5012a7126",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a6b9939-7e6e-464b-847d-1c223fc24bf4",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Composition"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Composition\",\n  \"status\": \"preliminary\",\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://loinc.org\",\n        \"code\": \"11488-4\",\n        \"display\": \"Consult note\"\n      }\n    ]\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"http://loinc.org\",\n          \"code\": \"LP173421-1\",\n          \"display\": \"Report\"\n        }\n      ]\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"Patient/6353\",\n    \"display\": \"Test Sample\"\n  },\n  \"encounter\": {\n    \"reference\": \"Encounter/289317\"\n  },\n  \"date\": \"2021-06-04T09:10:14Z\",\n  \"author\": [\n    {\n      \"reference\": \"Practitioner/1178\",\n      \"display\": \"Provider Sample\"\n    }\n  ],\n  \"title\": \"This is the title of the note IF we need to create a chart note  \",\n  \"section\": [\n    {\n      \"title\": \"Plan of treatment (narrative)\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Additional Visit Note section IF there is a visit in progress OR will go into the Chart Note IF there is no visit.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"18776-5\",\n            \"display\": \"Plan of treatment (narrative)\"\n          }\n        ]\n      }\n    },\n    {\n      \"title\": \"Instructions\",\n      \"code\": {\n        \"text\": \"Here is a blob of text that will go into the Transcriptionist notes section.\",\n        \"coding\": [\n          {\n            \"system\": \"http://loinc.org\",\n            \"code\": \"69730-0\",\n            \"display\": \"Instructions\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "273a49f0-32d1-45fe-985a-df81a4dfec56",
+    "name": "EMA Proprietary Transcription API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.\n\nContact Support:\n Email: ankit.srivastava@modmed.com",
+      "type": "text/plain"
+    }
+  }
+}

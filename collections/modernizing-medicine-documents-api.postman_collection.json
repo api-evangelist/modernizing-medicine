@@ -1,0 +1,1739 @@
+{
+  "item": [
+    {
+      "id": "cc67dd36-bcb2-4028-bca5-baabe3cdaf82",
+      "name": "Documents",
+      "description": {
+        "content": "Documents details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35bbc00f-75ce-4f00-97e2-e54c65116cef",
+          "name": "Retrieve Document by ID",
+          "request": {
+            "name": "Retrieve Document by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "DocumentReference",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af92e903-1b7d-4564-af10-13d371162ac8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"DocumentReference\",\n  \"id\": \"file|139977\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"Discharge_Sumary.pdf\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"25169\",\n          \"display\": \"External Clinical Note\"\n        }\n      ],\n      \"text\": \"External Clinical Note\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n  },\n  \"date\": \"2026-06-25T19:30:20.000+00:00\",\n  \"description\": \"Sample Discharge Summary\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/112416/689/secure/users/g45/450858/attachments/Discharge_Sumary.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEI3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIEQg2oA3yG9FIhIscLXr5MiqqL73PAvuLPJOqdi%2F09nVAiATOPcQTnqH9KUy6dZIGFCIttp0RVEeJ345lGtQJB9ZgSqyBQhWEAAaDDg3NDgyMzcyMzI1NiIMAGczIFMvjZ4WJMUZKo8FeSmeHy2Sdfn5KvITe71iOJWMAyJAl9v1Fil9SOc8EJULf9cp%2F0Hnwj5%2BzHlMTl7krY5eFExdzmUTkbwT9MCefyiwqfAAaFrZvo3GroKwyZ8J%2BkptYPY9zMdTVqdBQnas03b6lwQM5p1JsWXJz67TNBe%2FfrrZGRh0sivghUAGcZi%2Bj04gdMGAwxTfzvGyJZxmaBSwjMlnAFIyO8B73x7HGgmxKqRLFdWNYhe31JXnr33zRqR6J0OjgZnBE9szO9tX0KSCMvYbl7%2BXqYBbFuTdjg2gGdVZeR3y59Srh0FUg6gV6osNpFDx053ISU1HHG6ghN56RxqSXVkOdGjimxJ3thGBvDtrhNXVn%2BtHeRZqTdOLTSfn9J%2FbOfKBckLhtjd2U515q83Zx3S9EVMSZiQhsU3%2FFjvORvC%2FLADpd7eDOsjSJFiP%2BJquKHbUj48rbaPxsHU%2BBHj3q7vcax31fKxbAMkdATzA8S5sf%2FZDFngH%2Fw%2FrjvSZIL4KdXljvn98vP10WHAE8j15owPjKh5TAxm0RX6C9aO19Ip6Z1tEzIwhKW8hj278TpO2aa1KStaMkkq2KIScKTYPDcWgD5qP%2BW4L6%2Bkyrr7csXeU%2BNh%2FqKf9A7WtWufnSM%2BWee4Pz32YvnctxnDuxJ0vek1ZDdzi1fcFSfYbtZUCb87W8HplMphu%2FbKyRCsSvCAYOaOZwyZyaY2JKonIsyUO0s5FTR01VfrwTJyGmBCKBD5k2NtM%2FHEyhdwDBG5t697%2Bz4rzFEsU0mpS1NiRA%2B2K%2F%2BS19MZlMPkzM0zj7IrEhFz%2F%2BEhoOlxKMJF4ySDiktPKGY8bSamwvhCIugnNoeoFSR6qmA85zmzWS3gHpWBT%2F84%2FyTkbHv1rkjCgpvbRBjqyAX0Ts7nkGCcnpbghUJcxHGDDOKA3lLB3Oi8eeC3nbTy0%2B1pEuoWgZCKXxl8G2F4qHfSJTyaOmW3nQbyPTP55IYzrlHpepcnhWRPh1h7aOH6VjXC63JsOOwYhXgOQyIBjztD9KgPlCQgvqpOadvnHhLuZmpCFdy95t8T2Hh5E9Wq9oXuFiRTpDPTaGTm4EwoZyy1dmqi9QYck4ZIWEUPIvnU2zhCmmzbGdOme74VtgBEP9s8%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260625T212923Z&X-Amz-SignedHeaders=host&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20260625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=300&X-Amz-Signature=c0aaf0f956536a36291da4522006a5c6948aecfb215e7f983348ef4552555dd4\",\n        \"size\": 14558,\n        \"title\": \"Sample Discharge Summary\",\n        \"creation\": \"2026-06-25T19:30:20+00:00\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cb46b9a-696c-4eac-a5c7-8646e761d559",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "452119ee-013b-4e7d-969a-a2f4afc48dd1",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "274a1bfc-7a79-4c91-8bdf-4b3fecfe5500",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2153fe44-699c-4f7e-8392-914f73239638",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff223948-613c-428c-a898-9c2ca37500e4",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99066529-f0d5-4764-afab-c25c9ffe72fb",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "55d63639-2478-4f0a-8adc-9fca526840c7",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "278a6c7e-73be-4dea-8698-addd0c0f4415",
+          "name": "Retrieve Document resources meeting the specified search criteria",
+          "request": {
+            "name": "Retrieve Document resources meeting the specified search criteria",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "DocumentReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<string>",
+                  "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 10"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "The original upload date in format of yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "File extension type, this is an optional field, e.g. ccda, note"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "File title, this is an optional field"
+                },
+                {
+                  "disabled": false,
+                  "key": "encounter",
+                  "value": "<string>",
+                  "description": "Context of the document content"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "Document reference identifier, can be search by filename passing the identifier filename and the value in format filename|value. This is an optional field"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page to be used for paginated search"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "(Required) Patient reference url in format : /resoucrename/id or id, this is a mandatory field."
+                },
+                {
+                  "disabled": false,
+                  "key": "requisition",
+                  "value": "<string>",
+                  "description": "Composite Request ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "File extension type, this is an optional field e.g. type=pdf"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6beb4c74-165d-437c-9c5a-2fd68f499a7b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"id\": \"e883f6d0-12f1-43f3-bf3b-84803a4a2310\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T21:29:23.050+00:00\",\n    \"tag\": [\n      {\n        \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ObservationValue\",\n        \"code\": \"SUBSETTED\",\n        \"display\": \"Resource encoded in summary mode\"\n      }\n    ]\n  },\n  \"type\": \"searchset\",\n  \"total\": 2,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference?patient=450858&_count=2\"\n    },\n    {\n      \"relation\": \"next\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference?patient=450858&_count=2&page=2\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/file%7C139977\",\n      \"resource\": {\n        \"resourceType\": \"DocumentReference\",\n        \"id\": \"file|139977\",\n        \"meta\": {\n          \"tag\": [\n            {\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ObservationValue\",\n              \"code\": \"SUBSETTED\",\n              \"display\": \"Resource encoded in summary mode\"\n            }\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"filename\",\n            \"value\": \"Discharge_Sumary.pdf\"\n          }\n        ],\n        \"status\": \"current\",\n        \"type\": {\n          \"text\": \"application/pdf\"\n        },\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n                \"code\": \"25169\",\n                \"display\": \"External Clinical Note\"\n              }\n            ],\n            \"text\": \"External Clinical Note\"\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n          \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n        },\n        \"date\": \"2026-06-25T19:30:20.000+00:00\",\n        \"description\": \"Sample Discharge Summary\"\n      }\n    },\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DocumentReference/file%7C139978\",\n      \"resource\": {\n        \"resourceType\": \"DocumentReference\",\n        \"id\": \"file|139978\",\n        \"meta\": {\n          \"tag\": [\n            {\n              \"system\": \"http://terminology.hl7.org/CodeSystem/v3-ObservationValue\",\n              \"code\": \"SUBSETTED\",\n              \"display\": \"Resource encoded in summary mode\"\n            }\n          ]\n        },\n        \"identifier\": [\n          {\n            \"system\": \"filename\",\n            \"value\": \"Consent_Form.pdf\"\n          }\n        ],\n        \"status\": \"current\",\n        \"type\": {\n          \"text\": \"application/pdf\"\n        },\n        \"category\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n                \"code\": \"25185\",\n                \"display\": \"Consent\"\n              }\n            ],\n            \"text\": \"Consent\"\n          }\n        ],\n        \"subject\": {\n          \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\",\n          \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/450858\"\n        },\n        \"date\": \"2026-06-25T19:30:56.000+00:00\",\n        \"description\": \"Sample Consent Form\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c3dadc1-f52e-48fc-bf9a-366d338cec61",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d0f7862-79f2-45fd-8f21-7aeafb85c8f1",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05291816-247e-4cd5-822e-6c174a5c69cd",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87eae8e3-0449-4e8e-889c-c83a725bb209",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3bd7a228-a5dc-436f-a2d3-89eccc8c728d",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "effd1507-3ea7-45ff-8ffd-c36bdbc468aa",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6f66b38-052d-4faf-a4fb-86fe497564e5",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encounter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "requisition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed015657-a4e7-4d9d-89c9-617f5956b50f",
+          "name": "Upload document from S3 URL to EMA",
+          "request": {
+            "name": "Upload document from S3 URL to EMA",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "DocumentReference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bb4c61d2-f957-49b1-b185-ec4765cc95b8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "\"<object>\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b264f465-f204-461f-bbab-94da6e3c13f2",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28d01690-48d1-481f-b150-9d4d40272cfe",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45950157-b242-4ce1-847c-b818fae2b97c",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2534e87c-e62c-4ff5-a268-ab422d257492",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a79fef7-07c4-4aad-8acb-fb1069e30072",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2562def4-7a72-419e-8387-0747ae60a5d7",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7fa19e92-fe58-4f90-b774-b4ffabac16c5",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b9f3817-977a-44af-896b-49a229098d11",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "DocumentReference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"DocumentReference\",\n  \"identifier\": [\n    {\n      \"system\": \"filename\",\n      \"value\": \"EXAMPLE-ID\"\n    }\n  ],\n  \"status\": \"current\",\n  \"type\": {\n    \"text\": \"application/pdf\"\n  },\n  \"category\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/document-category\",\n          \"code\": \"1804\",\n          \"display\": \"Results - Radiology\"\n        }\n      ],\n      \"text\": \"Results - Radiology\"\n    }\n  ],\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/6353\"\n  },\n  \"date\": \"2022-12-12T14:45:46.000+00:00\",\n  \"description\": \"Radiology_Report\",\n  \"content\": [\n    {\n      \"attachment\": {\n        \"url\": \"https://modmed-qa-incoming-fhir-attachments.s3.amazonaws.com/105684/ed375376-29eb-40b5-b28f-b3907afe55a9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221212T184946Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=REDACTED_AWS_ACCESS_KEY_ID%2F20221212%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b88802a2999149cdad4cddb6e22b2d82b749232d404ef298a200adacd6f8d626\",\n        \"size\": 34685,\n        \"title\": \"Radiology_Report\",\n        \"creation\": \"2022-12-12T14:45:46+00:00\"\n      }\n    }\n  ],\n  \"context\": {\n    \"encounter\": [\n      {\n        \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\",\n        \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/329339\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e158e513-1650-4453-94d2-f29ee161cec6",
+    "name": "EMA Proprietary Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.\n\nContact Support:\n Email: ankit.srivastava@modmed.com",
+      "type": "text/plain"
+    }
+  }
+}

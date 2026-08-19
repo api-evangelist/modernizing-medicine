@@ -1,0 +1,480 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EMA Proprietary Clinical Data/Clipboard API",
+    "version": "3.4.3_FINAL"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Clinical Data/Clipboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve AllergyIntolerance details for an AllergyIntolerance ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/AllergyIntolerance/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve AllergyIntolerance details for an AllergyIntolerance ID"
+        },
+        {
+          "info": {
+            "name": "Update AllergyIntolerance resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/AllergyIntolerance/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update AllergyIntolerance resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve AllergyIntolerance resources by the specified search criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/AllergyIntolerance",
+            "params": [
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Returns statements for a specific patient."
+              }
+            ]
+          },
+          "docs": "Retrieve AllergyIntolerance resources by the specified search criteria"
+        },
+        {
+          "info": {
+            "name": "Create AllergyIntolerance resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/AllergyIntolerance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create AllergyIntolerance resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve Condition details for an ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve Condition details for an ID"
+        },
+        {
+          "info": {
+            "name": "Update Condition resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The Condition ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Condition resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve Condition resources by the specified search criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition",
+            "params": [
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Returns statements for a specific patient."
+              }
+            ]
+          },
+          "docs": "Retrieve Condition resources by the specified search criteria"
+        },
+        {
+          "info": {
+            "name": "Create Condition resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Condition",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Condition resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve DiagnosticReport for an ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DiagnosticReport/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve DiagnosticReport for an ID"
+        },
+        {
+          "info": {
+            "name": "Search DiagnosticReport by certain parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/DiagnosticReport",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "encounter",
+                "value": "",
+                "type": "query",
+                "description": "An encounter in which this request is made"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Search by subject - a patient"
+              },
+              {
+                "name": "requisition",
+                "value": "",
+                "type": "query",
+                "description": "Composite Request ID"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Diagnostic Report Type Search Parameter."
+              }
+            ]
+          },
+          "docs": "Search DiagnosticReport by certain parameters"
+        },
+        {
+          "info": {
+            "name": "Retrieve FamilyMemberHistory details for an ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/FamilyMemberHistory/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve FamilyMemberHistory details for an ID"
+        },
+        {
+          "info": {
+            "name": "Retrieve FamilyMemberHistory resources by the specified search criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/FamilyMemberHistory",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "The identity of a subject to list family member history items for"
+              }
+            ]
+          },
+          "docs": "Retrieve FamilyMemberHistory resources by the specified search criteria"
+        },
+        {
+          "info": {
+            "name": "Retrieve MedicationStatement details for a Medication Statement ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve MedicationStatement details for a Medication Statement ID"
+        },
+        {
+          "info": {
+            "name": "Update MedicationStatement resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update MedicationStatement resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve MedicationStatement resources by the specified search criteria",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Returns statements for a specific patient."
+              }
+            ]
+          },
+          "docs": "Retrieve MedicationStatement resources by the specified search criteria"
+        },
+        {
+          "info": {
+            "name": "Create MedicationStatement resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/MedicationStatement",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create MedicationStatement resource"
+        },
+        {
+          "info": {
+            "name": "Retrieve ServiceRequest for an ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Retrieve ServiceRequest for an ID"
+        },
+        {
+          "info": {
+            "name": "Search ServiceRequests by certain parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ServiceRequest",
+            "params": [
+              {
+                "name": "_count",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "This is an Optional Date in the format _lastUpdated=gtDATE, _lastUpdated=eqDATE and _lastUpdated=leDATE in the format yyyy-mm-dd"
+              },
+              {
+                "name": "authored",
+                "value": "",
+                "type": "query",
+                "description": "Date request signed"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Classification of service"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page to be used for paginated search"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Search by subject - a patient"
+              },
+              {
+                "name": "encounter",
+                "value": "",
+                "type": "query",
+                "description": "An encounter in which this request is made"
+              },
+              {
+                "name": "requester",
+                "value": "",
+                "type": "query",
+                "description": "Who/what is requesting service"
+              },
+              {
+                "name": "requisition",
+                "value": "",
+                "type": "query",
+                "description": "Composite Request ID"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "draft | active | suspended | completed | entered-in-error | cancelled"
+              }
+            ]
+          },
+          "docs": "Search ServiceRequests by certain parameters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

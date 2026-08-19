@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ModMed Certified Service Request API",
+    "version": "4.1-SNAPSHOT"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth",
+      "accessTokenUrl": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/auth/realms/fhir/protocol/openid-connect/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ServiceRequest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read ServiceRequest instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read ServiceRequest instance"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for ServiceRequest instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/ServiceRequest",
+            "params": [
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the resource"
+              },
+              {
+                "name": "authored",
+                "value": "",
+                "type": "query",
+                "description": "Date request signed"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Classification of service"
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "What is being requested/ordered"
+              },
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "Search by subject - a patient"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

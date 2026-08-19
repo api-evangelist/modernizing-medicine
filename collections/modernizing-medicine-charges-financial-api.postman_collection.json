@@ -1,0 +1,3100 @@
+{
+  "item": [
+    {
+      "id": "242e1e20-f049-4c67-9e84-01067443136f",
+      "name": "Charges/Financial",
+      "description": {
+        "content": "Charges/Financial details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8fda2c3e-8812-4ff1-b6a8-df47d75f4417",
+          "name": "Search for a patient’s account",
+          "request": {
+            "name": "Search for a patient’s account",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "Account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "(Required) Account resources can be searched by patient id, which is a required field."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f295094-bad9-471d-bcb2-9ffc5c86b3c3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7acd9c90-93ce-4438-9c13-fe658f1f0195",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0ab9742-ee51-45b0-9a89-e450b4e392cb",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9f07cc8-cc73-43b9-a2cf-240c1fd53ef5",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72aaafe0-a6cc-4a0b-90fe-88673042671f",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3d6bf9bf-8da8-49ea-bd5c-0882e28c9281",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60f283e6-f62a-44a9-931a-ea59ddcf77fb",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a10e53e-a8ba-49e6-a684-0d3cf521a29d",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "Account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "996abcaa-7c10-4722-a640-56bab3033ccd",
+          "name": "Get a specific ChargeItem",
+          "request": {
+            "name": "Get a specific ChargeItem",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "ChargeItem",
+                "CHG|{{id}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63a6619e-2fd7-46fa-8bb6-7926494c0054",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"ChargeItem\",\n  \"id\": \"CHG|1722\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"financialTransactionId\",\n          \"valueString\": \"CHG|1722\"\n        },\n        {\n          \"url\": \"transactionStatus\",\n          \"valueString\": \"Charged\"\n        },\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"8944076359\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"826\"\n        },\n        {\n          \"url\": \"businessUnitId\",\n          \"valueString\": \"325678903\"\n        },\n        {\n          \"url\": \"totalCost\",\n          \"valueMoney\": {\n            \"value\": 83.63,\n            \"currency\": \"USD\"\n          }\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"8944076359\"\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"Test\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2025-06-18T00:00:00+00:00\"\n            },\n            {\n              \"url\": \"procedureDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"procedureDetailId\",\n                  \"valueString\": \"CHG|1722\"\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535\",\n    \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535\"\n  },\n  \"occurrenceDateTime\": \"2025-06-18T00:00:00+00:00\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e726da4d-c781-4e8c-b77d-dd7ab1ab1b19",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7954f1a7-d7c1-4a5c-ae9b-9a255e8d81e7",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d0bda2c7-8e46-4c0e-bb49-c3b1781a12c1",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e33acec-bdb8-4b2c-b139-b150330a78e1",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1ada72dd-f49d-44ca-8fdc-d6b200f09d11",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45103e2d-9619-4db2-824c-aad9aa55d5be",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e4d4b996-73cd-4fd5-9666-77fd83434453",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "CHG|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a8df83c-858c-4dd6-8575-b7f1e74e4e8e",
+          "name": "Get a specific inbound Charge for a Practice",
+          "request": {
+            "name": "Get a specific inbound Charge for a Practice",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "ChargeItem",
+                "INBOUND|{{id}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "218f6e68-1a29-4942-94fd-d9987337c040",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1e053a6-be85-4c23-ac87-68c693c15af7",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42d97972-c155-4ce8-b1d7-6e9267b30c1d",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38b882ab-9f3e-4c89-9e0c-ceaa7d1905c1",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83c9698e-3489-4557-813f-7ddc12f6886b",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f180b9c-79ad-42e4-bc1e-4517e4821ff4",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c58eded6-8525-4f81-9f45-b200dcffd092",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9ea4ccc-c6e2-4418-b941-bf5377b21277",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND|{{id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "339a8384-15c6-433f-be54-80126778dbbf",
+          "name": "Get all Inbound Charges for a Practice",
+          "request": {
+            "name": "Get all Inbound Charges for a Practice",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "ChargeItem",
+                "INBOUND"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02ac9112-c09f-49fc-acb8-0b2893623699",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0c61e26-ba6c-4d63-aee2-9776fff2dc96",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "552f52f7-c05a-4f40-aa5a-b2271c8b138c",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28badd33-e8fe-4c4b-88b2-27ad2aeedbc2",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ba03337-8a8b-437d-b0fb-98b5f150c914",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "173c9665-47a2-4cf2-b4a2-2890ae336c2c",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b48d8d4-f26e-4439-953f-2c0d6b1f5770",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57882a0d-c6f7-46cd-8068-d9ca96786806",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem",
+                    "INBOUND"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cd3bfce-5c57-4cc9-87ee-67193f1b672a",
+          "name": "Get All ChargeItems for a Practice",
+          "request": {
+            "name": "Get All ChargeItems for a Practice",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "ChargeItem"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_count",
+                  "value": "<string>",
+                  "description": "Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50"
+                },
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "<string>",
+                  "description": "Encounter reference url in format : /resoucrename/id or id."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Page to be used for paginated search"
+                },
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "Patient reference url in format : /resoucrename/id or id."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Charge Item Type Search Parameter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e51a6ac-8272-47f1-b681-14cf57f78fd7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"Bundle\",\n  \"id\": \"a7f5fd64-b419-4a5d-8f08-70a8159c1feb\",\n  \"meta\": {\n    \"lastUpdated\": \"2026-06-25T14:56:09.966+00:00\"\n  },\n  \"type\": \"searchset\",\n  \"total\": 1,\n  \"link\": [\n    {\n      \"relation\": \"self\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem?_count=2\"\n    },\n    {\n      \"relation\": \"next\",\n      \"url\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem?_count=2&page=2\"\n    }\n  ],\n  \"entry\": [\n    {\n      \"fullUrl\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem/CHG%7C1722\",\n      \"resource\": {\n        \"resourceType\": \"ChargeItem\",\n        \"id\": \"CHG|1722\",\n        \"extension\": [\n          {\n            \"url\": \"financialTransaction\",\n            \"extension\": [\n              {\n                \"url\": \"financialTransactionId\",\n                \"valueString\": \"CHG|1722\"\n              },\n              {\n                \"url\": \"transactionStatus\",\n                \"valueString\": \"Charged\"\n              },\n              {\n                \"url\": \"attendingProviderId\",\n                \"valueString\": \"8944076359\"\n              },\n              {\n                \"url\": \"locationId\",\n                \"valueString\": \"826\"\n              },\n              {\n                \"url\": \"businessUnitId\",\n                \"valueString\": \"325678903\"\n              },\n              {\n                \"url\": \"totalCost\",\n                \"valueMoney\": {\n                  \"value\": 83.63,\n                  \"currency\": \"USD\"\n                }\n              },\n              {\n                \"url\": \"financialTransactionDetail\",\n                \"extension\": [\n                  {\n                    \"url\": \"performingProviderId\",\n                    \"valueString\": \"8944076359\"\n                  },\n                  {\n                    \"url\": \"quantity\",\n                    \"valueDecimal\": 1\n                  },\n                  {\n                    \"url\": \"description\",\n                    \"valueString\": \"Test\"\n                  },\n                  {\n                    \"url\": \"postingDate\",\n                    \"valueDateTime\": \"2025-06-18T00:00:00+00:00\"\n                  },\n                  {\n                    \"url\": \"procedureDetail\",\n                    \"extension\": [\n                      {\n                        \"url\": \"procedureDetailId\",\n                        \"valueString\": \"CHG|1722\"\n                      }\n                    ]\n                  }\n                ]\n              }\n            ]\n          }\n        ],\n        \"status\": \"billable\",\n        \"subject\": {\n          \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535\",\n          \"display\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535\"\n        },\n        \"occurrenceDateTime\": \"2025-06-18T00:00:00+00:00\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d57451a1-7e9c-4d30-9cc5-3f1ed0014106",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a48a2f9a-2122-47d8-9087-91a1ba5533dd",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23e5c5c7-e666-4e25-aa53-cee3fe07d9af",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b03de9ae-d2ab-445a-b716-302906d8d905",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5f08614-2389-4aa1-bf47-b4952fff11b2",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "340927be-87c3-4e50-ada9-cb1c5333d404",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f852dac-dc55-47e3-a384-96b36a7d70d8",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_count",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "704e399a-e6be-4a4b-8099-e5b5444e009e",
+          "name": "Create Charges Into ModMedPM",
+          "request": {
+            "name": "Create Charges Into ModMedPM",
+            "description": {
+              "content": "Submit charges from an external billing system into ModMed PM. Each ChargeItem represents one transaction and may contain multiple `financialTransactionDetail` lines — one per CPT/HCPCS code billed.\n\n**Billing pattern — fee schedule vs explicit costs:** Most integrations omit `totalCost` and `unitCost`. In that case ModMed PM looks up the applicable fee schedule and calculates the charge amounts automatically. Include `totalCost` at the transaction level and `unitCost` per line only when the sending system needs to override the fee schedule with explicit dollar amounts (for example, pathology or DME vendors that supply their own cost breakdown).\n\n**Key fields:**\n- `sendingFacility` / `receivingFacility` — identify the sending system and the target ModMed practice (firm prefix).\n- `transactionId` — a unique identifier from the sending system; used to detect duplicate submissions.\n- `attendingProviderId` — the supervising or attending provider for the encounter.\n- `performingProviderId` (per line) — the provider who performed each procedure; may differ from attending.\n- `orderingProviderId` (per line, optional) — the ordering or referring provider for that procedure line.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "ChargeItem"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43e00b3f-5b09-4343-843d-2a82ea2ec979",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "\"<object>\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e7d06db-1587-4114-b0c2-a962686b0821",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"totalCost\",\n          \"valueMoney\": {\n            \"value\": \"123.00\",\n            \"currency\": \"USD\"\n          }\n        },\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"EXAMPLE-ID\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"108549FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"07162021-1\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"EXAMPLE-ID\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"V2020\",\n                \"display\": \"CPT4\"\n              }\n            },\n            {\n              \"url\": \"unitCost\",\n              \"valueMoney\": {\n                \"value\": \"123.00\",\n                \"currency\": \"USD\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": \"1.0\"\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"Patient Own Frame\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2021-07-16T10:00:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2021-07-16T10:00:00-05:00\",\n                \"end\": \"2021-07-16T10:00:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"H52.229\",\n                    \"display\": \"Regular astigmatism, unspecified eye\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"occurrenceDateTime\": \"2021-07-16T10:00:00-05:00\",\n  \"subject\": {\n    \"reference\": \"https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/162105\"\n  },\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"H52.229\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8398b577-a716-4999-98e9-b768d3f3c8f2",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16ac97eb-de3a-4307-9df9-53f5b6568ac1",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9915fca9-109c-45d2-96b9-a34da752eb3a",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12bab1ff-c922-4ffc-8c07-6b90ecfd18d2",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a81c1114-05aa-4463-9fa2-fa714feef081",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bafa0019-9f76-4afe-9233-9dec53d70b98",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "756eb8c5-f138-477a-a31a-db0bafb05683",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "ChargeItem"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"ChargeItem\",\n  \"extension\": [\n    {\n      \"url\": \"financialTransaction\",\n      \"extension\": [\n        {\n          \"url\": \"attendingProviderId\",\n          \"valueString\": \"450861\"\n        },\n        {\n          \"url\": \"locationId\",\n          \"valueString\": \"112416FAC000000001\"\n        },\n        {\n          \"url\": \"transactionId\",\n          \"valueString\": \"SYN-010\"\n        },\n        {\n          \"url\": \"sendingFacility\",\n          \"valueString\": \"chargetest\"\n        },\n        {\n          \"url\": \"receivingFacility\",\n          \"valueString\": \"apiportal\"\n        },\n        {\n          \"url\": \"financialTransactionDetail\",\n          \"extension\": [\n            {\n              \"url\": \"performingProviderId\",\n              \"valueString\": \"450861\"\n            },\n            {\n              \"url\": \"code\",\n              \"valueCoding\": {\n                \"system\": \"CPT\",\n                \"code\": \"11102\",\n                \"display\": \"Tangential biopsy of skin, single lesion\"\n              }\n            },\n            {\n              \"url\": \"quantity\",\n              \"valueDecimal\": 1\n            },\n            {\n              \"url\": \"description\",\n              \"valueString\": \"TANGENTIAL BIOPSY SKIN 1ST LESION\"\n            },\n            {\n              \"url\": \"postingDate\",\n              \"valueDateTime\": \"2026-06-29T14:30:00-05:00\"\n            },\n            {\n              \"url\": \"transactionPeriod\",\n              \"valuePeriod\": {\n                \"start\": \"2026-06-29T14:30:00-05:00\",\n                \"end\": \"2026-06-29T14:30:00-05:00\"\n              }\n            },\n            {\n              \"url\": \"transactionType\",\n              \"valueString\": \"CG\"\n            },\n            {\n              \"url\": \"procedureCodeModifier\",\n              \"valueString\": \"LT\"\n            },\n            {\n              \"url\": \"diagnosisDetail\",\n              \"extension\": [\n                {\n                  \"url\": \"diagnosisCode\",\n                  \"valueCoding\": {\n                    \"system\": \"I10\",\n                    \"code\": \"L57.0\",\n                    \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n                  }\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"status\": \"billable\",\n  \"subject\": {\n    \"reference\": \"Patient/450858\"\n  },\n  \"context\": {\n    \"reference\": \"Encounter/362378\"\n  },\n  \"occurrenceDateTime\": \"2026-06-29T14:30:00-05:00\",\n  \"reason\": [\n    {\n      \"coding\": [\n        {\n          \"system\": \"I10\",\n          \"code\": \"L57.0\",\n          \"display\": \"Actinic keratosis due to ultraviolet radiation\"\n        }\n      ]\n    }\n  ],\n  \"supportingInformation\": [\n    {\n      \"reference\": \"Coverage/286892\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce837c60-0bc4-4609-b57f-340d1a39ad23",
+          "name": "Retrieve RelatedPerson for an ID",
+          "request": {
+            "name": "Retrieve RelatedPerson for an ID",
+            "description": {},
+            "url": {
+              "path": [
+                "fhir",
+                "v2",
+                "RelatedPerson",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The resource ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e58f2e9c-c32e-4b18-b8a5-e2c6851d7226",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "\"<object>\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85847fa9-37b4-4bee-9c0f-8ebebeead58a",
+              "name": "BAD REQUEST - The request was bad, often due to a missing required parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f90e415c-25b2-4101-a81d-51bad8df48ac",
+              "name": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f76f16c0-09f3-400b-86ab-656cc98c7849",
+              "name": "FORBIDDEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7925f871-ae81-4a1d-8043-c6fa7d259002",
+              "name": "NOT FOUND",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b1ef5f81-80c9-431c-9b85-8c27588183cd",
+              "name": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6fdea5af-e1c0-4109-817b-e7d538da4c86",
+              "name": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f34f384-5d49-477d-bb44-2f68f9f18a77",
+              "name": "SERVER ERROR - Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fhir",
+                    "v2",
+                    "RelatedPerson",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The resource ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The resource ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "332770a1-cc3f-4075-ba18-93aae2248e83",
+    "name": "EMA Proprietary Charges/Financial API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.\n\nContact Support:\n Email: ankit.srivastava@modmed.com",
+      "type": "text/plain"
+    }
+  }
+}

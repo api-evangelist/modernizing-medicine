@@ -1,0 +1,964 @@
+openapi: 3.2.0
+info:
+  title: EMA Proprietary Charges/Financial API
+  contact:
+    email: ankit.srivastava@modmed.com
+  version: 3.4.3_FINAL
+  description: 'The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
+
+
+    This documentation targets the **public sandbox** (`stage.ema-api.com`).
+
+
+    **Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.'
+servers:
+- url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+security:
+- BearerAuth: []
+  ApiKeyAuth: []
+tags:
+- name: Charges/Financial
+  description: Charges/Financial details
+paths:
+  /fhir/v2/Account:
+    get:
+      tags:
+      - Charges/Financial
+      summary: Search for a patient’s account
+      parameters:
+      - name: patient
+        in: query
+        description: Account resources can be searched by patient id, which is a required field.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/ChargeItem/CHG|{id}:
+    get:
+      tags:
+      - Charges/Financial
+      summary: Get a specific ChargeItem
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: ChargeItem
+                id: CHG|1722
+                extension:
+                - url: financialTransaction
+                  extension:
+                  - url: financialTransactionId
+                    valueString: CHG|1722
+                  - url: transactionStatus
+                    valueString: Charged
+                  - url: attendingProviderId
+                    valueString: '8944076359'
+                  - url: locationId
+                    valueString: '826'
+                  - url: businessUnitId
+                    valueString: '325678903'
+                  - url: totalCost
+                    valueMoney:
+                      value: 83.63
+                      currency: USD
+                  - url: financialTransactionDetail
+                    extension:
+                    - url: performingProviderId
+                      valueString: '8944076359'
+                    - url: quantity
+                      valueDecimal: 1
+                    - url: description
+                      valueString: Test
+                    - url: postingDate
+                      valueDateTime: '2025-06-18T00:00:00+00:00'
+                    - url: procedureDetail
+                      extension:
+                      - url: procedureDetailId
+                        valueString: CHG|1722
+                status: billable
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535
+                  display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535
+                occurrenceDateTime: '2025-06-18T00:00:00+00:00'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/ChargeItem/INBOUND|{id}:
+    get:
+      tags:
+      - Charges/Financial
+      summary: Get a specific inbound Charge for a Practice
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/ChargeItem/INBOUND:
+    get:
+      tags:
+      - Charges/Financial
+      summary: Get all Inbound Charges for a Practice
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /fhir/v2/ChargeItem:
+    get:
+      tags:
+      - Charges/Financial
+      summary: Get All ChargeItems for a Practice
+      parameters:
+      - name: _count
+        in: query
+        description: Number of records to use as the page size for paginated search. The maximum page size for this Resource is 50
+        required: false
+        schema:
+          type: string
+      - name: context
+        in: query
+        description: 'Encounter reference url in format : /resoucrename/id or id.'
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page to be used for paginated search
+        required: false
+        schema:
+          type: string
+      - name: patient
+        in: query
+        description: 'Patient reference url in format : /resoucrename/id or id.'
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: Charge Item Type Search Parameter.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: Bundle
+                id: a7f5fd64-b419-4a5d-8f08-70a8159c1feb
+                meta:
+                  lastUpdated: '2026-06-25T14:56:09.966+00:00'
+                type: searchset
+                total: 1
+                link:
+                - relation: self
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem?_count=2
+                - relation: next
+                  url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem?_count=2&page=2
+                entry:
+                - fullUrl: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem/CHG%7C1722
+                  resource:
+                    resourceType: ChargeItem
+                    id: CHG|1722
+                    extension:
+                    - url: financialTransaction
+                      extension:
+                      - url: financialTransactionId
+                        valueString: CHG|1722
+                      - url: transactionStatus
+                        valueString: Charged
+                      - url: attendingProviderId
+                        valueString: '8944076359'
+                      - url: locationId
+                        valueString: '826'
+                      - url: businessUnitId
+                        valueString: '325678903'
+                      - url: totalCost
+                        valueMoney:
+                          value: 83.63
+                          currency: USD
+                      - url: financialTransactionDetail
+                        extension:
+                        - url: performingProviderId
+                          valueString: '8944076359'
+                        - url: quantity
+                          valueDecimal: 1
+                        - url: description
+                          valueString: Test
+                        - url: postingDate
+                          valueDateTime: '2025-06-18T00:00:00+00:00'
+                        - url: procedureDetail
+                          extension:
+                          - url: procedureDetailId
+                            valueString: CHG|1722
+                    status: billable
+                    subject:
+                      reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535
+                      display: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535
+                    occurrenceDateTime: '2025-06-18T00:00:00+00:00'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+      - Charges/Financial
+      summary: Create Charges Into ModMedPM
+      requestBody:
+        required: true
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            examples:
+              single-procedure-with-modifier:
+                summary: Single procedure, fee schedule billing (most common) — laterality modifier
+                value:
+                  resourceType: ChargeItem
+                  extension:
+                  - url: financialTransaction
+                    extension:
+                    - url: attendingProviderId
+                      valueString: '450861'
+                    - url: locationId
+                      valueString: 112416FAC000000001
+                    - url: transactionId
+                      valueString: SYN-010
+                    - url: sendingFacility
+                      valueString: chargetest
+                    - url: receivingFacility
+                      valueString: apiportal
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '11102'
+                          display: Tangential biopsy of skin, single lesion
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: TANGENTIAL BIOPSY SKIN 1ST LESION
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T14:30:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T14:30:00-05:00'
+                          end: '2026-06-29T14:30:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: procedureCodeModifier
+                        valueString: LT
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L57.0
+                            display: Actinic keratosis due to ultraviolet radiation
+                  status: billable
+                  subject:
+                    reference: Patient/450858
+                  context:
+                    reference: Encounter/362378
+                  occurrenceDateTime: '2026-06-29T14:30:00-05:00'
+                  reason:
+                  - coding:
+                    - system: I10
+                      code: L57.0
+                      display: Actinic keratosis due to ultraviolet radiation
+                  supportingInformation:
+                  - reference: Coverage/286892
+              office-visit-with-ordering-provider:
+                summary: E&M + procedure with ordering provider, fee schedule billing — multiple diagnoses, modifiers 25 and 59
+                value:
+                  resourceType: ChargeItem
+                  extension:
+                  - url: financialTransaction
+                    extension:
+                    - url: attendingProviderId
+                      valueString: '450861'
+                    - url: locationId
+                      valueString: 112416FAC000000001
+                    - url: transactionId
+                      valueString: SYN-011
+                    - url: sendingFacility
+                      valueString: chargetest
+                    - url: receivingFacility
+                      valueString: apiportal
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '99213'
+                          display: Office or other outpatient visit, established patient, moderate complexity
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: OFFICE VISIT ESTABLISHED PATIENT
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T09:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T09:00:00-05:00'
+                          end: '2026-06-29T09:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: procedureCodeModifier
+                        valueString: '25'
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L57.0
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: D22.5
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: orderingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '11102'
+                          display: Tangential biopsy of skin, single lesion
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: TANGENTIAL BIOPSY SKIN 1ST LESION
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T09:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T09:00:00-05:00'
+                          end: '2026-06-29T09:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: procedureCodeModifier
+                        valueString: '59'
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: D22.5
+                  status: billable
+                  subject:
+                    reference: Patient/450858
+                  context:
+                    reference: Encounter/362378
+                  occurrenceDateTime: '2026-06-29T09:00:00-05:00'
+                  reason:
+                  - coding:
+                    - system: I10
+                      code: L57.0
+                  - coding:
+                    - system: I10
+                      code: D22.5
+                  - coding:
+                    - system: I10
+                      code: L82.1
+                  supportingInformation:
+                  - reference: Coverage/286892
+              multi-procedure-with-business-unit:
+                summary: Multiple procedures with businessUnitId, fee schedule billing — multiple diagnoses per line
+                value:
+                  resourceType: ChargeItem
+                  extension:
+                  - url: financialTransaction
+                    extension:
+                    - url: attendingProviderId
+                      valueString: '450861'
+                    - url: locationId
+                      valueString: 112416FAC000000001
+                    - url: businessUnitId
+                      valueString: '1'
+                    - url: transactionId
+                      valueString: SYN-012
+                    - url: sendingFacility
+                      valueString: chargetest
+                    - url: receivingFacility
+                      valueString: apiportal
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '99213'
+                          display: Office or other outpatient visit, established patient, moderate complexity
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: OFFICE VISIT ESTABLISHED PATIENT
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: procedureCodeModifier
+                        valueString: '25'
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L57.0
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L82.1
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '17000'
+                          display: Destruction of premalignant lesion, first lesion
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: DESTRUCTION PREMALIGNANT LESION 1ST
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L57.0
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L82.1
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '17003'
+                          display: Destruction of premalignant lesion, each additional lesion
+                      - url: quantity
+                        valueDecimal: 4
+                      - url: description
+                        valueString: DESTRUCTION PREMALIGNANT LESION ADDL
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L57.0
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L82.1
+                  status: billable
+                  subject:
+                    reference: Patient/450858
+                  context:
+                    reference: Encounter/362378
+                  occurrenceDateTime: '2026-06-29T10:00:00-05:00'
+                  reason:
+                  - coding:
+                    - system: I10
+                      code: L57.0
+                  - coding:
+                    - system: I10
+                      code: L82.1
+              pathology-multi-line:
+                summary: 'Pathology: explicit cost fields (totalCost/unitCost) — multiple service lines, per-line diagnosis'
+                value:
+                  resourceType: ChargeItem
+                  extension:
+                  - url: financialTransaction
+                    extension:
+                    - url: attendingProviderId
+                      valueString: '450861'
+                    - url: locationId
+                      valueString: 112416FAC000000001
+                    - url: transactionId
+                      valueString: SYN-002
+                    - url: sendingFacility
+                      valueString: chargetest
+                    - url: receivingFacility
+                      valueString: apiportal
+                    - url: totalCost
+                      valueMoney:
+                        value: 415.42
+                        currency: USD
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '88305'
+                          display: Tissue exam by pathologist
+                      - url: unitCost
+                        valueMoney:
+                          value: 87.24
+                          currency: USD
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: TISSUE EXAM BY PATHOLOGIST
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: L57.0
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '88305'
+                          display: Tissue exam by pathologist
+                      - url: unitCost
+                        valueMoney:
+                          value: 87.24
+                          currency: USD
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: TISSUE EXAM BY PATHOLOGIST
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: D22.5
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '88342'
+                          display: Immunohistochemistry, initial antibody staining procedure
+                      - url: unitCost
+                        valueMoney:
+                          value: 129.85
+                          currency: USD
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: IMMUNOHISTO ANTB 1ST STAIN
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: D22.5
+                    - url: financialTransactionDetail
+                      extension:
+                      - url: performingProviderId
+                        valueString: '450861'
+                      - url: code
+                        valueCoding:
+                          system: CPT
+                          code: '88341'
+                          display: Immunohistochemistry, each additional single antibody staining procedure
+                      - url: unitCost
+                        valueMoney:
+                          value: 111.09
+                          currency: USD
+                      - url: quantity
+                        valueDecimal: 1
+                      - url: description
+                        valueString: IMMUNOHISTO ANTB ADDL SLIDE
+                      - url: postingDate
+                        valueDateTime: '2026-06-29T10:00:00-05:00'
+                      - url: transactionPeriod
+                        valuePeriod:
+                          start: '2026-06-29T10:00:00-05:00'
+                          end: '2026-06-29T10:00:00-05:00'
+                      - url: transactionType
+                        valueString: CG
+                      - url: diagnosisDetail
+                        extension:
+                        - url: diagnosisCode
+                          valueCoding:
+                            system: I10
+                            code: D22.5
+                  status: billable
+                  subject:
+                    reference: Patient/450858
+                  context:
+                    reference: Encounter/362378
+                  occurrenceDateTime: '2026-06-29T10:00:00-05:00'
+                  reason:
+                  - coding:
+                    - system: I10
+                      code: L57.0
+                  - coding:
+                    - system: I10
+                      code: D22.5
+        description: ChargeItem resource. The `extension.financialTransaction` block carries all billing data. See the named examples below for common submission patterns.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '201':
+          description: Created
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example:
+                resourceType: ChargeItem
+                extension:
+                - url: financialTransaction
+                  extension:
+                  - url: totalCost
+                    valueMoney:
+                      value: '123.00'
+                      currency: USD
+                  - url: attendingProviderId
+                    valueString: EXAMPLE-ID
+                  - url: locationId
+                    valueString: 108549FAC000000001
+                  - url: transactionId
+                    valueString: 07162021-1
+                  - url: sendingFacility
+                    valueString: apiportal
+                  - url: receivingFacility
+                    valueString: apiportal
+                  - url: financialTransactionDetail
+                    extension:
+                    - url: transactionType
+                      valueString: CG
+                    - url: performingProviderId
+                      valueString: EXAMPLE-ID
+                    - url: code
+                      valueCoding:
+                        system: CPT
+                        code: V2020
+                        display: CPT4
+                    - url: unitCost
+                      valueMoney:
+                        value: '123.00'
+                        currency: USD
+                    - url: quantity
+                      valueDecimal: '1.0'
+                    - url: description
+                      valueString: Patient Own Frame
+                    - url: postingDate
+                      valueDateTime: '2021-07-16T10:00:00-05:00'
+                    - url: transactionPeriod
+                      valuePeriod:
+                        start: '2021-07-16T10:00:00-05:00'
+                        end: '2021-07-16T10:00:00-05:00'
+                    - url: diagnosisDetail
+                      extension:
+                      - url: diagnosisCode
+                        valueCoding:
+                          system: I10
+                          code: H52.229
+                          display: Regular astigmatism, unspecified eye
+                status: billable
+                occurrenceDateTime: '2021-07-16T10:00:00-05:00'
+                subject:
+                  reference: https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/162105
+                reason:
+                - coding:
+                  - system: I10
+                    code: H52.229
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+      x-readme:
+        explorer-enabled: false
+      description: 'Submit charges from an external billing system into ModMed PM. Each ChargeItem represents one transaction and may contain multiple `financialTransactionDetail` lines — one per CPT/HCPCS code billed.
+
+
+        **Billing pattern — fee schedule vs explicit costs:** Most integrations omit `totalCost` and `unitCost`. In that case ModMed PM looks up the applicable fee schedule and calculates the charge amounts automatically. Include `totalCost` at the transaction level and `unitCost` per line only when the sending system needs to override the fee schedule with explicit dollar amounts (for example, pathology or DME vendors that supply their own cost breakdown).
+
+
+        **Key fields:**
+
+        - `sendingFacility` / `receivingFacility` — identify the sending system and the target ModMed practice (firm prefix).
+
+        - `transactionId` — a unique identifier from the sending system; used to detect duplicate submissions.
+
+        - `attendingProviderId` — the supervising or attending provider for the encounter.
+
+        - `performingProviderId` (per line) — the provider who performed each procedure; may differ from attending.
+
+        - `orderingProviderId` (per line, optional) — the ordering or referring provider for that procedure line.'
+  /fhir/v2/RelatedPerson/{id}:
+    get:
+      tags:
+      - Charges/Financial
+      summary: Retrieve RelatedPerson for an ID
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  responses:
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    NotFound:
+      description: NOT FOUND
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
+    Forbidden:
+      description: FORBIDDEN
+  schemas:
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`.'
+      x-default: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhN2NiZmYwZWUxYjk0ODkwOWMxZmQzYzk3ODhlZjc1NCIsImlzcyI6Im1vZG1lZCIsInN1YiI6ImZoaXJfUWZMbG8iLCJ1cmxQcmVmaXgiOiJhcGlwb3J0YWwiLCJ0b2tlblR5cGUiOiJhY2Nlc3MiLCJ2ZW5kb3IiOiJmaGlyX1FmTGxvQGFwaXBvcnRhbCIsInBvbCI6ImNoYW5nZW1lIn0.f0VcA3R56IuAvdbPhInqUbhmEwk-tiOIeELVpTZCUZ8
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: 'Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.
+
+
+        `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`'
+      x-default: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f
