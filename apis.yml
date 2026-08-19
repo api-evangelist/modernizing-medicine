@@ -18,7 +18,7 @@ x-source: harvest:secondary-market
 x-tier: profiled
 x-tier-reason: enrichment-pipeline
 image: https://www.modmed.com/wp-content/uploads/2024/12/cropped-mm-favicon_512-270x270.png
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
