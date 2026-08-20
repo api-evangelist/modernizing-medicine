@@ -142,6 +142,8 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
+  - CapabilityStatement
+  tags_raw:
   - Capability Statement
   properties:
   - type: OpenAPI
@@ -590,7 +592,8 @@ apis:
   description: The Endpoint FHIR resource type
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
-  tags:
+  tags: []
+  tags_raw:
   - Endpoint
   properties:
   - type: OpenAPI
