@@ -1537,6 +1537,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/modernizing-medicine-capability-edges.yml
+  name: ModMed Business Capability Map
 - type: Website
   url: https://www.modmed.com/
 - type: DeveloperPortal
