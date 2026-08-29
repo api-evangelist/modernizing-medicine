@@ -11,90 +11,75 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 8
+edge_count: 7
 edges:
 - tag: Appointments and Slots
   spec_file: modernizing-medicine-appointments-and-slots-api-openapi.yml
   capability_id: BC-2800.10
   capability_id_l1: BC-2800
   capability_name: Scheduling & Appointment Management
-  confidence: 0.92
-  evidence: POST /fhir/v2/Appointment    Create an Appointment; GET /fhir/v2/Slot    Search for a slot
-  reason: Full create/update/search of Appointments plus searching open Slots for a practice — this is
-    provider/resource scheduling and appointment booking.
+  confidence: 0.9
+  evidence: POST /fhir/v2/Appointment 'Create an Appointment'; GET /fhir/v2/Slot 'Search for a slot'
+  reason: Booking, updating and retrieving appointments and searching open scheduling slots is plainly
+    provider scheduling and appointment management.
 - tag: Charges/Financial
   spec_file: modernizing-medicine-charges-financial-api-openapi.yml
   capability_id: BC-2870.10
   capability_id_l1: BC-2870
   capability_name: Charge Capture & Chargemaster Management
-  confidence: 0.78
-  evidence: POST /fhir/v2/ChargeItem    Create Charges Into ModMedPM; GET /fhir/v2/ChargeItem/INBOUND    Get
-    all Inbound Charges for a Practice; GET /fhir/v2/Account    Search for a patient’s account
-  reason: Creating and retrieving ChargeItems into the practice-management system is clinical charge capture
-    within the provider revenue cycle; patient Account search is adjacent, so L2 charge capture is the
-    best-supported specific fit.
+  confidence: 0.8
+  evidence: POST /fhir/v2/ChargeItem — "Create Charges Into ModMedPM"; GET /fhir/v2/ChargeItem "Get All
+    ChargeItems for a Practice"; GET /fhir/v2/Account "Search for a patient’s account"
+  reason: Operations create and retrieve ChargeItems into the practice-management system and read patient
+    accounts — provider-side charge capture within revenue cycle, not generic accounting.
 - tag: MedicationDispense
   spec_file: modernizing-medicine-medicationdispense-api-openapi.yml
   capability_id: BC-2850
   capability_id_l1: BC-2850
   capability_name: Pharmacy & Medication Management
-  confidence: 0.78
-  evidence: 'GET /MedicationDispense/{id} — "read-instance: Read MedicationDispense instance"; "search-type:
-    Search for MedicationDispense instances"'
-  reason: MedicationDispense records the act of dispensing medication to a patient, which is provider-side
-    pharmacy operations. Cannot tell from the surface whether inpatient or outpatient/specialty dispensing,
-    so no L2 chosen.
+  confidence: 0.72
+  evidence: 'GET /MedicationDispense read-instance / "search-type: Search for MedicationDispense instances"'
+  reason: MedicationDispense records represent dispensing of medication to patients, squarely within provider-side
+    pharmacy and medication management. Which sub-capability (inpatient vs outpatient dispensing vs administration)
+    is not determinable, so L1 only.
 - tag: Clinical Data/Clipboard
   spec_file: modernizing-medicine-clinical-data-clipboard-api-openapi.yml
   capability_id: BC-2830
   capability_id_l1: BC-2830
   capability_name: Clinical Documentation Management
   confidence: 0.7
-  evidence: POST /fhir/v2/AllergyIntolerance    Create AllergyIntolerance resource; PUT /fhir/v2/Condition/{id}    Update
-    Condition resource; GET /fhir/v2/FamilyMemberHistory
-  reason: Read and write of the active clinical record — allergies, problems/conditions, family history,
-    diagnostic reports — in the EMA EHR. That is clinical documentation of the patient record; the specific
-    sub-capability (note authoring vs results review) spans several, so only L1 is asserted.
-- tag: DiagnosticReport
-  spec_file: modernizing-medicine-diagnosticreport-api-openapi.yml
-  capability_id: BC-2860.60
-  capability_id_l1: BC-2860
-  capability_name: Diagnostic Results Management
-  confidence: 0.7
-  evidence: 'GET /DiagnosticReport — search-type: Search for DiagnosticReport instances (ModMed Certified
-    Diagnostic Report API)'
-  reason: The DiagnosticReport resource distributes lab/imaging/diagnostic result reports out of the EHR,
-    which maps to diagnostic results management under Diagnostic Services Management. Read-only access
-    leaves some ambiguity between results management and the specific modality services, hence 0.7.
+  evidence: '"Create AllergyIntolerance resource", "Update Condition resource", "Retrieve FamilyMemberHistory
+    resources by the specified search criteria"'
+  reason: Read/write of allergies, conditions and family history constitutes maintenance of the active
+    clinical record (clinical documentation); the surface spans several sub-capabilities so no L2 is asserted.
 - tag: Patient
   spec_file: modernizing-medicine-patient-api-openapi.yml
   capability_id: BC-2800.20
   capability_id_l1: BC-2800
   capability_name: Patient Registration Management
   confidence: 0.7
-  evidence: POST /fhir/v2/Patient — "Creates Patient Resource"; PUT /fhir/v2/Patient/{id} — "Updates Patient
+  evidence: POST /fhir/v2/Patient "Creates Patient Resource"; PUT /fhir/v2/Patient/{id} "Updates Patient
     Resource"
-  reason: Full create/update/search of patient demographic records is stewardship of the data required
-    to register a patient, i.e. Patient Registration Management. A master-patient-index/HIM reading (BC-2900.10)
-    is also plausible and the bulk $export operations lean interoperability, so confidence is held at
-    0.7.
+  reason: Create, update, read and search of the Patient resource is capture and stewardship of patient
+    demographic/identity data in an EHR and practice-management system — patient registration. Some chance
+    it should instead sit under master patient index stewardship, so confidence is moderate.
 - tag: Specimen
   spec_file: modernizing-medicine-specimen-api-openapi.yml
   capability_id: BC-2860.10
   capability_id_l1: BC-2860
   capability_name: Laboratory Services Management
   confidence: 0.7
-  evidence: 'GET /Specimen/{id} read-instance: Read Specimen instance'
-  reason: Specimen records represent collected samples for laboratory/pathology testing, matching Laboratory
-    Services Management (specimen collection and lab information). Only read/search operations, so confidence
-    is moderate.
+  evidence: GET /Specimen — 'Read Specimen instance' / 'Search for Specimen instances'
+  reason: FHIR Specimen represents collected laboratory/pathology specimens, which is squarely Laboratory
+    Services Management ('Specimen collection ... and laboratory information'). Read-only access keeps
+    confidence below the top band.
 - tag: Transcription
   spec_file: modernizing-medicine-transcription-api-openapi.yml
   capability_id: BC-2830.10
   capability_id_l1: BC-2830
   capability_name: Clinical Note Documentation
   confidence: 0.7
-  evidence: POST /fhir/v2/Composition Create Composition — tag "Transcription"
-  reason: Creating a Composition under a Transcription tag is authoring of a transcribed clinical document
-    into the record, matching Clinical Note Documentation. Single write operation keeps confidence at
-    0.7.
+  evidence: tag 'Transcription' with POST /fhir/v2/Composition — 'Create Composition'
+  reason: Creating a FHIR Composition under a Transcription tag is the insertion of a transcribed clinical
+    document/note into the EMA record, matching Clinical Note Documentation (narrative and voice capture
+    modes). Single operation keeps confidence moderate.
