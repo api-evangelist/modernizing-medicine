@@ -154,7 +154,7 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
-  - CapabilityStatement
+  - Capability Statement
   tags_raw:
   - Capability Statement
   properties:
