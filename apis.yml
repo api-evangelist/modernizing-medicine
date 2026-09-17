@@ -61,41 +61,6 @@ tags:
 - SMART on FHIR
 - Telehealth
 apis:
-- aid: modernizing-medicine:modernizing-medicine-allergyintolerance-api
-  name: ModMed Allergy Intolerance API
-  description: >-
-    The AllergyIntolerance FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
-  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
-  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
-  tags:
-  - AllergyIntolerance
-  properties:
-  - type: OpenAPI
-    url: openapi/modernizing-medicine-allergyintolerance-api-openapi.yml
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/ema-proprietary-api
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/getting-started-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-1
-  - type: RateLimits
-    url: rate-limits/modernizing-medicine-rate-limits.yml
-  - type: Sandbox
-    url: sandbox/modernizing-medicine-sandbox.yml
-  - type: TermsOfService
-    url: https://www.modmed.com/proprietary-api-terms-of-use/
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: OAuthScopes
-    url: scopes/modernizing-medicine-scopes.yml
-  - type: SignUp
-    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
-  - type: TermsOfService
-    url: https://www.modmed.com/public-api-terms-of-use/
 - aid: modernizing-medicine:modernizing-medicine-appointments-and-slots-api
   name: ModMed Appointments and Slots API
   description: Appoitments and Slots Details
@@ -176,41 +141,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/modernizing-medicine-capability-statement-api-openapi.yml
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/ema-proprietary-api
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/getting-started-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-1
-  - type: RateLimits
-    url: rate-limits/modernizing-medicine-rate-limits.yml
-  - type: Sandbox
-    url: sandbox/modernizing-medicine-sandbox.yml
-  - type: TermsOfService
-    url: https://www.modmed.com/proprietary-api-terms-of-use/
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: OAuthScopes
-    url: scopes/modernizing-medicine-scopes.yml
-  - type: SignUp
-    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
-  - type: TermsOfService
-    url: https://www.modmed.com/public-api-terms-of-use/
-- aid: modernizing-medicine:modernizing-medicine-careplan-api
-  name: ModMed Care Plan API
-  description: >-
-    The CarePlan FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
-  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
-  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
-  tags:
-  - CarePlan
-  properties:
-  - type: OpenAPI
-    url: openapi/modernizing-medicine-careplan-api-openapi.yml
   - type: Documentation
     url: https://portal.api.modmed.com/docs/ema-proprietary-api
   - type: APIReference
@@ -453,41 +383,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/modernizing-medicine-diagnosticreport-api-openapi.yml
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/ema-proprietary-api
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/getting-started-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-1
-  - type: RateLimits
-    url: rate-limits/modernizing-medicine-rate-limits.yml
-  - type: Sandbox
-    url: sandbox/modernizing-medicine-sandbox.yml
-  - type: TermsOfService
-    url: https://www.modmed.com/proprietary-api-terms-of-use/
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: OAuthScopes
-    url: scopes/modernizing-medicine-scopes.yml
-  - type: SignUp
-    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
-  - type: TermsOfService
-    url: https://www.modmed.com/public-api-terms-of-use/
-- aid: modernizing-medicine:modernizing-medicine-documentreference-api
-  name: ModMed Document Reference API
-  description: >-
-    The DocumentReference FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference
-  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
-  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
-  tags:
-  - DocumentReference
-  properties:
-  - type: OpenAPI
-    url: openapi/modernizing-medicine-documentreference-api-openapi.yml
   - type: Documentation
     url: https://portal.api.modmed.com/docs/ema-proprietary-api
   - type: APIReference
@@ -926,41 +821,6 @@ apis:
     url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
   - type: TermsOfService
     url: https://www.modmed.com/public-api-terms-of-use/
-- aid: modernizing-medicine:modernizing-medicine-medicationrequest-api
-  name: ModMed Medication Request API
-  description: >-
-    The MedicationRequest FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
-  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
-  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
-  tags:
-  - MedicationRequest
-  properties:
-  - type: OpenAPI
-    url: openapi/modernizing-medicine-medicationrequest-api-openapi.yml
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/ema-proprietary-api
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/getting-started-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-1
-  - type: RateLimits
-    url: rate-limits/modernizing-medicine-rate-limits.yml
-  - type: Sandbox
-    url: sandbox/modernizing-medicine-sandbox.yml
-  - type: TermsOfService
-    url: https://www.modmed.com/proprietary-api-terms-of-use/
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: OAuthScopes
-    url: scopes/modernizing-medicine-scopes.yml
-  - type: SignUp
-    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
-  - type: TermsOfService
-    url: https://www.modmed.com/public-api-terms-of-use/
 - aid: modernizing-medicine:modernizing-medicine-observation-api
   name: ModMed Observation API
   description: The Observation FHIR resource type
@@ -1111,41 +971,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/modernizing-medicine-practitioner-api-openapi.yml
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/ema-proprietary-api
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/getting-started-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-1
-  - type: RateLimits
-    url: rate-limits/modernizing-medicine-rate-limits.yml
-  - type: Sandbox
-    url: sandbox/modernizing-medicine-sandbox.yml
-  - type: TermsOfService
-    url: https://www.modmed.com/proprietary-api-terms-of-use/
-  - type: Documentation
-    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
-  - type: APIReference
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: Authentication
-    url: https://portal.api.modmed.com/reference/authentication-2
-  - type: OAuthScopes
-    url: scopes/modernizing-medicine-scopes.yml
-  - type: SignUp
-    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
-  - type: TermsOfService
-    url: https://www.modmed.com/public-api-terms-of-use/
-- aid: modernizing-medicine:modernizing-medicine-practitionerrole-api
-  name: ModMed Practitioner Role API
-  description: >-
-    The PractitionerRole FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
-  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
-  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
-  tags:
-  - PractitionerRole
-  properties:
-  - type: OpenAPI
-    url: openapi/modernizing-medicine-practitionerrole-api-openapi.yml
   - type: Documentation
     url: https://portal.api.modmed.com/docs/ema-proprietary-api
   - type: APIReference
@@ -1523,6 +1348,191 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/modernizing-medicine-valueset-api-openapi.yml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/ema-proprietary-api
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/getting-started-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-1
+  - type: RateLimits
+    url: rate-limits/modernizing-medicine-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/modernizing-medicine-sandbox.yml
+  - type: TermsOfService
+    url: https://www.modmed.com/proprietary-api-terms-of-use/
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: OAuthScopes
+    url: scopes/modernizing-medicine-scopes.yml
+  - type: SignUp
+    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+  - type: TermsOfService
+    url: https://www.modmed.com/public-api-terms-of-use/
+- aid: modernizing-medicine:modernizing-medicine-allergy-intolerance-api
+  name: ModMed Allergy Intolerance API
+  description: >-
+    The AllergyIntolerance FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
+  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  tags:
+  - Allergy Intolerance
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-allergy-intolerance-api-openapi.yml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/ema-proprietary-api
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/getting-started-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-1
+  - type: RateLimits
+    url: rate-limits/modernizing-medicine-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/modernizing-medicine-sandbox.yml
+  - type: TermsOfService
+    url: https://www.modmed.com/proprietary-api-terms-of-use/
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: OAuthScopes
+    url: scopes/modernizing-medicine-scopes.yml
+  - type: SignUp
+    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+  - type: TermsOfService
+    url: https://www.modmed.com/public-api-terms-of-use/
+- aid: modernizing-medicine:modernizing-medicine-care-plan-api
+  name: ModMed Care plan API
+  description: >-
+    The CarePlan FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
+  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
+  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  tags:
+  - Care plan
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-care-plan-api-openapi.yml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/ema-proprietary-api
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/getting-started-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-1
+  - type: RateLimits
+    url: rate-limits/modernizing-medicine-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/modernizing-medicine-sandbox.yml
+  - type: TermsOfService
+    url: https://www.modmed.com/proprietary-api-terms-of-use/
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: OAuthScopes
+    url: scopes/modernizing-medicine-scopes.yml
+  - type: SignUp
+    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+  - type: TermsOfService
+    url: https://www.modmed.com/public-api-terms-of-use/
+- aid: modernizing-medicine:modernizing-medicine-document-reference-api
+  name: ModMed Document Reference API
+  description: >-
+    The DocumentReference FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference
+  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
+  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  tags:
+  - Document Reference
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-document-reference-api-openapi.yml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/ema-proprietary-api
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/getting-started-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-1
+  - type: RateLimits
+    url: rate-limits/modernizing-medicine-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/modernizing-medicine-sandbox.yml
+  - type: TermsOfService
+    url: https://www.modmed.com/proprietary-api-terms-of-use/
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: OAuthScopes
+    url: scopes/modernizing-medicine-scopes.yml
+  - type: SignUp
+    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+  - type: TermsOfService
+    url: https://www.modmed.com/public-api-terms-of-use/
+- aid: modernizing-medicine:modernizing-medicine-medication-request-api
+  name: ModMed Medication Request API
+  description: >-
+    The MedicationRequest FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
+  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
+  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  tags:
+  - Medication Request
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-medication-request-api-openapi.yml
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/ema-proprietary-api
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/getting-started-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-1
+  - type: RateLimits
+    url: rate-limits/modernizing-medicine-rate-limits.yml
+  - type: Sandbox
+    url: sandbox/modernizing-medicine-sandbox.yml
+  - type: TermsOfService
+    url: https://www.modmed.com/proprietary-api-terms-of-use/
+  - type: Documentation
+    url: https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor
+  - type: APIReference
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: Authentication
+    url: https://portal.api.modmed.com/reference/authentication-2
+  - type: OAuthScopes
+    url: scopes/modernizing-medicine-scopes.yml
+  - type: SignUp
+    url: https://fhir-vendor-dashboard.kube.prod.mmicse.com/
+  - type: TermsOfService
+    url: https://www.modmed.com/public-api-terms-of-use/
+- aid: modernizing-medicine:modernizing-medicine-practitioner-role-api
+  name: ModMed Practitioner Role API
+  description: >-
+    The PractitionerRole FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+  humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
+  baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  tags:
+  - Practitioner Role
+  properties:
+  - type: OpenAPI
+    url: openapi/modernizing-medicine-practitioner-role-api-openapi.yml
   - type: Documentation
     url: https://portal.api.modmed.com/docs/ema-proprietary-api
   - type: APIReference
