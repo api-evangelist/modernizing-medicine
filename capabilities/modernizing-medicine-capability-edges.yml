@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 7
+edge_count: 8
 edges:
 - tag: Appointments and Slots
   spec_file: modernizing-medicine-appointments-and-slots-api-openapi.yml
@@ -52,6 +52,18 @@ edges:
     resources by the specified search criteria"'
   reason: Read/write of allergies, conditions and family history constitutes maintenance of the active
     clinical record (clinical documentation); the surface spans several sub-capabilities so no L2 is asserted.
+- tag: DiagnosticReport
+  spec_file: modernizing-medicine-diagnosticreport-api-openapi.yml
+  capability_id: BC-2860.60
+  capability_id_l1: BC-2860
+  capability_name: Diagnostic Results Management
+  confidence: 0.7
+  evidence: 'GET /DiagnosticReport — search-type: Search for DiagnosticReport instances (ModMed Certified
+    Diagnostic Report API)'
+  reason: The DiagnosticReport resource distributes lab/imaging/diagnostic result reports out of the EHR,
+    which maps to diagnostic results management under Diagnostic Services Management. Read-only access
+    leaves some ambiguity between results management and the specific modality services, hence 0.7.
+  recovered_from: healthcare-vertical-edges.json
 - tag: Patient
   spec_file: modernizing-medicine-patient-api-openapi.yml
   capability_id: BC-2800.20
