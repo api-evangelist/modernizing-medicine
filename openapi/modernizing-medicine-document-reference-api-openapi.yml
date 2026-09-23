@@ -88,13 +88,15 @@ security:
   - system/RelatedPerson.rs
   - system/ServiceRequest.rs
 tags:
-- name: DocumentReference
-  description: 'The DocumentReference FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference'
+- name: Document Reference
+  description: 'The DocumentReference FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference'
 paths:
   /DocumentReference/{id}:
     get:
       tags:
-      - DocumentReference
+      - Document Reference
       summary: 'read-instance: Read DocumentReference instance'
       parameters:
       - name: id
@@ -164,10 +166,12 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getDocumentReferenceById
+      x-operation-id-source: derived
   /DocumentReference:
     get:
       tags:
-      - DocumentReference
+      - Document Reference
       summary: 'search-type: Search for DocumentReference instances'
       description: This is a search type
       parameters:
@@ -380,12 +384,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getDocumentReference
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

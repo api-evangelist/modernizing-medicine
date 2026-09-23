@@ -89,7 +89,9 @@ security:
   - system/ServiceRequest.rs
 tags:
 - name: Practitioner
-  description: 'The Practitioner FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
+  description: 'The Practitioner FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
 paths:
   /Practitioner/{id}:
     get:
@@ -147,6 +149,8 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getPractitionerById
+      x-operation-id-source: derived
   /Practitioner:
     get:
       tags:
@@ -352,12 +356,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getPractitioner
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

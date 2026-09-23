@@ -115,6 +115,8 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getSpecimenById
+      x-operation-id-source: derived
   /Specimen:
     get:
       tags:
@@ -144,12 +146,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getSpecimen
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

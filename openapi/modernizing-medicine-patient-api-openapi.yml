@@ -13,16 +13,11 @@ servers:
 - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
 tags:
 - name: Patient
-  description: 'The Patient FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
+  description: 'The Patient FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
 paths:
   /Patient/$export:
-    servers:
-    - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
-      description: EMA Certified FHIR API
-      variables:
-        firm:
-          default: fhirmp
-          description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
     get:
       tags:
       - Patient
@@ -133,7 +128,8 @@ paths:
         - system/Provenance.rs
         - system/RelatedPerson.rs
         - system/ServiceRequest.rs
-  /Patient/{id}/$export:
+      operationId: getPatient$export
+      x-operation-id-source: derived
     servers:
     - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
       description: EMA Certified FHIR API
@@ -141,6 +137,7 @@ paths:
         firm:
           default: fhirmp
           description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+  /Patient/{id}/$export:
     get:
       tags:
       - Patient
@@ -260,7 +257,8 @@ paths:
         - system/Provenance.rs
         - system/RelatedPerson.rs
         - system/ServiceRequest.rs
-  /Patient/{id}:
+      operationId: getPatientById$export
+      x-operation-id-source: derived
     servers:
     - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
       description: EMA Certified FHIR API
@@ -268,6 +266,7 @@ paths:
         firm:
           default: fhirmp
           description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+  /Patient/{id}:
     get:
       tags:
       - Patient
@@ -436,7 +435,8 @@ paths:
         - system/Provenance.rs
         - system/RelatedPerson.rs
         - system/ServiceRequest.rs
-  /Patient:
+      operationId: getPatientById
+      x-operation-id-source: derived
     servers:
     - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
       description: EMA Certified FHIR API
@@ -444,6 +444,7 @@ paths:
         firm:
           default: fhirmp
           description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+  /Patient:
     get:
       tags:
       - Patient
@@ -748,9 +749,16 @@ paths:
         - system/Provenance.rs
         - system/RelatedPerson.rs
         - system/ServiceRequest.rs
-  /fhir/v2/Patient/{id}:
+      operationId: getPatient
+      x-operation-id-source: derived
     servers:
-    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+    - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
+      description: EMA Certified FHIR API
+      variables:
+        firm:
+          default: fhirmp
+          description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+  /fhir/v2/Patient/{id}:
     get:
       tags:
       - Patient
@@ -843,6 +851,8 @@ paths:
       security:
       - BearerAuth: []
         ApiKeyAuth: []
+      operationId: getFhirV2PatientById
+      x-operation-id-source: derived
     put:
       tags:
       - Patient
@@ -994,9 +1004,11 @@ paths:
       security:
       - BearerAuth: []
         ApiKeyAuth: []
-  /fhir/v2/Patient:
+      operationId: putFhirV2PatientById
+      x-operation-id-source: derived
     servers:
     - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  /fhir/v2/Patient:
     get:
       tags:
       - Patient
@@ -1198,6 +1210,8 @@ paths:
       security:
       - BearerAuth: []
         ApiKeyAuth: []
+      operationId: getFhirV2Patient
+      x-operation-id-source: derived
     post:
       tags:
       - Patient
@@ -1288,29 +1302,33 @@ paths:
       security:
       - BearerAuth: []
         ApiKeyAuth: []
+      operationId: postFhirV2Patient
+      x-operation-id-source: derived
+    servers:
+    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
 components:
+  schemas:
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
   responses:
-    Unauthorized:
-      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
-    TooManyRequests:
-      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
-    ServerError:
-      description: SERVER ERROR - Internal Server Error
-    BadRequest:
-      description: BAD REQUEST - The request was bad, often due to a missing required parameter
-    NotFound:
-      description: NOT FOUND
     UnprocessableEntity:
       description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
     Forbidden:
       description: FORBIDDEN
-  schemas:
-    FHIR-XML-RESOURCE:
-      type: object
-      description: A FHIR resource
-    FHIR-JSON-RESOURCE:
-      type: object
-      description: A FHIR resource
+    NotFound:
+      description: NOT FOUND
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
   securitySchemes:
     smartOnFhir:
       type: oauth2

@@ -115,6 +115,8 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getRelatedPersonById
+      x-operation-id-source: derived
   /RelatedPerson:
     get:
       tags:
@@ -150,12 +152,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getRelatedPerson
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

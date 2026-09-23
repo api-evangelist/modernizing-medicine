@@ -14,9 +14,6 @@ tags:
   description: SMART-on-FHIR OAuth 2.0 endpoints.
 paths:
   /auth/realms/fhir/protocol/openid-connect/auth:
-    servers:
-    - url: https://sso.ema.md
-      description: Production
     get:
       tags:
       - Authentication
@@ -72,10 +69,12 @@ paths:
       responses:
         '302':
           description: Redirect to redirect_uri with an authorization code
-  /auth/realms/fhir/protocol/openid-connect/token:
+      operationId: getAuthRealmsFhirProtocolOpenidConnectAuth
+      x-operation-id-source: derived
     servers:
     - url: https://sso.ema.md
       description: Production
+  /auth/realms/fhir/protocol/openid-connect/token:
     post:
       tags:
       - Authentication
@@ -135,9 +134,12 @@ paths:
                   id_token:
                     type: string
                     description: Present when the openid scope is requested
-  /ws/oauth2/grant:
+      operationId: postAuthRealmsFhirProtocolOpenidConnectToken
+      x-operation-id-source: derived
     servers:
-    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+    - url: https://sso.ema.md
+      description: Production
+  /ws/oauth2/grant:
     post:
       tags:
       - Authentication
@@ -197,12 +199,11 @@ paths:
           $ref: '#/components/responses/TooManyRequests'
         '500':
           $ref: '#/components/responses/ServerError'
-  /auth/realms/ema-fhir/protocol/openid-connect/token:
+      operationId: postWsOauth2Grant
+      x-operation-id-source: derived
     servers:
-    - url: https://ssoqa01-lb-01.m2qa.com
-      description: Sandbox
-    - url: https://sso.ema.md
-      description: Production
+    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+  /auth/realms/ema-fhir/protocol/openid-connect/token:
     post:
       tags:
       - Authentication
@@ -257,22 +258,29 @@ paths:
                     type: string
                     description: Space-separated list of ACL scopes
                     example: acl/enc_s acl/pat_s_name_dob_gen
+      operationId: postAuthRealmsEmaFhirProtocolOpenidConnectToken
+      x-operation-id-source: derived
+    servers:
+    - url: https://ssoqa01-lb-01.m2qa.com
+      description: Sandbox
+    - url: https://sso.ema.md
+      description: Production
 components:
   responses:
-    Unauthorized:
-      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
-    TooManyRequests:
-      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
-    ServerError:
-      description: SERVER ERROR - Internal Server Error
-    BadRequest:
-      description: BAD REQUEST - The request was bad, often due to a missing required parameter
-    NotFound:
-      description: NOT FOUND
     UnprocessableEntity:
       description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
     Forbidden:
       description: FORBIDDEN
+    NotFound:
+      description: NOT FOUND
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
   securitySchemes:
     BearerAuth:
       type: http

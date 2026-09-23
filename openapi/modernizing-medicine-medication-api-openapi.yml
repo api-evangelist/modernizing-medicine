@@ -89,7 +89,9 @@ security:
   - system/ServiceRequest.rs
 tags:
 - name: Medication
-  description: 'The Medication FHIR resource type<br/>Base profile: http://hl7.org/fhir/StructureDefinition/Medication'
+  description: 'The Medication FHIR resource type
+
+    Base profile: http://hl7.org/fhir/StructureDefinition/Medication'
 paths:
   /Medication/{id}:
     get:
@@ -116,12 +118,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getMedicationById
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

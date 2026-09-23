@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: ModMed Certified Care Plan API
+  title: ModMed Certified Practitioner Role API
   contact: {}
   version: 4.1-SNAPSHOT
   description: '**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice''s endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow.'
@@ -88,14 +88,16 @@ security:
   - system/RelatedPerson.rs
   - system/ServiceRequest.rs
 tags:
-- name: CarePlan
-  description: 'The CarePlan FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan'
+- name: Practitioner Role
+  description: 'The PractitionerRole FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole'
 paths:
-  /CarePlan/{id}:
+  /PractitionerRole/{id}:
     get:
       tags:
-      - CarePlan
-      summary: 'read-instance: Read CarePlan instance'
+      - Practitioner Role
+      summary: 'read-instance: Read PractitionerRole instance'
       parameters:
       - name: id
         in: path
@@ -113,36 +115,16 @@ paths:
             application/fhir+json:
               schema:
                 $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
-              examples:
-                methotrexate-careplan:
-                  summary: Medication care plan — methotrexate dosage instructions, text.status=additional, intent=proposal
-                  value:
-                    resourceType: CarePlan
-                    id: 1.120182.5.1.13819514
-                    meta:
-                      source: Organization/1.120182
-                      profile:
-                      - http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
-                    text:
-                      status: additional
-                      div: "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;table&gt;\n &lt;thead&gt;\n  &lt;tr&gt;\n   &lt;td&gt;Code&lt;/td&gt;\n   &lt;td&gt;Detail&lt;/td&gt;\n   &lt;td&gt;Instructions&lt;/td&gt;\n  &lt;/tr&gt;\n &lt;/thead&gt;\n &lt;tbody&gt;\n  &lt;tr&gt;\n   &lt;td&gt;105585&lt;/td&gt;\n   &lt;td&gt;methotrexate sodium 2.5 mg tablet&lt;/td&gt;\n   &lt;td&gt;Take six pills (15mg) once weekly.&lt;/td&gt;\n  &lt;/tr&gt;\n &lt;/tbody&gt;\n&lt;/table&gt;</div>"
-                    status: active
-                    intent: proposal
-                    category:
-                    - coding:
-                      - system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
-                        code: assess-plan
-                    subject:
-                      reference: Patient/1.120182.1.17082675
-                      type: Patient
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
-  /CarePlan:
+      operationId: getPractitionerRoleById
+      x-operation-id-source: derived
+  /PractitionerRole:
     get:
       tags:
-      - CarePlan
-      summary: 'search-type: Search for CarePlan instances'
+      - Practitioner Role
+      summary: 'search-type: Search for PractitionerRole instances'
       description: This is a search type
       parameters:
       - name: _id
@@ -151,27 +133,57 @@ paths:
         required: false
         schema:
           type: string
-      - name: category
+      - name: active
         in: query
-        description: Type of plan
+        description: Whether this practitioner role record is in active use
         required: false
         schema:
           type: string
-      - name: intent
+      - name: email
         in: query
-        description: proposal | plan | order | option
+        description: A value in an email contact
         required: false
         schema:
           type: string
-      - name: patient
+      - name: location
         in: query
-        description: Who the care plan is for
+        description: One of the locations at which this practitioner provides care
         required: false
         schema:
           type: string
-      - name: status
+      - name: organization
         in: query
-        description: draft | active | on-hold | revoked | completed | entered-in-error | unknown
+        description: The identity of the organization the practitioner represents / acts on behalf of
+        required: false
+        schema:
+          type: string
+      - name: phone
+        in: query
+        description: A value in a phone contact
+        required: false
+        schema:
+          type: string
+      - name: practitioner
+        in: query
+        description: Practitioner that is able to provide the defined services for the organization
+        required: false
+        schema:
+          type: string
+      - name: role
+        in: query
+        description: The practitioner can perform this role at for the organization
+        required: false
+        schema:
+          type: string
+      - name: specialty
+        in: query
+        description: The practitioner has this specialty at an organization
+        required: false
+        schema:
+          type: string
+      - name: telecom
+        in: query
+        description: The value in any kind of contact
         required: false
         schema:
           type: string
@@ -182,86 +194,17 @@ paths:
             application/fhir+json:
               schema:
                 $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
-              examples:
-                careplan-bundle:
-                  summary: 'Patient care plans — 3 of 16 shown: lab order (CBC), follow-up visit proposal, and medication proposal (methotrexate)'
-                  value:
-                    resourceType: Bundle
-                    type: searchset
-                    total: 16
-                    link:
-                    - relation: self
-                      url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan?patient=1.120182.1.17082675
-                    entry:
-                    - fullUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan/1.120182.5.1.13818759
-                      resource:
-                        resourceType: CarePlan
-                        id: 1.120182.5.1.13818759
-                        meta:
-                          source: Organization/1.120182
-                          profile:
-                          - http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
-                        text:
-                          status: generated
-                          div: <div xmlns="http://www.w3.org/1999/xhtml">&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th&gt;Detail&lt;/th&gt;&lt;th&gt;Instructions&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;57021-8&lt;/td&gt;&lt;td&gt;CBC W Auto Diff Bld&lt;/td&gt;&lt;td&gt;March 02, 2026&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</div>
-                        status: active
-                        intent: order
-                        category:
-                        - coding:
-                          - system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
-                            code: assess-plan
-                        subject:
-                          reference: Patient/1.120182.1.17082675
-                          type: Patient
-                    - fullUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan/1.120182.5.1.13819513
-                      resource:
-                        resourceType: CarePlan
-                        id: 1.120182.5.1.13819513
-                        meta:
-                          source: Organization/1.120182
-                          profile:
-                          - http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
-                        text:
-                          status: generated
-                          div: "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;div&gt;\n &lt;p&gt;Future visit for 03/02/2027 - Follow up in 1 year&lt;/p&gt;\n&lt;/div&gt;</div>"
-                        status: active
-                        intent: proposal
-                        category:
-                        - coding:
-                          - system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
-                            code: assess-plan
-                        subject:
-                          reference: Patient/1.120182.1.17082675
-                          type: Patient
-                    - fullUrl: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/CarePlan/1.120182.5.1.13819514
-                      resource:
-                        resourceType: CarePlan
-                        id: 1.120182.5.1.13819514
-                        meta:
-                          source: Organization/1.120182
-                          profile:
-                          - http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan
-                        text:
-                          status: additional
-                          div: "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;table&gt;\n &lt;thead&gt;\n  &lt;tr&gt;\n   &lt;td&gt;Code&lt;/td&gt;\n   &lt;td&gt;Detail&lt;/td&gt;\n   &lt;td&gt;Instructions&lt;/td&gt;\n  &lt;/tr&gt;\n &lt;/thead&gt;\n &lt;tbody&gt;\n  &lt;tr&gt;\n   &lt;td&gt;105585&lt;/td&gt;\n   &lt;td&gt;methotrexate sodium 2.5 mg tablet&lt;/td&gt;\n   &lt;td&gt;Take six pills (15mg) once weekly.&lt;/td&gt;\n  &lt;/tr&gt;\n &lt;/tbody&gt;\n&lt;/table&gt;</div>"
-                        status: active
-                        intent: proposal
-                        category:
-                        - coding:
-                          - system: http://hl7.org/fhir/us/core/CodeSystem/careplan-category
-                            code: assess-plan
-                        subject:
-                          reference: Patient/1.120182.1.17082675
-                          type: Patient
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getPractitionerRole
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

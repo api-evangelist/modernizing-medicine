@@ -16,13 +16,6 @@ tags:
   description: Capability Statement
 paths:
   /metadata:
-    servers:
-    - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
-      description: EMA Certified FHIR API
-      variables:
-        firm:
-          default: fhirmp
-          description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
     get:
       tags:
       - Capability Statement
@@ -40,9 +33,16 @@ paths:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: <CapabilityStatement xmlns="http://hl7.org/fhir"/>
       security: []
-  /fhir/v2/metadata:
+      operationId: getMetadata
+      x-operation-id-source: derived
     servers:
-    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
+    - url: https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4
+      description: EMA Certified FHIR API
+      variables:
+        firm:
+          default: fhirmp
+          description: Your firm subdomain (e.g. fhirmp, auraderm). Find yours at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/
+  /fhir/v2/metadata:
     get:
       tags:
       - Capability Statement
@@ -76,29 +76,33 @@ paths:
       security:
       - BearerAuth: []
         ApiKeyAuth: []
+      operationId: getFhirV2Metadata
+      x-operation-id-source: derived
+    servers:
+    - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
 components:
+  schemas:
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
   responses:
-    Unauthorized:
-      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
-    TooManyRequests:
-      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
-    ServerError:
-      description: SERVER ERROR - Internal Server Error
-    BadRequest:
-      description: BAD REQUEST - The request was bad, often due to a missing required parameter
-    NotFound:
-      description: NOT FOUND
     UnprocessableEntity:
       description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
     Forbidden:
       description: FORBIDDEN
-  schemas:
-    FHIR-XML-RESOURCE:
-      type: object
-      description: A FHIR resource
-    FHIR-JSON-RESOURCE:
-      type: object
-      description: A FHIR resource
+    NotFound:
+      description: NOT FOUND
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
   securitySchemes:
     smartOnFhir:
       type: oauth2

@@ -1,0 +1,27 @@
+# Front Door AI Index — modernizing-medicine — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: modernizing-medicine
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.modmed.com
+  final_host: www.modmed.com
+  ownership: own
+  owner: modernizing-medicine
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 31
+  host_score: 31
+  density: 23.2
+  words: 1336
+  tiers:
+    agentic: 12
+    core: 19
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 19
+    AI assistant: 10
+    prompts: 2

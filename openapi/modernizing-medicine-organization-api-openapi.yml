@@ -89,7 +89,9 @@ security:
   - system/ServiceRequest.rs
 tags:
 - name: Organization
-  description: 'The Organization FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization'
+  description: 'The Organization FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization'
 paths:
   /Organization/{id}:
     get:
@@ -116,6 +118,8 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getOrganizationById
+      x-operation-id-source: derived
   /Organization:
     get:
       tags:
@@ -157,12 +161,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getOrganization
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

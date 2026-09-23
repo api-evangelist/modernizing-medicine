@@ -89,7 +89,9 @@ security:
   - system/ServiceRequest.rs
 tags:
 - name: CareTeam
-  description: 'The CareTeam FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam'
+  description: 'The CareTeam FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam'
 paths:
   /CareTeam/{id}:
     get:
@@ -164,6 +166,8 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getCareTeamById
+      x-operation-id-source: derived
   /CareTeam:
     get:
       tags:
@@ -256,12 +260,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getCareTeam
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

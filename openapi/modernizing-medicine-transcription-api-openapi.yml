@@ -4,13 +4,7 @@ info:
   contact:
     email: ankit.srivastava@modmed.com
   version: 3.4.3_FINAL
-  description: 'The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
-
-
-    This documentation targets the **public sandbox** (`stage.ema-api.com`).
-
-
-    **Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header.'
+  description: The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.
 servers:
 - url: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
 security:
@@ -139,27 +133,29 @@ paths:
           $ref: '#/components/responses/ServerError'
       x-readme:
         explorer-enabled: false
+      operationId: postFhirV2Composition
+      x-operation-id-source: derived
 components:
   responses:
-    Unauthorized:
-      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
-    TooManyRequests:
-      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
-    ServerError:
-      description: SERVER ERROR - Internal Server Error
-    BadRequest:
-      description: BAD REQUEST - The request was bad, often due to a missing required parameter
-    NotFound:
-      description: NOT FOUND
     UnprocessableEntity:
       description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
     Forbidden:
       description: FORBIDDEN
+    NotFound:
+      description: NOT FOUND
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:

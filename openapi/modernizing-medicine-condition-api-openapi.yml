@@ -89,7 +89,9 @@ security:
   - system/ServiceRequest.rs
 tags:
 - name: Condition
-  description: 'The Condition FHIR resource type<br/>Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
+  description: 'The Condition FHIR resource type
+
+    Base profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
 paths:
   /Condition/{id}:
     get:
@@ -164,6 +166,8 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getConditionById
+      x-operation-id-source: derived
   /Condition:
     get:
       tags:
@@ -432,12 +436,14 @@ paths:
             application/fhir+xml:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+      operationId: getCondition
+      x-operation-id-source: derived
 components:
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:
