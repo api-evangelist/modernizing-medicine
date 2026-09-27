@@ -1317,18 +1317,18 @@ components:
   responses:
     UnprocessableEntity:
       description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
-    Forbidden:
-      description: FORBIDDEN
+    BadRequest:
+      description: BAD REQUEST - The request was bad, often due to a missing required parameter
     NotFound:
       description: NOT FOUND
+    Forbidden:
+      description: FORBIDDEN
     Unauthorized:
       description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
     ServerError:
       description: SERVER ERROR - Internal Server Error
     TooManyRequests:
       description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
-    BadRequest:
-      description: BAD REQUEST - The request was bad, often due to a missing required parameter
   securitySchemes:
     smartOnFhir:
       type: oauth2
