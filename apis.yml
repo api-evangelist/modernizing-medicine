@@ -1383,8 +1383,6 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
-  - AllergyIntolerance
-  tags_raw:
   - Allergy Intolerance
   properties:
   - type: OpenAPI
@@ -1422,8 +1420,6 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
-  - CarePlan
-  tags_raw:
   - Care plan
   properties:
   - type: OpenAPI
@@ -1461,8 +1457,6 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
-  - DocumentReference
-  tags_raw:
   - Document Reference
   properties:
   - type: OpenAPI
@@ -1500,8 +1494,6 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
-  - MedicationRequest
-  tags_raw:
   - Medication Request
   properties:
   - type: OpenAPI
@@ -1539,8 +1531,6 @@ apis:
   humanURL: https://portal.api.modmed.com/docs/ema-proprietary-api
   baseURL: https://stage.ema-api.com/ema-dev/firm/apiportal/ema
   tags:
-  - PractitionerRole
-  tags_raw:
   - Practitioner Role
   properties:
   - type: OpenAPI

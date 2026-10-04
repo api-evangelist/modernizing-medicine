@@ -604,25 +604,25 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    Unauthorized:
-      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
-    ServerError:
-      description: SERVER ERROR - Internal Server Error
-    Forbidden:
-      description: FORBIDDEN
-    TooManyRequests:
-      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
-    UnprocessableEntity:
-      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
     NotFound:
       description: NOT FOUND
+    Forbidden:
+      description: FORBIDDEN
+    Unauthorized:
+      description: NOT AUTHORIZED - Authentication error; this token is not allowed access to the API
+    UnprocessableEntity:
+      description: UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error
     BadRequest:
       description: BAD REQUEST - The request was bad, often due to a missing required parameter
+    TooManyRequests:
+      description: TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry
+    ServerError:
+      description: SERVER ERROR - Internal Server Error
   schemas:
-    FHIR-XML-RESOURCE:
+    FHIR-JSON-RESOURCE:
       type: object
       description: A FHIR resource
-    FHIR-JSON-RESOURCE:
+    FHIR-XML-RESOURCE:
       type: object
       description: A FHIR resource
   securitySchemes:
