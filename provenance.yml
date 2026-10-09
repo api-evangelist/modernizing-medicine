@@ -13,11 +13,11 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/modernizing-medicine-allergyintolerance-api.opencollection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-allergyintolerance-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-allergyintolerance-api.postman_collection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-allergyintolerance-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-appointments-and-slots-api.opencollection.json:
     method: derived
     evidence: openapi/modernizing-medicine-appointments-and-slots-api
@@ -37,11 +37,11 @@ artifacts:
     method: derived
     evidence: openapi/modernizing-medicine-capability-statement-api
   collections/modernizing-medicine-careplan-api.opencollection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-careplan-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-careplan-api.postman_collection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-careplan-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-careteam-api.opencollection.json:
     method: derived
     evidence: openapi/modernizing-medicine-careteam-api
@@ -85,11 +85,11 @@ artifacts:
     method: derived
     evidence: openapi/modernizing-medicine-diagnosticreport-api
   collections/modernizing-medicine-documentreference-api.opencollection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-documentreference-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-documentreference-api.postman_collection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-documentreference-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-documents-api.opencollection.json:
     method: derived
     evidence: openapi/modernizing-medicine-documents-api
@@ -163,11 +163,11 @@ artifacts:
     method: derived
     evidence: openapi/modernizing-medicine-medicationdispense-api
   collections/modernizing-medicine-medicationrequest-api.opencollection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-medicationrequest-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-medicationrequest-api.postman_collection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-medicationrequest-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-observation-api.opencollection.json:
     method: derived
     evidence: openapi/modernizing-medicine-observation-api
@@ -199,11 +199,11 @@ artifacts:
     method: derived
     evidence: openapi/modernizing-medicine-practitioner-api
   collections/modernizing-medicine-practitionerrole-api.opencollection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-practitionerrole-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-practitionerrole-api.postman_collection.json:
-    method: derived
-    evidence: openapi/modernizing-medicine-practitionerrole-api
+    method: unknown
+    evidence: no authorship recorded
   collections/modernizing-medicine-procedure-api.opencollection.json:
     method: derived
     evidence: openapi/modernizing-medicine-procedure-api
@@ -285,55 +285,10 @@ artifacts:
   errors/modernizing-medicine-problem-types.yml:
     method: searched
     evidence: declared in the artifact
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -420,6 +375,123 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/modernizing-medicine-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -434,17 +506,21 @@ artifacts:
     evidence: declared in the artifact
   openapi/_original/modernizing-medicine-certified-fhir-api-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/modernizing-medicine-certified-fhir-auth-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/modernizing-medicine-ema-proprietary-api-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/modernizing-medicine-ema-proprietary-auth-openapi.json:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
-  openapi/modernizing-medicine-allergyintolerance-api-openapi.yml:
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
+  openapi/modernizing-medicine-allergy-intolerance-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/modernizing-medicine-appointments-and-slots-api-openapi.yml:
@@ -456,7 +532,7 @@ artifacts:
   openapi/modernizing-medicine-capability-statement-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/modernizing-medicine-careplan-api-openapi.yml:
+  openapi/modernizing-medicine-care-plan-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/modernizing-medicine-careteam-api-openapi.yml:
@@ -480,7 +556,7 @@ artifacts:
   openapi/modernizing-medicine-diagnosticreport-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/modernizing-medicine-documentreference-api-openapi.yml:
+  openapi/modernizing-medicine-document-reference-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/modernizing-medicine-documents-api-openapi.yml:
@@ -516,10 +592,10 @@ artifacts:
   openapi/modernizing-medicine-medication-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/modernizing-medicine-medicationdispense-api-openapi.yml:
+  openapi/modernizing-medicine-medication-request-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/modernizing-medicine-medicationrequest-api-openapi.yml:
+  openapi/modernizing-medicine-medicationdispense-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/modernizing-medicine-observation-api-openapi.yml:
@@ -537,7 +613,7 @@ artifacts:
   openapi/modernizing-medicine-practitioner-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/modernizing-medicine-practitionerrole-api-openapi.yml:
+  openapi/modernizing-medicine-practitioner-role-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/modernizing-medicine-procedure-api-openapi.yml:
